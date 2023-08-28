@@ -3,10 +3,10 @@ All HTML files should be changed to '.php' extension at the end of the assignmen
 <br><br>
 Files MUST be uploaded into the folders as shown below:  
 <table style='border:1px solid; width: 100%;'>
-    <tr style='font-weight:bold;'>
-        <td style='width: 50%;'>File type</td>
-        <td style='width: 50%;'>Stored Location
-    </tr>
+    <thead style='font-weight:bold;'>
+        <th style='width: 50%;'>File type</th>
+        <th style='width: 50%;'>Stored Location</th>
+    </thead>
     <tr>
         <td>External CSS files '.css'</td>
         <td>'styles/' folder</td>
