@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Console - Product Management</title>
-    <link rel="stylesheet" href="./styles/title.css">
-    <link rel="stylesheet" href="./styles/admin_console.css">
+    <link rel="stylesheet" href="../styles/title.css">
+    <link rel="stylesheet" href="../styles/admin_console.css">
 </head>
 <body>
     <h1 id="title">Administration Page</h1>
@@ -17,7 +17,7 @@
         </div>
         <div class="content" id="product-content">
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Search product" onkeyup="searchFunction('product')">
+                <input type="text" class="product-content-search-input" placeholder="Search product" onkeyup="searchFunction('product')">
                 <button class="search-button" >🔍</button>
             </div><br>
             <table>
@@ -92,24 +92,24 @@
             </table>
         </div>
     </div>
-    <script src="./src/search.js"></script>
+    <script src="../src/search.js"></script>
     <script>
-        function tab(type){
+        function tab(type){ //If user clicks on tab
             if (type=='user'){
                 document.getElementById('user-content').style.display='block';
-                document.getElementById('user-tab').style.backgroundColor='antiquewhite';
+                document.getElementById('user-tab').style.backgroundColor='lightcyan';
                 document.getElementById('product-content').style.display='none';
-                document.getElementById('product-tab').style.backgroundColor='LightGoldenRodYellow';
+                document.getElementById('product-tab').style.backgroundColor='aliceblue';
             }
             if (type=='product'){
                 document.getElementById('product-content').style.display='block';
-                document.getElementById('product-tab').style.backgroundColor='antiquewhite';
+                document.getElementById('product-tab').style.backgroundColor='lightcyan';
                 document.getElementById('user-content').style.display='none';
-                document.getElementById('user-tab').style.backgroundColor='LightGoldenRodYellow';
+                document.getElementById('user-tab').style.backgroundColor='aliceblue';
             }
         }
-        var url = new URL(window.location.href);
-        var params = new URLSearchParams(url.search);
+        var url = new URL(window.location.href); //Get the URL
+        var params = new URLSearchParams(url.search); //Get the parameter 'type' from URL
         if(params.get('type')=='user'){
             tab('user');
         }else if(params.get('type')=='product'){

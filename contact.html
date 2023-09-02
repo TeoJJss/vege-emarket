@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="../styles/title.css">
+    <style>
+        .content{
+            align-items: center;
+        }
+        p.desc{
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 10vw;
+            margin-right: 9vw;
+            font-size: 1.5vw;
+        }
+        table.contact-info{
+            align-content: center;
+            justify-content: center;
+            border: 0.1px solid;
+            width: 80%;
+            height: 30vw;
+        }
+        div.contact-table{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: midnightblue;
+            text-align: center;
+            font-size: 6vw;
+            margin: 7vh 0vw;
+        }
+        td{
+            border-right: soli;
+            font-size: 1.5vw;
+            width: 37%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #contact-title{
+            color: darkblue;
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 2vw;
+            line-height: 4vw;
+        }
+        #partner{
+            line-height: 2;
+        }
+        a:hover{
+            background-color: oldlace;
+        }
+        img.contact-icon{
+            margin-right: 4%;
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <div class="content">
+        <p class="desc">If you encounter any issue or have feedback 
+            with the website, feel free to contact us and we will be glad to assist you. </p>
+        <div class="contact-table"> 
+            <table class="contact-info">
+                <tr>
+                    <td rowspan="3" id="contact-title">&nbsp;&nbsp;&nbsp;Vege e-Market</td>
+                    <td><span id="contact-title">Phone number</span><br><img class="contact-icon" src="./images/phone.jpg" alt="phone"><a href="tel:+60123456789">+60123456789</a></td>
+                    <td rowspan="2"><span id="contact-title">Operating Hours</span><br>[UTC +8] 09:00-18:00<br>(Monday to Sunday)</td>
+                </tr>
+                <tr>
+                    <td><span id="contact-title">Email</span><br><img class="contact-icon" src="./images/email.jpeg" alt="phone"><a href="mailto:help@vegemarket.my">help@vegemarket.my</a></td>
+                </tr>
+                <tr>
+                    <td><span id="contact-title">WhatsApp</span><br><img class="contact-icon" src="./images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=60123456789" target="_blank">Click Here to Chat</a></td>
+                </tr>
+            </table>
+        </div><br>  
+        <p class="desc" id="partner">Looking for a partnership opportunity with <b>Vege e-Market</b>? <br>Email us at <a href="mailto:partner@vegemarket.my">partner@vegemarket.my</a>.</p>
+    </div>
+</body>
+</html>
