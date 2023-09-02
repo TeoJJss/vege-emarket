@@ -23,6 +23,13 @@ Files MUST be uploaded into the folders as shown below:
         <td>Images uploaded from user</td>
         <td>Add a new folder with user id as the name in 'assets' folder<br>
         The file structure would be 'assets/{user_id}/{filename}'</td>
+    </tr>
+    <tr>
+        <td>Other webpage files</td>
+        <td>Upload files in the respective role's folder<br> 
+        e.g. Admin page files in 'admin/' folder<br>
+        For guest files, upload directly in root directory</td>
+    </tr>
 </table>
 
 Please use external CSS/Js when the same script is repeatedly.   
