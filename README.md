@@ -33,4 +33,4 @@ Files MUST be uploaded into the folders as shown below:
 </table>
 
 Please use external CSS/Js when the same script is repeatedly.   
-Create as many functionalities which was taught as possible.  
+Create as many functionalities which was taught in class as possible. Refer https://github.com/TeoJJss/web_dev_homework   
