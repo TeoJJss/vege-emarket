@@ -27,8 +27,8 @@ Files MUST be uploaded into the folders as shown below:
     <tr>
         <td>Other webpage files</td>
         <td>Upload files in the respective role's folder<br> 
-        e.g. Admin page files in 'admin/' folder<br>
-        For guest files, upload directly in root directory</td>
+        e.g. Files specifically for Admin in 'admin/' folder<br><br>
+        For Guest files & files without specific role, upload directly in root directory</td>
     </tr>
 </table>
 
