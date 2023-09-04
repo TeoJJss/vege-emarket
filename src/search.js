@@ -9,14 +9,14 @@ function searchFunction(type) {
         body = document.getElementsByClassName('user-table')[0];
     }else{
         inputElement = document.getElementsByClassName('search-input')[0];
-        body = document.getElementsByClassName('table')[0];
+        body = document.getElementsByClassName('searchable-content')[0];
     }
     
     var input = inputElement.value.toUpperCase();
-    var rows = body.getElementsByTagName('tr');
+    var rows = body.getElementsByClassName('searchable-row');
     
     for (let i = 0; i < rows.length; i++) {
-        var cells = rows[i].getElementsByTagName('td');
+        var cells = rows[i].getElementsByClassName('search-key');
         let rowMatch = false;
         
         for (let j = 0; j < cells.length; j++) {
