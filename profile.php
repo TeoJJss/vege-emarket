@@ -1,3 +1,21 @@
+<?php
+    // below are dummy data, records will be obtained from DB later
+    $username = "test";
+    $gender = "male";
+    $birthday = "2002-02-02";
+    $email = "test@example.com";
+    $phone = "011111111";
+    $role = "Consumer"; 
+    // $_POST['username']="";
+    // $_POST['email']="";
+    // $_POST['phone']="";
+
+    if ($_SERVER['REQUEST_METHOD']=='POST'){
+        $username=$_POST['username'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,41 +81,41 @@
     <h1 id="title">Profile</h1>
     <div class="container">
         <br>
-        <form action="" method="post" onsubmit="window.confirm('Save changes?');">
+        <form action="" method="post" onsubmit="window.confirm('Save changes?');save();">
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
-                <input type="text" id="username" value="User 1" readonly required>
+                <input type="text" name="username" id="username" value="<?php echo $username; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('username')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="gender"><h2>Gender</h2></label>
             <div class="input-container">
-                <input type="text" id="gender" value="Male" readonly>
+                <input type="text" name="gender" id="gender" value="<?php echo $gender; ?>" readonly>
             </div>
 
             <label for="birthday"><h2>Birthday</h2></label>
             <div class="input-container">
-                <input type="text" id="birthday" value="YYYY-MM-DD" readonly>
+                <input type="text" id="birthday" name="dob" value="<?php echo $birthday; ?>" readonly>
             </div>
 
             <label for="email"><h2>Email</h2></label>
             <div class="input-container">
-                <input type="email" id="email" value="user@example.com" readonly required>
+                <input type="email" id="email" name="email" value="<?php echo $email; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('email')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="phone"><h2>Phone Number</h2></label>
             <div class="input-container">
-                <input type="tel" id="phone" value="+60123456789" readonly required>
+                <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('phone')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="role"><h2>Role</h2></label>
             <div class="input-container">
-                <input type="text" id="role" value="Consumer" readonly>
+                <input type="text" id="role" name="role" value="<?php echo $role; ?>" readonly>
             </div>
             <br>
-            <button title="Save changes" type="submit" class="save" id="save" onclick="save();">Save</button>
+            <button title="Save changes" type="submit" class="save" id="save">Save</button>
         </form>
     </div>
     <script>

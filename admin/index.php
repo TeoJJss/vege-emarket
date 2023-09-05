@@ -110,14 +110,14 @@
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
             <span class="card_desc" >&nbsp;Total users: </span><br><br>
-            <button onclick="window.location.href='console.html?type=user';" title="Go to User Management page">GO!</button>
+            <button onclick="window.location.href='admin/console.php?type=user';" title="Go to User Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="manage_product" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
             <span class="card_desc" >&nbsp;Total products: </span><br><br>
-            <button onclick="window.location.href='console.html?type=product';" title="Go to Product Management page">GO!</button>
+            <button onclick="window.location.href='admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">
