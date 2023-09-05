@@ -1,3 +1,5 @@
+<?php include './includes/header.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,7 @@
 <body>
     <h1 id="title">Administration Page</h1>
     <p id="title">Admin Console</p>
-    <div class="container">
+    <div class="console-container">
         <div class="menu">
             <button onclick="tab('user');" id="user-tab">User</button>
             <button onclick="tab('product');" id="product-tab">Product</button>
@@ -118,3 +120,4 @@
     </script>
 </body>
 </html>
+<?php include '../includes/footer.php' ?>

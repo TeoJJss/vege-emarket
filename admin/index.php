@@ -1,3 +1,8 @@
+<?php 
+    require $_SERVER['DOCUMENT_ROOT'].'/config.php';
+    include './includes/header.php'; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,10 +38,7 @@
         span.card_desc{
             font-family: 'Courier New', Courier, monospace;
         }
-        #wrapper{
-            margin-left: 5vw;
-            }
-        button{
+        button.index-button{
             background-color: midnightblue;
             font-size: 1em;
             font-weight: bolder;
@@ -55,13 +57,16 @@
             margin-left: 5vw;
             margin-top: 1vw;
         }
-        table{
+        table.info-table{
             margin-left: 50px;
             max-width: 83vw;
             border-spacing: 10px;
         }
-        th, td{
+        table.info-table th, table.info-table td{
             padding-right: 100px;
+            text-align: center;
+            padding-right: 70px;
+            border-spacing: 10px;
         }
         tr.customer > th, tr.customer > td{
             text-align: center;
@@ -88,7 +93,7 @@
             float: left;
             border-radius: 25px;
             width: 35vw;
-            height: 16%;
+            height: 20%;
         }
         div.conclusion{
             margin-top: 3vw;
@@ -102,27 +107,28 @@
     </style>
 </head>
 <body>
-    <div id="wrapper"></div>
-    <h1 id="title" style="font-size: max(14px, 2vw);">Administration Page</h1>
-    <p id="title" style="font-size: max(10px, 1vw);">Admin HomePage</p>
-    <br>
+    <div id="wrapper">
+        <h1 id="title" style="font-size: max(14px, 2vw);">Administration Page</h1>
+        <p id="title" style="font-size: max(10px, 1vw);">Admin HomePage</p>
+        <br>
         <div class="manage_user" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
             <span class="card_desc" >&nbsp;Total users: </span><br><br>
-            <button onclick="window.location.href='admin/console.php?type=user';" title="Go to User Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='<?php echo $base_role; ?>/console.php?type=user';" title="Go to User Management page">GO!</button>
+
             <br>&nbsp;
         </div>
         <div class="manage_product" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
             <span class="card_desc" >&nbsp;Total products: </span><br><br>
-            <button onclick="window.location.href='admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='<?php echo $base_role; ?>/console.php?type=product';" title="Go to User Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">
             <h3 class="card_title" style="text-align: left;">Top Selling Products</h3>
-            <table>
+            <table class="info-table">
                 <thead>
                     <tr>
                         <th></th>
@@ -193,7 +199,10 @@
             <p>Number of Orders: 9000 </p>
             <p>Transaction total: RM1000 </p>
             <br>
-        </div>
-    </div>  
-</body>
+        </div><br>
+    </div>
+    
+    </body>
+
 </html>
+<?php include '../includes/footer.php'; ?>

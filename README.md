@@ -1,5 +1,6 @@
 <h1>WDT Group 19</h1>
 All HTML files should be changed to '.php' extension at the end of the assignment, instead of '.html'.    
+Homepage PHP file should be named "index.php", regardless which user role.  
 <br><br>
 Files MUST be uploaded into the folders as shown below:  
 <table style='border:1px solid; width: 100%;'>
@@ -23,6 +24,10 @@ Files MUST be uploaded into the folders as shown below:
         <td>Images uploaded from user</td>
         <td>Add a new folder with user id as the name in 'assets' folder<br>
         The file structure would be 'assets/{user_id}/{filename}'</td>
+    </tr>
+    <tr>
+        <td>Header and Footer</td>
+        <td>Save in "includes/" of respective user role folders</td>
     </tr>
     <tr>
         <td>Other webpage files</td>

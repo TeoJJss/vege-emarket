@@ -1,12 +1,13 @@
-.selected-content{
+div.console-container .selected-content{
     background-color: antiquewhite;
 }
-.container {
+div.console-container {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-left: 2vw;
     margin-right: 2vw;
+    min-height: 80%;
 }
 div.menu > button {
     width: 30vw;
@@ -21,7 +22,7 @@ div.menu > button {
 .menu > button:hover {
     background-color: azure;
 }
-.content {
+div.console-container .content {
     background-color: aliceblue;
     height: 2000px;
     max-height: 30vw;
@@ -30,30 +31,30 @@ div.menu > button {
     box-sizing: border-box;
     overflow: scroll;
 }
-#user-content, #product-content{
+div.console-container #user-content, div.console-container #product-content{
     display: none;
 }
-div.search-container{
+div.console-container div.search-container{
     margin-left: 30vw;
     display: flex;
     align-items: center;
 }
-input.search-input{
+div.console-container input.search-input{
     width: 21vw;
     font-size: medium;
     height: 2.2vw;
     min-height: 2vw;
 }
-.search-button{
+div.console-container .search-button{
     cursor: pointer;
     height: fit-content;
     width: fit-content;
     font-size: x-large;
 }
-table{
+div.console-container table{
     margin-left: 2vw;
 }
-th, td{
+div.console-container th, div.console-container td{
     padding-bottom: 2vw;
     padding-right: 14vw;
     text-align: center;

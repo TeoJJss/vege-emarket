@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php 
+    require 'config.php';
+    if ($role=='guest'){
+        include './includes/header.php';
+    }else{
+        include "./$role/includes/header.php";
+    }
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,9 +26,9 @@
         table.contact-info{
             align-content: center;
             justify-content: center;
-            border: 0.1px solid;
             width: 80%;
             height: 30vw;
+            border: 0.1px solid;
         }
         div.contact-table{
             display: flex;
@@ -33,13 +41,13 @@
             font-size: 6vw;
             margin: 7vh 0vw;
         }
-        td{
-            border-right: soli;
-            font-size: 1.5vw;
+        table.contact-info td{
             width: 37%;
-            font-family: Arial, Helvetica, sans-serif;
         }
-        #contact-title{
+        table.contact-info td{
+            font-size: 1.5vw;
+        }
+        .contact-title{
             color: darkblue;
             font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
             font-size: 2vw;
@@ -64,16 +72,16 @@
             with the website, feel free to contact us and we will be glad to assist you. </p>
         <div class="contact-table"> 
             <table class="contact-info">
-                <tr>
-                    <td rowspan="3" id="contact-title">&nbsp;&nbsp;&nbsp;Vege e-Market</td>
-                    <td><span id="contact-title">Phone number</span><br><img class="contact-icon" src="./images/phone.jpg" alt="phone"><a href="tel:+60123456789">+60123456789</a></td>
-                    <td rowspan="2"><span id="contact-title">Operating Hours</span><br>[UTC +8] 09:00-18:00<br>(Monday to Sunday)</td>
+                <tr class="contact-info">
+                    <td rowspan="3" class="contact-title">&nbsp;&nbsp;&nbsp;Vege e-Market</td>
+                    <td><span class="contact-title">Phone number</span><br><img class="contact-icon" src="./images/phone.jpg" alt="phone"><a href="tel:+60123456789">+60123456789</a></td>
+                    <td rowspan="2"><span class="contact-title">Operating Hours</span><br>[UTC +8] 09:00-18:00<br>(Monday to Sunday)</td>
                 </tr>
-                <tr>
-                    <td><span id="contact-title">Email</span><br><img class="contact-icon" src="./images/email.jpeg" alt="phone"><a href="mailto:help@vegemarket.my">help@vegemarket.my</a></td>
+                <tr class="contact-info">
+                    <td><span class="contact-title">Email</span><br><img class="contact-icon" src="./images/email.jpeg" alt="phone"><a href="mailto:help@vegemarket.my">help@vegemarket.my</a></td>
                 </tr>
-                <tr>
-                    <td><span id="contact-title">WhatsApp</span><br><img class="contact-icon" src="./images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=60123456789" target="_blank">Click Here to Chat</a></td>
+                <tr class="contact-info">
+                    <td><span class="contact-title">WhatsApp</span><br><img class="contact-icon" src="./images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=60123456789" target="_blank">Click Here to Chat</a></td>
                 </tr>
             </table>
         </div><br>  
@@ -81,3 +89,4 @@
     </div>
 </body>
 </html>
+<?php include './includes/footer.php'; ?>

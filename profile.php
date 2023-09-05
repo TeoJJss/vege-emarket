@@ -1,4 +1,11 @@
-<?php
+<?php 
+    require 'config.php';
+    if ($role=='guest'){
+        include './includes/header.php';
+    }else{
+        include "./$role/includes/header.php";
+    }
+
     // below are dummy data, records will be obtained from DB later
     $username = "test";
     $gender = "male";
@@ -24,7 +31,7 @@
     <title>My Profile</title>
     <link rel="stylesheet" href="../styles/title.css">
     <style>
-        h1{
+        h1#title{
             color: midnightblue;
             text-align: center;
             font-size: 6vw;
@@ -33,17 +40,17 @@
         div.container{
             background-color: whitesmoke;
             width: 40%;
-            height: 100%;
+            height: 80%;
             margin-left: 30vw;
 
         }
-        h2 {
+        form.profile h2 {
             font-family: Georgia, 'Times New Roman', Times, serif;
             margin-left: 8vw;
             margin-top: 0.1vw;
             margin-bottom: 0vw;
         }
-        input{
+        form.profile input{
             font-size: 1.2vw;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             line-height: 0vw;
@@ -55,10 +62,10 @@
             vertical-align: middle;
             margin-right: 2vw;
         }
-        div.input-container{
+        form.profile div.input-container{
             display: flex;
         }
-        button.edit{
+        form.profile button.edit{
             vertical-align: middle;
             background-color: transparent;
             border: none;
@@ -66,10 +73,10 @@
             margin: 0 0.5vw 0;
             height: 1vw;
         }
-        button:hover{
+        form.profile button:hover{
             cursor: pointer;
         }
-        button.save{
+        form.profile button.save{
             vertical-align: top;
             margin-left: 8vw;
             display: none;
@@ -81,7 +88,7 @@
     <h1 id="title">Profile</h1>
     <div class="container">
         <br>
-        <form action="" method="post" onsubmit="window.confirm('Save changes?');save();">
+        <form class="profile" action="" method="post" onsubmit="window.confirm('Save changes?');save();">
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
                 <input type="text" name="username" id="username" value="<?php echo $username; ?>" readonly required>
@@ -117,7 +124,7 @@
             <br>
             <button title="Save changes" type="submit" class="save" id="save">Save</button>
         </form>
-    </div>
+    </div><br>
     <script>
         function edit(info){
             var inp = document.getElementById(info);
@@ -138,3 +145,4 @@
     </script>
 </body>
 </html>
+<?php include './includes/footer.php'; ?>
