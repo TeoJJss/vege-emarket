@@ -47,7 +47,7 @@
             width: 20%;
             height: 30px;
         }
-        button:hover{
+        button.index-button:hover{
             cursor: pointer;
             background-color: mediumblue;
             font-weight: lighter;

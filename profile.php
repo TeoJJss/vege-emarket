@@ -6,17 +6,6 @@
         include "./$role/includes/header.php";
     }
 
-    // below are dummy data, records will be obtained from DB later
-    $username = "test";
-    $gender = "male";
-    $birthday = "2002-02-02";
-    $email = "test@example.com";
-    $phone = "011111111";
-    $role = "Consumer"; 
-    // $_POST['username']="";
-    // $_POST['email']="";
-    // $_POST['phone']="";
-
     if ($_SERVER['REQUEST_METHOD']=='POST'){
         $username=$_POST['username'];
         $email=$_POST['email'];

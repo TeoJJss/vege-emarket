@@ -8,6 +8,7 @@
             background-color: #2E2E2E;
             text-align: left;
             clear: both;
+            height: 3%;
         }
         table#footer{
             width: 100%;
