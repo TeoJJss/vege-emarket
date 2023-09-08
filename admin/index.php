@@ -1,6 +1,10 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/config.php';
-    include './includes/header.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    if ($role !='admin'){
+        header('Location: '.$base);
+    }
+    
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +93,7 @@
         div.mvc{
             max-width: 50vw;
             margin-right: 3vw;
-            margin-top: 1vw;
+            margin-top: 1vh;
             float: left;
             border-radius: 25px;
             width: 35vw;
@@ -115,7 +119,7 @@
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
             <span class="card_desc" >&nbsp;Total users: </span><br><br>
-            <button class="index-button" onclick="window.location.href='<?php echo $base_role; ?>/console.php?type=user';" title="Go to User Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=user';" title="Go to User Management page">GO!</button>
 
             <br>&nbsp;
         </div>
@@ -123,7 +127,7 @@
             <h3 class="card_title" style="text-align: center;">Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
             <span class="card_desc" >&nbsp;Total products: </span><br><br>
-            <button class="index-button" onclick="window.location.href='<?php echo $base_role; ?>/console.php?type=product';" title="Go to User Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=product';" title="Go to User Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">

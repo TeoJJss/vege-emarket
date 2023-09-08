@@ -1,12 +1,11 @@
-<!DOCTYPE html>
 <?php 
-    require 'config.php';
-    if ($role=='guest'){
-        include './includes/header.php';
-    }else{
-        include "./$role/includes/header.php";
+    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    if ($role != ''){
+        include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
     }
 ?>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

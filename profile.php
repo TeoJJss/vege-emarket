@@ -1,10 +1,10 @@
 <?php 
-    require 'config.php';
-    if ($role=='guest'){
-        include './includes/header.php';
-    }else{
-        include "./$role/includes/header.php";
+    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    if ($role == ''){
+        header("Location: index.php");
     }
+    
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
 
     if ($_SERVER['REQUEST_METHOD']=='POST'){
         $username=$_POST['username'];

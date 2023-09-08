@@ -27,7 +27,7 @@ Files MUST be uploaded into the folders as shown below:
     </tr>
     <tr>
         <td>Header and Footer</td>
-        <td>Save in "includes/" of respective user role folders</td>
+        <td>Save in "includes/"</td>
     </tr>
     <tr>
         <td>Other webpage files</td>

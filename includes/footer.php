@@ -1,7 +1,7 @@
 <?php 
     require $_SERVER['DOCUMENT_ROOT'].'/config.php'; 
 ?>
-<br>
+<br><br>
 <footer>
     <style>
         footer{
@@ -45,7 +45,7 @@
         <tr id="footer">
             <td class="copyright" id="footer"><span id="footer-copyright">Copyright © 2023 Vege e-Market. All rights reserved.</span></td>
             <td class="footer-url" id="footer-url">
-                <a style="font-size: 100%;" href="<?php echo $base_role.'/index.php'; ?>" class="footer">Home</a> |
+                <a style="font-size: 100%;" href="<?php echo $base.'/index.php'; ?>" class="footer">Home</a> |
                 <a style="font-size: 100%;" href="<?php echo $base.'/about.php'; ?>" class="footer">About Us</a> | 
                 <a style="font-size: 100%;" href="<?php echo $base.'/contact.php'; ?>" class="footer">Contact</a>
             </td>

@@ -1,4 +1,10 @@
-<?php include './includes/header.php'; ?>
+<?php 
+    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    if ($role !='admin'){
+        header('Location: '.$base);
+    }
+    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
+?>
 
 <!DOCTYPE html>
 <html lang="en">

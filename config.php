@@ -7,8 +7,7 @@
     $gender = "male";
     $birthday = "2002-02-02";
     $email = "test@example.com";
-    $phone = "011111111";
-    $role = "Consumer"; 
+    $phone = "011111111"; 
 
     if (isset($_SESSION['role'])){
         // If user has login, use the data from DB
@@ -18,12 +17,5 @@
         $role=''; // Otherwise, the user is guest
     }
 
-    $role='admin'; // Remove this line later
-    
-    // Set the base url with role, e.g. localhost/admin
-    if ($role != ''){
-        $base_role="$base/$role";
-    }else{
-        $base_role=$base;
-    }
+    // $role='admin'; // Remove this line later
 ?>
