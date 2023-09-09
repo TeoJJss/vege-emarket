@@ -1,0 +1,111 @@
+.product-first-container{
+    width: 100%;
+    overflow: hidden;
+}
+.product-first-container > td{
+    min-width: 50%;
+    max-width: 50%;
+    overflow: hidden;
+}
+.product-second-container{
+    width: 100%;
+    min-width: 100%;
+    background-color: lemonchiffon;
+}
+.product-second-container > td{
+    padding: 1%;
+}
+table.product-container{
+    margin-left: 5vw;
+    max-width: 90%;
+}
+div#Description {
+    background-color: wheat;
+    max-width: 80%;
+    max-height: 50%;
+    padding-left: 1%;
+    padding-top: 0.3%;
+    padding-bottom: 0.5%;
+}
+img.product-pic {
+    margin-top: 3vh;
+    border: 1px solid;
+    margin-bottom: 2vh;
+    max-height: 10%;
+    max-width: 80%;
+}
+td.product-left-part{
+    max-width: 55%;
+    width: 100%;
+    padding: 0;
+}
+td.product-right-part > .product-right-card {
+    background-color:  sandybrown;
+    padding: 20px;
+    width: 30vw;
+    text-align: center;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+a#product-category{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+.product-right-card > .price {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2vw;
+    color: black;
+    padding: 5px 0;
+    border-radius: 5px 5px 0 0;
+}
+img.contact-icon{
+    margin-right: 10%;
+    width: 10%;
+}
+
+.product-right-card > .availability {
+    background-color: green;
+    color: white;
+    padding: 2%;
+    border-radius: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 8vw;
+    font-size: 2vw;
+}
+div.product-contacts{
+    clear: both;
+    padding: 3.5%;
+    background-color: seashell;
+    width: 30vw;
+}
+div.product-contact{
+    font-family: Arial, Helvetica, sans-serif;
+    clear: both;
+    padding: 2%;
+}
+div.item-details-container{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30vw;
+}
+img#product-category-icon{
+    margin-left: 7vw;
+    margin-right: 1vw;
+}
+a.contact-detail{
+    font-size: 1.5vw;
+}
+h3.product-card-title{
+    padding-top: 0.5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2vw;
+}
+span.detail{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.3vw;
+}
+p.desc-text{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 130%;
+}

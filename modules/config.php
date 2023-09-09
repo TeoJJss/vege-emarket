@@ -8,7 +8,7 @@
     $birthday = "2002-02-02";
     $email = "test@example.com";
     $phone = "011111111"; 
-
+    
     if (isset($_SESSION['role'])){
         // If user has login, use the data from DB
         $role=$_SESSION['role']; 
@@ -17,5 +17,5 @@
         $role=''; // Otherwise, the user is guest
     }
 
-    // $role='admin'; // Remove this line later
+    $role='admin'; // Remove this line later
 ?>

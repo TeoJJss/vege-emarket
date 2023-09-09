@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
     if ($role == ''){
         header("Location: index.php");
     }
@@ -81,7 +81,7 @@
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
                 <input type="text" name="username" id="username" value="<?php echo $username; ?>" readonly required>
-                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('username')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
+                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('username')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="gender"><h2>Gender</h2></label>
@@ -97,13 +97,13 @@
             <label for="email"><h2>Email</h2></label>
             <div class="input-container">
                 <input type="email" id="email" name="email" value="<?php echo $email; ?>" readonly required>
-                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('email')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
+                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('email')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="phone"><h2>Phone Number</h2></label>
             <div class="input-container">
                 <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" readonly required>
-                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('phone')"><img src="./images/edit.jpg" alt="Edit" width="100%"></button>
+                <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('phone')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="role"><h2>Role</h2></label>
@@ -134,4 +134,4 @@
     </script>
 </body>
 </html>
-<?php include './includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>

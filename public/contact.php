@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
     if ($role != ''){
         include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
     }
@@ -62,6 +62,13 @@
             margin-right: 4%;
             width: 5%;
         }
+        td#web_name{
+            color: blue;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            font-size: 150%;
+            cursor: default;
+        }
     </style>
 </head>
 <body>
@@ -72,15 +79,15 @@
         <div class="contact-table"> 
             <table class="contact-info">
                 <tr class="contact-info">
-                    <td rowspan="3" class="contact-title">&nbsp;&nbsp;&nbsp;Vege e-Market</td>
-                    <td><span class="contact-title">Phone number</span><br><img class="contact-icon" src="./images/phone.jpg" alt="phone"><a href="tel:+60123456789">+60123456789</a></td>
+                    <td rowspan="3" class="contact-title" id="web_name">&nbsp;&nbsp;&nbsp;Vege e-Market</td>
+                    <td><span class="contact-title">Phone number</span><br><img class="contact-icon" src="../images/phone.jpg" alt="phone"><a href="tel:+60123456789">+60123456789</a></td>
                     <td rowspan="2"><span class="contact-title">Operating Hours</span><br>[UTC +8] 09:00-18:00<br>(Monday to Sunday)</td>
                 </tr>
                 <tr class="contact-info">
-                    <td><span class="contact-title">Email</span><br><img class="contact-icon" src="./images/email.jpeg" alt="phone"><a href="mailto:help@vegemarket.my">help@vegemarket.my</a></td>
+                    <td><span class="contact-title">Email</span><br><img class="contact-icon" src="../images/email.jpeg" alt="phone"><a href="mailto:help@vegemarket.my">help@vegemarket.my</a></td>
                 </tr>
                 <tr class="contact-info">
-                    <td><span class="contact-title">WhatsApp</span><br><img class="contact-icon" src="./images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=60123456789" target="_blank">Click Here to Chat</a></td>
+                    <td><span class="contact-title">WhatsApp</span><br><img class="contact-icon" src="../images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=60123456789" target="_blank">Click Here to Chat</a></td>
                 </tr>
             </table>
         </div><br>  
@@ -88,4 +95,4 @@
     </div>
 </body>
 </html>
-<?php include './includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>

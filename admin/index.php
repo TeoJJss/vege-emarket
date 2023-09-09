@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
@@ -209,4 +209,4 @@
     </body>
 
 </html>
-<?php include '../includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>

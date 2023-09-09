@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; 
 ?>
 
 <header>
@@ -38,6 +38,7 @@
             min-width: 5vw;
             min-height: 6vh;
             overflow: auto;
+            text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             right: 4vw;
         }
@@ -56,17 +57,17 @@
     <div class="header_welcome">
         Welcome <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
                     <div id="header-username-dropdown" class="header-username-dropdown-content">
-                        <a href="<?php echo $base.'/profile.php'; ?>">Profile</a><br><br>
-                        <a href="<?php echo $base.'/logout.php'; ?>">Logout</a><br> &nbsp;
+                        <a href="<?php echo $base.'/public/profile.php'; ?>">Profile</a><br><br>
+                        <a href="<?php echo $base.'/modules/logout.php'; ?>">Logout</a><br> &nbsp;
                     </div>
     </div>
     <script>
         function displayUsernameDropdown(){
-            document.getElementById('header-username-dropdown').style.display='block'
+            document.getElementById('header-username-dropdown').style.display='block';
         }
         window.onclick = function(event) {
         if (!event.target.matches('.username-dropdown-btn')) {
-            document.getElementById('header-username-dropdown').style.display='none'
+            document.getElementById('header-username-dropdown').style.display='none';
         }
         }
     </script>

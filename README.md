@@ -30,10 +30,17 @@ Files MUST be uploaded into the folders as shown below:
         <td>Save in "includes/"</td>
     </tr>
     <tr>
+        <td>PHP files without any HTML in it</td>
+        <td>Save in "modules/"</td>
+    </tr>
+    <tr>
+        <td>Files that can be accessed by more than one role</td>
+        <td>Save in "public/"</td>
+    </tr>
+    <tr>
         <td>Other webpage files</td>
         <td>Upload files in the respective role's folder<br> 
-        e.g. Files specifically for Admin in 'admin/' folder<br><br>
-        For Guest files & files without specific role, upload directly in root directory</td>
+        e.g. Files specifically for Admin in 'admin/' folder<br><br></td>
     </tr>
 </table>
 

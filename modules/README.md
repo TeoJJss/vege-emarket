@@ -1,0 +1,1 @@
+This folder should include all webpages PHP files that <font color="red">DO NOT</font> have any HTML codes in it
