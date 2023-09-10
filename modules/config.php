@@ -1,5 +1,5 @@
 <?php
-    $base = 'http://'.$_SERVER['HTTP_HOST']; // Base URL, e.g. localhost'; 
+    $base = 'http://'.$_SERVER['HTTP_HOST'].'/agriculture'; // Base URL, e.g. localhost'; 
     $role = '';
     
     // below are dummy data, records will be obtained from DB later

@@ -1,10 +1,10 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
     
-    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
 ?>
 
 <!DOCTYPE html>
@@ -65,6 +65,7 @@
             margin-left: 50px;
             max-width: 83vw;
             border-spacing: 10px;
+            font-size: 1.2vw;
         }
         table.info-table th, table.info-table td{
             padding-right: 100px;
@@ -78,7 +79,9 @@
             border-spacing: 10px;
         }
         table.customer{
+            font-size: 1.2vw;
             margin-left: 20px;
+            line-height: 200%;
         }
         .product_name{
             width: 60%;
@@ -89,6 +92,8 @@
             max-height: 30vw;
             overflow-x: scroll;
             overflow-y: scroll;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1vw;
         }
         div.mvc{
             max-width: 50vw;
@@ -97,7 +102,7 @@
             float: left;
             border-radius: 25px;
             width: 35vw;
-            height: 20%;
+            height: 40%;
         }
         div.conclusion{
             margin-top: 3vw;
@@ -107,6 +112,8 @@
             width: 30vw;
             background-color: ghostwhite;
             border-radius: 25px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1vw;
         }
     </style>
 </head>
@@ -209,4 +216,4 @@
     </body>
 
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
 ?>
 <br><br>
 <footer>

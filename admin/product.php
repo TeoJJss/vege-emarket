@@ -1,14 +1,14 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php';
     $id=123; // Change to actual data after database is ready 
     if ($role !='admin'){
         if ($role != ''){
-            header("Location:".$_SERVER['DOCUMENT_ROOT']."/$role/product.php?id=$id");
+            header("Location:".$_SERVER['DOCUMENT_ROOT']."/agriculture/$role/product.php?id=$id");
         }else{
-            header("Location:".$_SERVER['DOCUMENT_ROOT']."/index.php");
+            header("Location:".$_SERVER['DOCUMENT_ROOT']."/agriculture/index.php");
         }
     }
-    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,10 +35,10 @@
     <table class="product-container">
         <tr class="product-first-container">
             <td class="product-left-part">
-                <h1 id="title" style="font-size: max(14px, 2vw);">Product Name</h1>
+                <h1 id="title" style="font-size: 3vw;">Product Name</h1>
                 <div class="product-info-container"> 
                     <div class="product-info-left">
-                        <img id="product-category-icon" src="../images/category.png" alt="Category: " width="2%"><a id="product-category">Category</a><br>
+                        <img id="product-category-icon" src="../images/category.png" alt="Category: " width="3%"><a id="product-category" style="font-size: 1.5vw;">Category</a><br>
                         <img src="../assets/corn.jpg" alt="Product Picture" class="product-pic" width="80%" height="20%" ><br>
                         <div id="Description">
                             <h3 class="product-card-title">Description</h3>
@@ -82,4 +82,4 @@
     
 </body>
 </html>
-<?php include '../includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>

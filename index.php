@@ -1,10 +1,10 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php';
 
     if ($role!=''){
-        header("Location: $role/index.php");
+        header("Location: $base/$role/index.php");
     }else{
-        header("Location: public/login.php");
+        header("Location: $base/public/login.php");
     }
         
 ?>

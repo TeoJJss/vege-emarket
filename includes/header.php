@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
 ?>
 
 <header>
@@ -14,6 +14,8 @@
         }
         header{
             margin-top: 2%;
+            font-size: 120%;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
         div.header-username-dropdown-content {
             display: none;
@@ -47,7 +49,7 @@
             color: blue;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-weight: bold;
-            font-size: 150%;
+            font-size: 170%;
             cursor: default;
         }
     </style>

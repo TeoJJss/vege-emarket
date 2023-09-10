@@ -1,7 +1,7 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
     if ($role != ''){
-        include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
+        include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
     }
 ?>
 
@@ -95,4 +95,4 @@
     </div>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>

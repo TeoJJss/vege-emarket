@@ -1,9 +1,9 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
-    include $_SERVER['DOCUMENT_ROOT'].'/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,20 @@
     <title>Admin Console - Product Management</title>
     <link rel="stylesheet" href="../styles/title.css">
     <link rel="stylesheet" href="../styles/admin_console.css">
+    <style>
+        table.console-content-table{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 2.3vh;
+        }
+        button.ban-button{
+            color: white;
+            background-color: black;
+            cursor: pointer;
+            border-radius: 10%;
+            width: 80%;
+            padding: 10%;
+        }
+    </style>
 </head>
 <body>
     <h1 id="title">Administration Page</h1>
@@ -28,7 +42,7 @@
                 <input type="text" class="product-content-search-input" placeholder="Search product" onkeyup="searchFunction('product')">
                 <button class="search-button" >🔍</button>
             </div><br>
-            <table>
+            <table class="console-content-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -42,19 +56,19 @@
                         <td class="search-key">1</td>
                         <td class="search-key">Lorem ipsum dolor sit amet consectetur adipisicing.</td>
                         <td class="search-key">Lorem ipsum dolor sit.</td>
-                        <td><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                     <tr class="searchable-row">
                         <td class="search-key">2</td>
                         <td class="search-key">Lorem ipsum dolor sit amet consectetur adipisicing.</td>
                         <td class="search-key">Lorem ipsum dolor sit. iii</td>
-                        <td class="search-key"><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                     <tr class="searchable-row">
                         <td class="search-key">3</td>
                         <td class="search-key">Lorem ipsum dolor sit amet consectetur adipisicing.</td>
                         <td class="search-key">Lorem ipsum dolor sit.</td>
-                        <td><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -64,7 +78,7 @@
                 <input type="text" class="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')">
                 <button class="search-button" >🔍</button>
             </div><br>
-            <table>
+            <table class="console-content-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -80,21 +94,21 @@
                         <td class="search-key">User1</td>
                         <td class="search-key">Consumer</td>
                         <td class="search-key">012345678 ; user@example.com</td>
-                        <td><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                     <tr class="searchable-row">
                         <td class="search-key">2</td>
                         <td class="search-key">User2</td>
                         <td class="search-key">Supplier</td>
                         <td class="search-key">012345678 ; user@example.com</td>
-                        <td><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                     <tr class="searchable-row">
                         <td class="search-key">3</td>
                         <td class="search-key">User3</td>
                         <td class="search-key">Consumer</td>
                         <td class="search-key">012345678 ; user@example.com</td>
-                        <td><button>BAN</button></td>
+                        <td><button class="ban-button">BAN</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -126,4 +140,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
