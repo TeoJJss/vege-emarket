@@ -50,11 +50,11 @@
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-weight: bold;
             font-size: 170%;
-            cursor: default;
+            cursor: pointer;
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt">&nbsp;<?php echo $web_name; ?></span>
+        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt" onclick="location.href='<?php echo $base.'/index.php'; ?>'">&nbsp;<?php echo $web_name; ?></span>
     </div>
     <div class="header_welcome">
         Welcome <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>

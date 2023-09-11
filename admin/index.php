@@ -237,21 +237,6 @@
                             echo "<br><p>No available content</p>";
                         } 
                     ?>
-                    <!-- <tr class="customer">
-                        <td >1. </td>
-                        <td>User 1</td>
-                        <td>90</td>
-                    </tr>
-                    <tr class="customer">
-                        <td >2. </td>
-                        <td>User 2</td>
-                        <td>90</td>
-                    </tr>
-                    <tr class="customer">
-                        <td >3. </td>
-                        <td>User 3</td>
-                        <td>90</td>
-                    </tr> -->
                 </tbody>
             </table>
             <br>&nbsp;
