@@ -3,5 +3,4 @@ This folder should include all webpages PHP files related to consumer.
 - Cart
 - Checkout
 - Order History
-- Product Page in consumer mode
 - Search results
