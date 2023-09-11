@@ -54,7 +54,7 @@
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt">&nbsp;Vege e-Market</span>
+        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt">&nbsp;<?php echo $web_name; ?></span>
     </div>
     <div class="header_welcome">
         Welcome <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>

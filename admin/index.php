@@ -5,6 +5,31 @@
     }
     
     include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+    
+    $user_list_length =0;
+    $product_list_length=0;
+
+    // Count number of useers
+    $user_list = mysqli_query($conn, "SELECT * FROM users WHERE role != 'admin'; ");
+    if ($user_list){
+        $user_list_length = mysqli_num_rows($user_list);
+    }
+
+    // Count number of products
+    $product_list = mysqli_query($conn, "SELECT * FROM products");
+    if ($product_list){
+        $product_list_length = mysqli_num_rows($product_list);
+    }
+
+    // Count number of orders
+    $order_list = mysqli_query($conn, "SELECT * FROM orders");
+    if ($order_list){
+        $order_list_length = mysqli_num_rows($order_list);
+    }
+
+    // Count total spending
+    $total_spend = mysqli_query($conn, "SELECT SUM(agreedPrice) as totalspend FROM orders_products");
+    
 ?>
 
 <!DOCTYPE html>
@@ -125,7 +150,7 @@
         <div class="manage_user" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
-            <span class="card_desc" >&nbsp;Total users: </span><br><br>
+            <span class="card_desc" >&nbsp;Total users: <b><?php echo $user_list_length; ?></b> </span><br><br>
             <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=user';" title="Go to User Management page">GO!</button>
 
             <br>&nbsp;
@@ -133,44 +158,45 @@
         <div class="manage_product" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
-            <span class="card_desc" >&nbsp;Total products: </span><br><br>
-            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=product';" title="Go to User Management page">GO!</button>
+            <span class="card_desc" >&nbsp;Total products: <b><?php echo $product_list_length; ?></b> </span><br><br>
+            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">
             <h3 class="card_title" style="text-align: left;">Top Selling Products</h3>
             <table class="info-table">
                 <thead>
-                    <tr>
-                        <th></th>
-                        <th class="product_name">Product Name</th>
-                        <th>Category</th>
-                        <th>Sold</th>
-                        <th>Supplier</th>
-                    </tr>
+                    <?php if ($product_list_length){ ?>
+                        <tr>
+                            <th></th>
+                            <th class="product_name">Product Name</th>
+                            <th>Category</th>
+                            <th>Sold</th>
+                            <th>Supplier</th>
+                        </tr>
+                    <?php } ?>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1. </td>
-                        <td class="product_name">Spinach</td>
-                        <td>Leafy Green</td>
-                        <td>10</td>
-                        <td>Lorem ipsum dolor sit.</td>
-                    </tr>
-                    <tr>
-                        <td>2. </td>
-                        <td class="product_name">Gourd</td>
-                        <td>Marrow</td>
-                        <td>10</td>
-                        <td>Lorem ipsum dolor sit.</td>
-                    </tr>
-                    <tr>
-                        <td>3. </td>
-                        <td class="product_name">Potato</td>
-                        <td>Root</td>
-                        <td>10</td>
-                        <td>Lorem ipsum dolor sit.</td>
-                    </tr>
+                    <?php 
+                        $count=1;
+                        if ($product_list_length){
+                            $sql="SELECT products.productID, COUNT(orders_products.productID) as sold, products.category, products.productName, users.userName as supplierName 
+                                    FROM products LEFT JOIN orders_products ON products.productID=orders_products.productID JOIN users ON products.userID=users.userID 
+                                    GROUP BY products.productID ORDER BY sold DESC LIMIT 5";
+                            $products=mysqli_query($conn, $sql);
+                            while($product_info=mysqli_fetch_array($products)) {
+                                echo "<tr><td> $count </td>";
+                                echo "<td class='product_name'>".$product_info['productName']."</td>";
+                                echo "<td>".$product_info['category']."</td>";
+                                echo "<td>".$product_info['sold']."</td>";
+                                echo "<td>".$product_info['supplierName']."</td>";
+                                echo "</tr>";
+                                $count++;
+                            }
+                        }else{
+                            echo "<br><p>No available content</p>";
+                        }
+                    ?>
                 </tbody>
             </table>
             <br>&nbsp;
@@ -179,14 +205,39 @@
             <h3 class="card_title" style="text-align: left;">Most Valuable Customers</h3>
             <table class="customer">
                 <thead>
-                    <tr class="customer">
-                        <th></th>
-                        <th>Customer Name</th>
-                        <th>No. of Orders</th>
-                    </tr>
+                    <?php if ($user_list_length){ ?>
+                        <tr class="customer">
+                            <th></th>
+                            <th>Customer Name</th>
+                            <th>No. of Orders</th>
+                        </tr>
+                    <?php } ?> 
                 </thead>
                 <tbody>
-                    <tr class="customer">
+                    <?php
+                        $count=1;
+                        if ($user_list_length){
+                            $sql = "SELECT users.userName as consumerName, COUNT(orders.orderID) as num_of_orders FROM users 
+                                    LEFT JOIN orders ON users.userID = orders.userID 
+                                    WHERE users.role = 'consumer' 
+                                    GROUP BY users.userName 
+                                    ORDER BY num_of_orders DESC
+                                    LIMIT 5;";
+                            $users=mysqli_query($conn, $sql);
+                            while ($user_info=mysqli_fetch_array($users)){
+                                echo "<tr class='customer'>"; 
+                                echo "<td >$count. </td>";
+                                echo "<td >".$user_info['consumerName']."</td>";
+                                echo "<td >".$user_info['num_of_orders']."</td>";
+                                echo "</tr>"; 
+                                $count++;  
+                            }
+                            
+                        }else{
+                            echo "<br><p>No available content</p>";
+                        } 
+                    ?>
+                    <!-- <tr class="customer">
                         <td >1. </td>
                         <td>User 1</td>
                         <td>90</td>
@@ -200,15 +251,19 @@
                         <td >3. </td>
                         <td>User 3</td>
                         <td>90</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
             <br>&nbsp;
         </div>
         <div class="conclusion" id="down_card">
             <br>
-            <p>Number of Orders: 9000 </p>
-            <p>Transaction total: RM1000 </p>
+            <p>Number of Orders: <?php echo $order_list_length;?></p>
+            <p>Transaction total: RM <?php 
+                                        $total=mysqli_fetch_array($total_spend);
+                                        echo $total['totalspend'];
+                                    ?> 
+            </p>
             <br>
         </div><br>
     </div>
