@@ -11,9 +11,9 @@
     if(mysqli_connect_errno()){
         die("Failed to connect to database."); //Terminate the website if no database
     }
+    $web_name="Vege e-Market";
 
     // below are dummy data, records will be obtained from DB later
-    $web_name="Vege e-Market";
     $username = 'test'; 
     $gender = "male";
     $birthday = "2002-02-02";
@@ -28,5 +28,5 @@
         $role=''; // Otherwise, the user is guest
     }
 
-    $role='admin'; // Remove this line later
+    $role='supplier'; $user_id='U05'; // Remove this line later
 ?>

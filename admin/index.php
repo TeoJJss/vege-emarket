@@ -144,8 +144,8 @@
 </head>
 <body>
     <div id="wrapper">
-        <h1 id="title" style="font-size: max(14px, 2vw);">Administration Page</h1>
-        <p id="title" style="font-size: max(10px, 1vw);">Admin HomePage</p>
+        <h1 id="title">Administration Page</h1>
+        <p id="title">Admin HomePage</p>
         <br>
         <div class="manage_user" id="up_card">
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
@@ -185,8 +185,9 @@
                                     GROUP BY products.productID ORDER BY sold DESC LIMIT 5";
                             $products=mysqli_query($conn, $sql);
                             while($product_info=mysqli_fetch_array($products)) {
+                                $id=$product_info['productID'];
                                 echo "<tr><td> $count </td>";
-                                echo "<td class='product_name'>".$product_info['productName']."</td>";
+                                echo "<td class='product_name'>"."<a href='$base/public/product.php?id=$id'>".$product_info['productName']."</a></td>";
                                 echo "<td>".$product_info['category']."</td>";
                                 echo "<td>".$product_info['sold']."</td>";
                                 echo "<td>".$product_info['supplierName']."</td>";

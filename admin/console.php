@@ -100,6 +100,9 @@
             width: 80%;
             padding: 10%;
         }
+        button.ban-button:hover{
+            background-color: grey;
+        }
         tbody.product-table > tr, th{
             padding: 0vw;
         }
@@ -134,13 +137,14 @@
                         $count=1;
                         if ($product_list_length){
                             while ($product_info=mysqli_fetch_array($product_list)){
+                                $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
                                 echo '<td>'.$count.'</td>';
-                                echo '<td class="search-key">'.$product_info['productName'].'</td>';
+                                echo '<td class="search-key">'."<a href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
-                                $id = $product_info['productID'] ;
+                                
                                 if ($product_info['availabilityStatus'] != 'banned'){ ?>
                                     <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
                                 <?php }else{ ?>

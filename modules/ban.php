@@ -1,4 +1,5 @@
 <?php 
+    /* UPDATE */
     require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
     if ($role !='admin'){
         echo "Access denied";
