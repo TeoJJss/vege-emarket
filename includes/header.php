@@ -1,5 +1,11 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
+
+    /* READ (change to session after login page done) */
+    $read_sql = "SELECT userName FROM users WHERE userID='$user_id'";
+
+    $user_info=mysqli_fetch_array(mysqli_query($conn, $read_sql));
+    $username=$user_info['userName'];
 ?>
 
 <header>
@@ -29,7 +35,7 @@
         }
         div.header_welcome > a{
             text-decoration: underline;
-            color: blue; 
+            color: green; 
             cursor: pointer;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
@@ -42,22 +48,18 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 4vw;
-        }
-        span#logo_txt{
-            text-decoration: none; /* Remove underline */
-            color: blue;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-weight: bold;
-            font-size: 170%;
-            cursor: default;
+            right: 8vw;
+        } 
+        div.header-username-dropdown-content > a{
+            cursor: pointer;
+            color: darkgreen;
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt">&nbsp;Vege e-Market</span>
+        <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="100vh"></a>
     </div>
     <div class="header_welcome">
-        Welcome <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
+        <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
                     <div id="header-username-dropdown" class="header-username-dropdown-content">
                         <a href="<?php echo $base.'/public/profile.php'; ?>">Profile</a><br><br>
                         <a href="<?php echo $base.'/modules/logout.php'; ?>">Logout</a><br> &nbsp;
@@ -68,10 +70,23 @@
             document.getElementById('header-username-dropdown').style.display='block';
         }
         window.onclick = function(event) {
-        if (!event.target.matches('.username-dropdown-btn')) {
-            document.getElementById('header-username-dropdown').style.display='none';
+            if (!event.target.matches('.username-dropdown-btn')) {
+                document.getElementById('header-username-dropdown').style.display='none';
+            }
         }
+        var currentDate = new Date();
+        var currentHour = currentDate.getHours();
+        const greetTag=document.getElementById('header_greeting');
+
+        if (currentHour >= 6 && currentHour < 12) {
+            greetTag.innerHTML="Good Morning";
+        } else if (currentHour >= 12 && currentHour < 17) {
+            greetTag.innerHTML="Good Afternoon";
+        }else if (currentHour>=17 && currentHour<22){
+            greetTag.innerHTML="Good Evening";
+        }else if (currentHour>=22 || currentHour<6){
+            greetTag.innerHTML="Good Night";
         }
     </script>
 </header>
-<br><br>
+<p style="clear:both;"></p>

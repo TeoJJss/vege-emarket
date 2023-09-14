@@ -1,15 +1,26 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
     if ($role == ''){
         header("Location: $base");
     }
     
-    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
+
+    /* READ */
+    $read_sql = "SELECT * FROM users WHERE userID='$user_id'";
+
+    $user_info=mysqli_fetch_array(mysqli_query($conn, $read_sql));
 
     if ($_SERVER['REQUEST_METHOD']=='POST'){
         $username=$_POST['username'];
         $email=$_POST['email'];
         $phone=$_POST['phone'];
+
+        /* UPDATE */
+        $update_sql = "UPDATE users SET userName='$username', email='$email', phone='$phone' WHERE userID='$user_id'";
+        mysqli_query($conn, $update_sql);
+        header("Location: $base/public/profile.php");
+        exit();
     }
 ?>
 <!DOCTYPE html>
@@ -21,7 +32,7 @@
     <link rel="stylesheet" href="../styles/title.css">
     <style>
         h1#title{
-            color: midnightblue;
+            color: darkgreen;
             text-align: center;
             font-size: 6vw;
             margin: 7vh 0vw;
@@ -50,9 +61,11 @@
             border: 0;
             vertical-align: middle;
             margin-right: 2vw;
+            overflow-x: auto;
         }
         form.profile div.input-container{
             display: flex;
+            
         }
         form.profile button.edit{
             vertical-align: middle;
@@ -77,38 +90,38 @@
     <h1 id="title">Profile</h1>
     <div class="container">
         <br>
-        <form class="profile" action="" method="post" onsubmit="window.confirm('Save changes?');save();">
+        <form class="profile" method="post" onsubmit="window.confirm('Save changes?');save();">
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
-                <input type="text" name="username" id="username" value="<?php echo $username; ?>" readonly required>
+                <input type="text" name="username" id="username" value="<?php echo $user_info['userName']; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('username')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="gender"><h2>Gender</h2></label>
             <div class="input-container">
-                <input type="text" name="gender" id="gender" value="<?php echo $gender; ?>" readonly>
+                <input type="text" name="gender" id="gender" value="<?php echo $user_info['gender']; ?>" readonly>
             </div>
 
             <label for="birthday"><h2>Birthday</h2></label>
             <div class="input-container">
-                <input type="text" id="birthday" name="dob" value="<?php echo $birthday; ?>" readonly>
+                <input type="text" id="birthday" name="dob" value="<?php echo $user_info['birthday']; ?>" readonly>
             </div>
 
             <label for="email"><h2>Email</h2></label>
             <div class="input-container">
-                <input type="email" id="email" name="email" value="<?php echo $email; ?>" readonly required>
+                <input type="email" id="email" name="email" value="<?php echo $user_info['email']; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('email')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="phone"><h2>Phone Number</h2></label>
             <div class="input-container">
-                <input type="tel" id="phone" name="phone" value="<?php echo $phone; ?>" readonly required>
+                <input type="tel" id="phone" name="phone" value="<?php echo $user_info['phone']; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('phone')"><img src="../images/edit.jpg" alt="Edit" width="100%"></button>
             </div>
 
             <label for="role"><h2>Role</h2></label>
             <div class="input-container">
-                <input type="text" id="role" name="role" value="<?php echo $role; ?>" readonly>
+                <input type="text" id="role" name="role" value="<?php echo $user_info['role']; ?>" readonly>
             </div>
             <br>
             <button title="Save changes" type="submit" class="save" id="save">Save</button>
@@ -129,9 +142,9 @@
                 var input = inputs[i];
                 input.setAttribute('readonly', 'readonly');
             }
-            document.getElementById('save').style.display='none';
+            document.getElementById('save').style.display='none';            
         }
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>

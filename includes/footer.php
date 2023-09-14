@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
 ?>
 <br><br>
 <footer>
@@ -13,6 +13,7 @@
         table#footer{
             width: 100%;
             height: 6%;
+            min-height: max-content;
             font-family: 'Courier New', Courier, monospace;
         }
         td#footer{
@@ -30,6 +31,7 @@
             font-size: 80%;
         }
         td#footer-url{
+            clear:both;
             color:aliceblue;
             text-align: right;
             margin-right: 2%;
