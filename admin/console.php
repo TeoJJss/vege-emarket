@@ -146,7 +146,11 @@
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
                                 
                                 if ($product_info['availabilityStatus'] != 'banned'){ ?>
-                                    <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
+                                    <?php if ($product_info['availabilityStatus']=='deleted'){
+                                        echo '<td><font color="red">Deleted by supplier</font></td>';
+                                    }else{ ?>
+                                        <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
+                                    <?php }?>                                    
                                 <?php }else{ ?>
                                     <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'unban')">UNBAN</button></td></tr>
                                 <?php }

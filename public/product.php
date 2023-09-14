@@ -17,19 +17,21 @@
             WHERE products.productID='$id' AND availabilityStatus!='deleted'";
 
     $product= mysqli_query($conn, $sql);
-
+    $product_detail=mysqli_fetch_array($product); 
+    if ($product_detail['productID']==""){
+        die("No product found");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
+    <title>Product Details - <?php echo $product_detail['productName']; ?></title>
     <link rel="stylesheet" href="../styles/title.css">
-
     <style>
         button.product-button{
-            margin-left: 10%;
+            margin-left: 15%;
             margin-top: 5%;
             font-size: 3vw;
             color: white;
@@ -52,11 +54,13 @@
             overflow: hidden;
         }
         .product-second-container{
-            width: 100%;
-            min-width: 100%;
+            width: 80%;
+            min-width: 80%;
             background-color: lemonchiffon;
         }
         .product-second-container > td{
+            width: 80%;
+            min-width: 80%;
             padding: 1%;
         }
         table.product-container{
@@ -155,34 +159,76 @@
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             font-size: 130%;
         }
+        img.edit-button{
+            cursor: pointer;
+        }
+        h1#title{
+            display: inline-block;
+        }
+        button.save-button{
+            display: none;
+            margin-left: 20%;
+            cursor: pointer;
+        }
+        div.price{
+            display: inline-block;
+        }
+        div.availability-status-dropdown-content {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 1.3vw;
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 10vw;
+            min-height: 6vh;
+            overflow: auto;
+            text-align: center;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            right: 13vw;
+        }
     </style>
 </head>
 <body><br>
-    <?php 
-        $product_detail=mysqli_fetch_array($product); 
-        if ($product_detail['productID']==""){
-            die("No product found");
-        }
-    ?>
     <table class="product-container">
         <tr class="product-first-container">
             <td class="product-left-part">
-                <h1 id="title" style="font-size: 3vw;">Product Name</h1>
+                <h1 id="title" style="font-size: 3vw;" contenteditable="false"><?php echo $product_detail['productName']; ?></h1>
+                <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
+                    <img class="edit-button" src="../images/edit.jpg" alt="edit" width="3%" onclick="editMode('title')">
+                    <button class="save-button" id="save-button-title" onclick="saveEdit('title', 'productName')">SAVE</button><br>
+                <?php } ?>
+                
                 <div class="product-info-container"> 
                     <div class="product-info-left">
                         <img id="product-category-icon" src="../images/category.png" alt="Category: " width="3%"><a id="product-category" style="font-size: 1.5vw;"><?php echo $product_detail['category']; ?></a><br>
-                        <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="80%" height="20%" ><br>
+                        <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="1200vw" height="500vw" ><br>
                         <div id="Description">
-                            <h3 class="product-card-title">Description</h3>
-                            <p class="desc-text"><?php echo $product_detail['description']; ?></p>
+                            <h3 class="product-card-title">Description<?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
+                                <img class="edit-button" src="../images/edit.jpg" alt="edit" width="3%" onclick="editMode('description')">
+                            <?php } ?></h3>
+                            <p class="desc-text" id="description"><?php echo $product_detail['description']; ?></p>
+                            <button class="save-button" id="save-button-description" onclick="saveEdit('description', 'description')">SAVE</button><br>
                         </div><br>
                     </div>
                 </div>
             </td>
             <td class="product-right-part">
                 <div class="product-right-card">
-                    <div class="price">RM <?php echo $product_detail['priceLabel']; ?></div>
-                    <div class="availability" id="status"><?php echo $product_detail['availabilityStatus']; ?></div>
+                    <div class="price">RM <span id="priceLabel"><?php echo $product_detail['priceLabel']; ?></span>
+                    <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
+                        <img class="edit-button" src="../images/edit.jpg" alt="edit" width="5%"onclick="editMode('priceLabel')">
+                        <button class="save-button" id="save-button-priceLabel" onclick="saveEdit('priceLabel', 'priceLabel')">SAVE</button><br>
+                    <?php } ?></div>
+                    <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
+                        <div class="availability" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
+                        <div id="availability-status-dropdown" class="availability-status-dropdown-content">
+                            <p>Change your product's availability</p>
+                            <a href="<?php echo $base."/modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>">Available</a><br><br>
+                            <a href="<?php echo $base."/modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>">Out of Stock</a><br> &nbsp;
+                        </div>
+                    <?php }else{ ?>
+                        <div class="availability" id="status"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
+                    <?php } ?>
                 </div>
                 <div class="product-contacts">
                     <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank" class="contact-detail">Click Here to Chat</a></div>
@@ -214,7 +260,7 @@
                     <div id="left">
                         <span class="detail"><b>Product ID:</b> <?php echo $id; ?></span><br>
                         <span class="detail"><b>Location:</b> <?php echo $product_detail['location']; ?></span><br>
-                        <span class="detail"><b>Price: </b><?php echo $product_detail['priceLabel']; ?></span>
+                        <span class="detail"><b>Price: RM </b><?php echo $product_detail['priceLabel']; ?></span>
                     </div>
                     <div id="right">
                         <span class="detail"><b>Added:</b> <?php echo $product_detail['addDate']; ?></span><br>
@@ -237,6 +283,38 @@
                 status.style.backgroundColor = 'grey';
             }
         });
+        function showStatusOption(){
+            document.getElementById('availability-status-dropdown').style.display='block';
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.availability')) {
+                document.getElementById('availability-status-dropdown').style.display='none';
+            }
+            if (!event.target.matches('.username-dropdown-btn')) {
+                document.getElementById('header-username-dropdown').style.display='none';
+            }
+        }
+        function editMode(field){
+            var target = document.getElementById(field);
+            target.setAttribute('contenteditable','true');
+            target.focus();
+            document.getElementById(`save-button-${field}`).style.display='block';
+        }
+        function saveEdit(field, column){
+            var target = document.getElementById(field);
+            var new_value=target.innerHTML;
+
+            if (field=='priceLabel' && isNaN(parseFloat(new_value))){ // Check if price is number
+                alert('Please enter numeric value for Price Label! ');
+                location.reload();
+            }else{
+                var url=`<?php echo $base.'/modules/save_edit.php?'?>id=<?php echo $id; ?>&col=${column}&new=${new_value}`;
+                window.location.href=url;
+                target.setAttribute('contenteditable','false');
+                document.getElementById(`save-button-${field}`).style.display='none';
+            }
+            
+        }
         function chgStatus(type, id, action){
             if (window.confirm("Are you sure?")) {
                 window.location.href=`<?php echo $base.'/modules/ban.php?'?>type=${type}&id=${id}&action=${action}`;

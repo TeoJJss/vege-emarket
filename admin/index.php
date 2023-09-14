@@ -182,6 +182,7 @@
                         if ($product_list_length){
                             $sql="SELECT products.productID, COUNT(orders_products.productID) as sold, products.category, products.productName, users.userName as supplierName 
                                     FROM products LEFT JOIN orders_products ON products.productID=orders_products.productID JOIN users ON products.userID=users.userID 
+                                    WHERE products.availabilityStatus!= 'deleted'
                                     GROUP BY products.productID ORDER BY sold DESC LIMIT 5";
                             $products=mysqli_query($conn, $sql);
                             while($product_info=mysqli_fetch_array($products)) {
