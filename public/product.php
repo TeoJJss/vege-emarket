@@ -34,7 +34,7 @@
             color: darkgreen;
         }
         button.product-button{
-            margin-left: 15%;
+            margin-left: 30%;
             margin-top: 5%;
             font-size: 3vw;
             color: white;
@@ -58,7 +58,6 @@
         }
         .product-second-container{
             width: 80%;
-            min-width: 80%;
             background-color: lemonchiffon;
         }
         .product-second-container > td{
@@ -84,6 +83,7 @@
             margin-bottom: 2vh;
             max-height: 10%;
             max-width: 80%;
+            min-width: 50%;
         }
         td.product-left-part{
             max-width: 55%;
@@ -204,7 +204,7 @@
                 <div class="product-info-container"> 
                     <div class="product-info-left">
                         <img id="product-category-icon" src="../images/category.png" alt="Category: " width="3%"><a id="product-category" style="font-size: 1.5vw;"><?php echo $product_detail['category']; ?></a><br>
-                        <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="1200vw" height="500vw" ><br>
+                        <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="900vw" height="500vw" ><br>
                         <div id="Description">
                             <h3 class="product-card-title">Description<?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
                                 <img class="edit-button" src="../images/edit.jpg" alt="edit" width="3%" onclick="editMode('description')">

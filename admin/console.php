@@ -106,7 +106,9 @@
         tbody.product-table > tr, th{
             padding: 0vw;
         }
-
+        #title{
+            color: darkgreen;
+        }
     </style>
 </head>
 <body>

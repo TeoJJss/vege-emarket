@@ -140,6 +140,9 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 1vw;
         }
+        #title{
+            color: darkgreen;
+        }
     </style>
 </head>
 <body>
@@ -189,7 +192,7 @@
                             while($product_info=mysqli_fetch_array($products)) {
                                 $id=$product_info['productID'];
                                 echo "<tr><td> $count </td>";
-                                echo "<td class='product_name'>"."<a href='$base/public/product.php?id=$id'>".$product_info['productName']."</a></td>";
+                                echo "<td class='product_name'>"."<a href='$base/public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
                                 echo "<td>".$product_info['category']."</td>";
                                 echo "<td>".$product_info['sold']."</td>";
                                 echo "<td>".$product_info['supplierName']."</td>";
