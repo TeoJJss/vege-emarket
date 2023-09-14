@@ -2,7 +2,7 @@
 <b>!! PLEASE RENAME THE ROOT FOLDER NAME TO "vege-emarket"</b> if you download zip file from this GitHub page. <br><br>
 All HTML files should be changed to '.php' extension at the end of the assignment, instead of '.html'.    <br>
 Homepage PHP file should be named "index.php", regardless which user role.  <br>
-Import `vegemarket.sql` to phpMyAdmin to use the designed database. The database name must be <b>"vegemarket"</b> <br>
+Import `vegemarket.sql` in the "sql" folder to phpMyAdmin to use the designed database. The database name must be <b>"vegemarket"</b> <br>
 <br><br>
 Files MUST be uploaded into the folders as shown below:  
 <table style='border:1px solid; width: 100%;'>
