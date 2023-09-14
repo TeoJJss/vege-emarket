@@ -189,6 +189,10 @@
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             right: 13vw;
         }
+        a.contact{
+            color: green;
+            font-size: 1.8vw;
+        }
     </style>
 </head>
 <body><br>
@@ -234,9 +238,9 @@
                     <?php } ?>
                 </div>
                 <div class="product-contacts">
-                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.jpg" alt="phone"><a href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank" class="contact-detail">Click Here to Chat</a></div>
-                    <div class="product-contact"><img class="contact-icon" src="../images/phone.jpg" alt="phone"><a href="tel:+<?php echo $product_detail['phone']; ?>" class="contact-detail"><?php echo $product_detail['phone']; ?></a></div>
-                    <div class="product-contact"><img class="contact-icon" src="../images/email.jpeg" alt="phone"><a href="mailto:<?php echo $product_detail['email']; ?>" class="contact-detail"><?php echo $product_detail['email']; ?></a></div>    
+                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.jpg" alt="phone"><a class="contact" href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank" class="contact-detail">Click Here to Chat</a></div>
+                    <div class="product-contact"><img class="contact-icon" src="../images/phone.jpg" alt="phone"><a class="contact" href="tel:+<?php echo $product_detail['phone']; ?>" class="contact-detail"><?php echo $product_detail['phone']; ?></a></div>
+                    <div class="product-contact"><img class="contact-icon" src="../images/email.jpeg" alt="phone"><a class="contact" href="mailto:<?php echo $product_detail['email']; ?>" class="contact-detail"><?php echo $product_detail['email']; ?></a></div>    
                 </div>
                 <?php if ($role=="admin"){ ?>
                     <?php if ($product_detail['availabilityStatus']!="banned"){ ?>
