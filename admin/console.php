@@ -1,9 +1,9 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
-    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
 
     // Get user list for user console
     $user_list = mysqli_query($conn, "SELECT * FROM users WHERE role != 'admin'; ");
@@ -44,14 +44,14 @@
             font-size: 4vh;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             cursor: pointer;
-            background-color: aliceblue;
+            background-color: oldlace;
             border: none;
         }
         .menu > button:hover {
             background-color: azure;
         }
         div.console-container .content {
-            background-color: aliceblue;
+            background-color: oldlace;
             height: 2000px;
             max-height: 30vw;
             max-width: 80vw;
@@ -106,6 +106,7 @@
         tbody.product-table > tr, th{
             padding: 0vw;
         }
+
     </style>
 </head>
 <body>
@@ -205,15 +206,15 @@
         function tab(type){ //If user clicks on tab
             if (type=='user'){
                 document.getElementById('user-content').style.display='block';
-                document.getElementById('user-tab').style.backgroundColor='lightcyan';
+                document.getElementById('user-tab').style.backgroundColor='lightyellow';
                 document.getElementById('product-content').style.display='none';
-                document.getElementById('product-tab').style.backgroundColor='aliceblue';
+                document.getElementById('product-tab').style.backgroundColor='oldlace';
             }
             if (type=='product'){
                 document.getElementById('product-content').style.display='block';
-                document.getElementById('product-tab').style.backgroundColor='lightcyan';
+                document.getElementById('product-tab').style.backgroundColor='lightyellow';
                 document.getElementById('user-content').style.display='none';
-                document.getElementById('user-tab').style.backgroundColor='aliceblue';
+                document.getElementById('user-tab').style.backgroundColor='oldlace';
             }
         }
 
@@ -233,4 +234,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>

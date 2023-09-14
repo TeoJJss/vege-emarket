@@ -1,6 +1,7 @@
 <h1>WDT Group 19</h1>
-All HTML files should be changed to '.php' extension at the end of the assignment, instead of '.html'.    
-Homepage PHP file should be named "index.php", regardless which user role.  
+All HTML files should be changed to '.php' extension at the end of the assignment, instead of '.html'.    <br>
+Homepage PHP file should be named "index.php", regardless which user role.  <br>
+Import `vegemarket.sql` to phpMyAdmin to use database.  <br>
 <br><br>
 Files MUST be uploaded into the folders as shown below:  
 <table style='border:1px solid; width: 100%;'>

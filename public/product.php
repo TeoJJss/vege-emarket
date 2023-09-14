@@ -1,7 +1,7 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php';
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php';
     if ($role!=""){
-        include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+        include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
     }
     if (isset($_GET['id'])){
         $id=$_GET['id'];
@@ -30,6 +30,9 @@
     <title>Product Details - <?php echo $product_detail['productName']; ?></title>
     <link rel="stylesheet" href="../styles/title.css">
     <style>
+        h1#title{
+            color: darkgreen;
+        }
         button.product-button{
             margin-left: 15%;
             margin-top: 5%;
@@ -328,4 +331,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>

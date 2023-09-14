@@ -1,5 +1,5 @@
 <?php
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
     if ($role !='supplier'){
         echo "Access denied";
         header('Location: '.$base);

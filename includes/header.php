@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; 
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
 
     /* READ (change to session after login page done) */
     $read_sql = "SELECT userName FROM users WHERE userID='$user_id'";
@@ -35,7 +35,7 @@
         }
         div.header_welcome > a{
             text-decoration: underline;
-            color: blue; 
+            color: green; 
             cursor: pointer;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         }
@@ -49,18 +49,14 @@
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             right: 8vw;
-        }
-        span#logo_txt{
-            text-decoration: none; /* Remove underline */
-            color: blue;
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-weight: bold;
-            font-size: 170%;
+        } 
+        div.header-username-dropdown-content > a{
             cursor: pointer;
+            color: darkgreen;
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="" alt="LOGO_IMG"></a><span id="logo_txt" onclick="location.href='<?php echo $base.'/index.php'; ?>'">&nbsp;<?php echo $web_name; ?></span>
+        <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="100vh"></a>
     </div>
     <div class="header_welcome">
         <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
@@ -93,4 +89,4 @@
         }
     </script>
 </header>
-<br><br>
+<p style="clear:both;"></p>

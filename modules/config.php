@@ -1,5 +1,5 @@
 <?php
-    $base = 'http://'.$_SERVER['HTTP_HOST'].'/agriculture'; // Base URL, e.g. localhost'; 
+    $base = 'http://'.$_SERVER['HTTP_HOST'].'/vege-emarket'; // Base URL, e.g. localhost'; 
     $role = '';
     
     // Connection to Database

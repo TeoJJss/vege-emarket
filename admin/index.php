@@ -1,10 +1,10 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
     
-    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
     
     $user_list_length =0;
     $product_list_length=0;
@@ -43,7 +43,7 @@
         #up_card, #mid_card{
             align-self: center;
             float: left;
-            background-color: ghostwhite;
+            background-color: oldlace;
             width: 40vw;
             text-align: center;
             border-radius: 25px;
@@ -68,7 +68,7 @@
             font-family: 'Courier New', Courier, monospace;
         }
         button.index-button{
-            background-color: midnightblue;
+            background-color: darkgreen;
             font-size: 1em;
             font-weight: bolder;
             color: white;
@@ -78,7 +78,7 @@
         }
         button.index-button:hover{
             cursor: pointer;
-            background-color: mediumblue;
+            background-color: mediumseagreen;
             font-weight: lighter;
         }
         #mid_card{
@@ -112,7 +112,7 @@
             width: 60%;
         }
         div.top_selling, div.mvc{
-            background-color: ghostwhite;
+            background-color: oldlace;
             margin-left: 5vw;
             max-height: 30vw;
             overflow-x: scroll;
@@ -135,7 +135,7 @@
             float: right;
             margin-right: 10vw;
             width: 30vw;
-            background-color: ghostwhite;
+            background-color: oldlace;
             border-radius: 25px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 1vw;
@@ -144,6 +144,7 @@
 </head>
 <body>
     <div id="wrapper">
+        <p style="clear:both;"></p>
         <h1 id="title">Administration Page</h1>
         <p id="title">Admin HomePage</p>
         <br>
@@ -258,4 +259,4 @@
     </body>
 
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>

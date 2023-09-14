@@ -1,10 +1,10 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/agriculture/modules/config.php'; // Validate user role
+    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
     if ($role == ''){
         header("Location: $base");
     }
     
-    include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/header.php'; // Get header
+    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
 
     /* READ */
     $read_sql = "SELECT * FROM users WHERE userID='$user_id'";
@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="../styles/title.css">
     <style>
         h1#title{
-            color: midnightblue;
+            color: darkgreen;
             text-align: center;
             font-size: 6vw;
             margin: 7vh 0vw;
@@ -147,4 +147,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/agriculture/includes/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>
