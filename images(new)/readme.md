@@ -1,0 +1,1 @@
+This folder should include all media files used in any webpages (not from user), such as Logo, icons.
