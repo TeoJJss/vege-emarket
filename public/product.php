@@ -112,7 +112,7 @@
         }
         img.contact-icon{
             margin-right: 10%;
-            width: 10%;
+            width: 5.5%;
         }
 
         .availability {
@@ -134,8 +134,8 @@
         }
         div.product-contact{
             font-family: Arial, Helvetica, sans-serif;
-            clear: both;
             padding: 2%;
+            margin-left: 20%;
         }
         div.item-details-container{
             display: flex;
@@ -145,9 +145,6 @@
         img#product-category-icon{
             margin-left: 7vw;
             margin-right: 1vw;
-        }
-        a.contact-detail{
-            font-size: 1.5vw;
         }
         h3.product-card-title{
             padding-top: 0.5%;
@@ -191,7 +188,8 @@
         }
         a.contact{
             color: green;
-            font-size: 1.8vw;
+            font-size: 1.3vw;
+            padding-bottom: 10%;
         }
     </style>
 </head>
@@ -211,7 +209,7 @@
                         <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="900vw" height="500vw" ><br>
                         <div id="Description">
                             <h3 class="product-card-title">Description<?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
-                                <img class="edit-button" src="../images/edit.jpg" alt="edit" width="3%" onclick="editMode('description')">
+                                <img class="edit-button" src="../images/edit.png" alt="edit" width="3%" onclick="editMode('description')">
                             <?php } ?></h3>
                             <p class="desc-text" id="description"><?php echo $product_detail['description']; ?></p>
                             <button class="save-button" id="save-button-description" onclick="saveEdit('description', 'description')">SAVE</button><br>
@@ -223,7 +221,7 @@
                 <div class="product-right-card">
                     <div class="price">RM <span id="priceLabel"><?php echo $product_detail['priceLabel']; ?></span>
                     <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
-                        <img class="edit-button" src="../images/edit.jpg" alt="edit" width="5%"onclick="editMode('priceLabel')">
+                        <img class="edit-button" src="../images/edit.png" alt="edit" width="5%"onclick="editMode('priceLabel')">
                         <button class="save-button" id="save-button-priceLabel" onclick="saveEdit('priceLabel', 'priceLabel')">SAVE</button><br>
                     <?php } ?></div>
                     <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
@@ -238,9 +236,9 @@
                     <?php } ?>
                 </div>
                 <div class="product-contacts">
-                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.jpg" alt="phone"><a class="contact" href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank" class="contact-detail">Click Here to Chat</a></div>
-                    <div class="product-contact"><img class="contact-icon" src="../images/phone.jpg" alt="phone"><a class="contact" href="tel:+<?php echo $product_detail['phone']; ?>" class="contact-detail"><?php echo $product_detail['phone']; ?></a></div>
-                    <div class="product-contact"><img class="contact-icon" src="../images/email.jpeg" alt="phone"><a class="contact" href="mailto:<?php echo $product_detail['email']; ?>" class="contact-detail"><?php echo $product_detail['email']; ?></a></div>    
+                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.png" alt="phone"><a class="contact" href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank">Click Here to Chat</a></div>
+                    <div class="product-contact"><img class="contact-icon" src="../images/phone1.png" alt="phone"><a class="contact" href="tel:+<?php echo $product_detail['phone']; ?>"><?php echo $product_detail['phone']; ?></a></div>
+                    <div class="product-contact"><img class="contact-icon" src="../images/email.png" alt="phone"><a class="contact" href="mailto:<?php echo $product_detail['email']; ?>"><?php echo $product_detail['email']; ?></a></div>    
                 </div>
                 <?php if ($role=="admin"){ ?>
                     <?php if ($product_detail['availabilityStatus']!="banned"){ ?>

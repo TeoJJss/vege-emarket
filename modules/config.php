@@ -22,5 +22,5 @@
         $role=''; // Otherwise, the user is guest
     }
 
-    $role='admin'; $user_id='U03'; // Remove this line later
+    $role='supplier'; $user_id='U02'; // Remove this line later
 ?>

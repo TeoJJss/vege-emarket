@@ -109,6 +109,13 @@
         #title{
             color: darkgreen;
         }
+        input.console-search-input{
+            height: 5vh;
+            font-size: 100%;
+        }
+        a.console-product-name{
+            color:darkgreen;
+        }
     </style>
 </head>
 <body>
@@ -121,7 +128,7 @@
         </div>
         <div class="content" id="product-content">
             <div class="search-container">
-                <input type="text" class="product-content-search-input" placeholder="Search product" onkeyup="searchFunction('product')" autofocus>
+                <input type="text" class="console-search-input" placeholder="Search product" onkeyup="searchFunction('product')" autofocus>
                 <button class="search-button" >🔍</button>
             </div><br>
             <table class="console-content-table">
@@ -143,7 +150,7 @@
                                 $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
                                 echo '<td>'.$count.'</td>';
-                                echo '<td class="search-key">'."<a href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
+                                echo '<td class="search-key">'."<a class='console-product-name' href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
@@ -166,7 +173,7 @@
         </div>
         <div class="content" id="user-content">
             <div class="search-container">
-                <input type="text" class="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
+                <input type="text" class="console-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
                 <button class="search-button" >🔍</button>
             </div><br>
             <table class="console-content-table">

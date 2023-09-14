@@ -56,7 +56,7 @@
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="100vh"></a>
+        <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
     </div>
     <div class="header_welcome">
         <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
@@ -89,4 +89,4 @@
         }
     </script>
 </header>
-<p style="clear:both;"></p>
+<p style="clear:both; margin-bottom: 4%;"></p>
