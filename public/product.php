@@ -34,15 +34,15 @@
             color: darkgreen;
         }
         button.product-button{
-            margin-left: 30%;
-            margin-top: 5%;
-            font-size: 3vw;
+            margin-left: 32%;
+            margin-top: 8%;
+            font-size: 2vw;
             color: white;
             background-color: black;
             cursor: pointer;
             border-radius: 0%;
-            width: 30%;
-            min-width: max-content;
+            width: max-content;
+            max-width: 40%;
         }
         button.product-button:hover{
             background-color: gray;
