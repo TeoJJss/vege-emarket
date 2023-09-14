@@ -1,5 +1,5 @@
 <h1>WDT Group 19</h1>
-<b>!! PLEASE RENAME THE ROOT FOLDER NAME TO "vege-emarket"</b> if download zip file from GitHub. <br><br>
+<b>!! PLEASE RENAME THE ROOT FOLDER NAME TO "vege-emarket"</b> if you download zip file from this GitHub page. <br><br>
 All HTML files should be changed to '.php' extension at the end of the assignment, instead of '.html'.    <br>
 Homepage PHP file should be named "index.php", regardless which user role.  <br>
 Import `vegemarket.sql` to phpMyAdmin to use the designed database. The database name must be <b>"vegemarket"</b> <br>

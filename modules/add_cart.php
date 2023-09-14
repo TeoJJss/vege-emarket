@@ -14,5 +14,5 @@
     $insert_sql="INSERT INTO cart_product(cartID, productID) VALUES ('$cart_id', '$product_id')";
     mysqli_query($conn, $insert_sql);
 
-    echo "<script>location.href='".$base."/public/product.php?id=".$product_id."';</script>";
+    echo "<script>location.href='".$base."/public/product.php?id=".$product_id."';</script>"; // Redirect to Cart page when the page is ready
 ?>
