@@ -66,12 +66,12 @@
             padding: 1%;
         }
         table.product-container{
-            margin-left: 5vw;
+            margin-left: 3vw;
             max-width: 90%;
         }
         div#Description {
             background-color: wheat;
-            max-width: 80%;
+            max-width: 70%;
             max-height: 50%;
             padding-left: 1%;
             padding-top: 0.3%;
@@ -82,12 +82,12 @@
             border: 1px solid;
             margin-bottom: 2vh;
             max-height: 10%;
-            max-width: 80%;
-            min-width: 50%;
+            max-width: 70%;
+            min-width: 30%;
         }
         td.product-left-part{
-            max-width: 55%;
-            width: 100%;
+            max-width: 50%;
+            width: 90%;
             padding: 0;
         }
         td.product-right-part > .product-right-card {
@@ -114,7 +114,6 @@
             margin-right: 10%;
             width: 5.5%;
         }
-
         .availability {
             color: white;
             padding: 2%;
