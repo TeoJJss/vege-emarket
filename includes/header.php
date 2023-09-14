@@ -38,6 +38,7 @@
             color: green; 
             cursor: pointer;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-right: 7vw;
         }
         div.header-username-dropdown-content {
             display: none;
@@ -48,18 +49,21 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 8vw;
+            right: 15vw;
         } 
         div.header-username-dropdown-content > a{
             cursor: pointer;
             color: darkgreen;
+        }
+        div.header-username-dropdown-content > a:hover{
+            background-color: wheat;
         }
     </style>
     <div class="header_logo">
         <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
     </div>
     <div class="header_welcome">
-        <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a>! <br>
+        <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a><br>
                     <div id="header-username-dropdown" class="header-username-dropdown-content">
                         <a href="<?php echo $base.'/public/profile.php'; ?>">Profile</a><br><br>
                         <a href="<?php echo $base.'/modules/logout.php'; ?>">Logout</a><br> &nbsp;

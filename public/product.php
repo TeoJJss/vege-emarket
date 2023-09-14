@@ -143,7 +143,7 @@
             margin-right: 30vw;
         }
         img#product-category-icon{
-            margin-left: 7vw;
+            margin-left: 5vw;
             margin-right: 1vw;
         }
         h3.product-card-title{
@@ -184,7 +184,13 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 13vw;
+            right: 7vw;  
+        }
+        div.availability-status-dropdown-content > a{
+            color: darkgreen;
+        }
+        div.availability-status-dropdown-content > a:hover{
+            background-color: wheat;
         }
         a.contact{
             color: green;
@@ -232,7 +238,7 @@
                             <a href="<?php echo $base."/modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>">Out of Stock</a><br> &nbsp;
                         </div>
                     <?php }else{ ?>
-                        <div class="availability" id="status"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
+                        <div class="availability" id="status" style="cursor: default;"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
                     <?php } ?>
                 </div>
                 <div class="product-contacts">
