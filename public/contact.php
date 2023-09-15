@@ -92,7 +92,7 @@
                 </tr>
             </table>
         </div><br>  
-        <p class="desc" id="partner">Looking for a partnership opportunity with <b>Vege e-Market</b>? <br>Email us at <a class="contact" href="mailto:partner@vegemarket.my">partner@vegemarket.my</a>.</p>
+        <p class="desc" id="partner">Looking for a partnership opportunity with <b style="color:darkgreen;">Vege e-Market</b>? <br>Email us at <a class="contact" href="mailto:partner@vegemarket.my">partner@vegemarket.my</a>.</p>
     </div>
 </body>
 </html>

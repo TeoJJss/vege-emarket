@@ -90,7 +90,8 @@
         }
         table.console-content-table{
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 2.5vh;            
+            font-size: 2.7vh;          
+            margin-top: 1.5%;  
         }
         button.ban-button{
             color: white;
@@ -104,7 +105,7 @@
         button.ban-button:hover{
             background-color: grey;
         }
-        tbody.product-table > tr, th{
+        tbody.product-table > tr{
             padding: 0vw;
         }
         #title{
@@ -112,6 +113,9 @@
         }
         a.search-product-url{
             color: green;
+        }
+        tr.console-table-headers{
+            color: #006400;
         }
     </style>
 </head>
@@ -130,7 +134,7 @@
             </div><br>
             <table class="console-content-table">
                 <thead>
-                    <tr>
+                    <tr class="console-table-headers">
                         <th></th>
                         <th>Product Name</th>
                         <th>Price Label</th>
@@ -148,7 +152,7 @@
                                 echo '<tr class="searchable-row">';
                                 echo '<td>'.$count.'</td>';
                                 echo '<td class="search-key">'."<a class='search-product-url' href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
-                                echo '<td class="search-key">'.$product_info['priceLabel'].'</td>';
+                                echo '<td class="search-key">RM'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
                                 
@@ -175,7 +179,7 @@
             </div><br>
             <table class="console-content-table">
                 <thead>
-                    <tr>
+                    <tr class="console-table-headers">
                         <th></th>
                         <th>Name</th>
                         <th>Role</th>

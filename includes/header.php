@@ -49,7 +49,7 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 15vw;
+            right: 13vw;
         } 
         div.header-username-dropdown-content > a{
             cursor: pointer;
@@ -60,7 +60,7 @@
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
+        <a href="<?php echo $base.'/index.php'; ?>" title="Vege e-Market"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
     </div>
     <div class="header_welcome">
         <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a><br>
