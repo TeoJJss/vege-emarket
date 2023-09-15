@@ -34,7 +34,7 @@
             color: darkgreen;
         }
         button.product-button{
-            margin-left: 32%;
+            margin-left: 30%;
             margin-top: 8%;
             font-size: 2vw;
             color: white;
