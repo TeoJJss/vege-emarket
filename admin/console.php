@@ -67,15 +67,16 @@
             display: flex;
             align-items: center;
         }
-        div.console-container input.search-input{
-            width: 21vw;
+        input.user-content-search-input, input.product-content-search-input{
+            width: 15vw;
             font-size: medium;
-            height: 2.2vw;
+            height: 2.5vw;
             min-height: 2vw;
         }
         div.console-container .search-button{
             cursor: pointer;
-            height: fit-content;
+            height: 2.5vw;
+            min-width: 1.3vw;
             width: fit-content;
             font-size: x-large;
         }
@@ -109,12 +110,8 @@
         #title{
             color: darkgreen;
         }
-        input.console-search-input{
-            height: 5vh;
-            font-size: 100%;
-        }
-        a.console-product-name{
-            color:darkgreen;
+        a.search-product-url{
+            color: green;
         }
     </style>
 </head>
@@ -128,7 +125,7 @@
         </div>
         <div class="content" id="product-content">
             <div class="search-container">
-                <input type="text" class="console-search-input" placeholder="Search product" onkeyup="searchFunction('product')" autofocus>
+                <input type="text" class="product-content-search-input" id="product-content-search-input" placeholder="Search product" onkeyup="searchFunction('product')" autofocus>
                 <button class="search-button" >🔍</button>
             </div><br>
             <table class="console-content-table">
@@ -142,7 +139,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody class="product-table">
+                <tbody class="product-table" id="product-table">
                     <?php
                         $count=1;
                         if ($product_list_length){
@@ -150,7 +147,7 @@
                                 $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
                                 echo '<td>'.$count.'</td>';
-                                echo '<td class="search-key">'."<a class='console-product-name' href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
+                                echo '<td class="search-key">'."<a class='search-product-url' href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
@@ -173,7 +170,7 @@
         </div>
         <div class="content" id="user-content">
             <div class="search-container">
-                <input type="text" class="console-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
+                <input type="text" class="user-content-search-input" id="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
                 <button class="search-button" >🔍</button>
             </div><br>
             <table class="console-content-table">
@@ -186,7 +183,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody class="user-table">
+                <tbody class="user-table" id="user-table">
                     <?php
                         $count=1;
                         if ($user_list_length){

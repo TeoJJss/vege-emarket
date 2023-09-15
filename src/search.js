@@ -2,14 +2,14 @@ function searchFunction(type) {
     var inputElement, body;
     
     if (type == 'product') {
-        inputElement = document.getElementsByClassName('product-content-search-input')[0];
-        body = document.getElementsByClassName('product-table')[0];
+        inputElement = document.getElementById('product-content-search-input');
+        body = document.getElementById('product-table');
     } else if (type == 'user') {
-        inputElement = document.getElementsByClassName('user-content-search-input')[0];
-        body = document.getElementsByClassName('user-table')[0];
+        inputElement = document.getElementById('user-content-search-input');
+        body = document.getElementById('user-table');
     }else{
-        inputElement = document.getElementsByClassName('search-input')[0];
-        body = document.getElementsByClassName('searchable-content')[0];
+        inputElement = document.getElementById('search-input');
+        body = document.getElementById('searchable-content');
     }
     
     var input = inputElement.value.toUpperCase();
