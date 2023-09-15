@@ -71,7 +71,7 @@
         }
         div#Description {
             background-color: wheat;
-            max-width: 70%;
+            max-width: 74%;
             max-height: 50%;
             padding-left: 1%;
             padding-top: 0.3%;
@@ -82,7 +82,7 @@
             border: 1px solid;
             margin-bottom: 2vh;
             max-height: 10%;
-            max-width: 70%;
+            max-width: 75%;
             min-width: 30%;
         }
         td.product-left-part{
