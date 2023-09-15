@@ -69,16 +69,16 @@
         }
         input.user-content-search-input, input.product-content-search-input{
             width: 15vw;
-            font-size: medium;
+            font-size: 1.5vw;
             height: 2.5vw;
             min-height: 2vw;
         }
         div.console-container .search-button{
             cursor: pointer;
             height: 2.5vw;
-            min-width: 1.3vw;
+            min-width: 2vw;
             width: fit-content;
-            font-size: x-large;
+            font-size: 1.5vw;
         }
         div.console-container table{
             margin-left: 2vw;
