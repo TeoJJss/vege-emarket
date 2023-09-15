@@ -20,9 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `vegemarket`
 --
-DROP DATABASE IF EXISTS `test`;
-CREATE DATABASE test;
-USE test;
+DROP DATABASE IF EXISTS `vegemarket`;
+CREATE DATABASE vegemarket;
+USE vegemarket;
 -- --------------------------------------------------------
 
 --
