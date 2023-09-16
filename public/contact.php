@@ -1,7 +1,7 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
+    require '../modules/config.php'; // Validate user role
     if ($role != ''){
-        include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
+        include '../includes/header.php'; // Get header
     }
 ?>
 
@@ -96,4 +96,4 @@
     </div>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

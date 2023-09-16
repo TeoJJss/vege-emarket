@@ -1,4 +1,5 @@
 <?php
-	session_destroy();
-	header("Location: ".$base);
+	echo "logout not available";
+	// session_destroy();
+	// header("Location: ".$base);
 ?>

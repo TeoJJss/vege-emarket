@@ -1,7 +1,7 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php';
+    require '../modules/config.php';
     if ($role!=""){
-        include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
+        include '../includes/header.php'; // Get header
     }
     if (isset($_GET['id'])){
         $id=$_GET['id'];
@@ -338,4 +338,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

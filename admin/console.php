@@ -1,9 +1,9 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
+    require '../modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
-    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
+    include '../includes/header.php'; // Get header
 
     // Get user list for user console
     $user_list = mysqli_query($conn, "SELECT * FROM users WHERE role != 'admin'; ");
@@ -244,4 +244,4 @@
     </script>
 </body>
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

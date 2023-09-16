@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
+    require '../modules/config.php';
 
     /* READ (change to session after login page done) */
     $read_sql = "SELECT userName FROM users WHERE userID='$user_id'";

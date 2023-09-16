@@ -1,10 +1,10 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; // Validate user role
+    require '../modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: '.$base);
     }
     
-    include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/header.php'; // Get header
+    include '../includes/header.php'; // Get header
     
     $user_list_length =0;
     $product_list_length=0;
@@ -249,11 +249,11 @@
         </div>
         <div class="conclusion" id="down_card">
             <br>
-            <p>Number of Orders: <?php echo $order_list_length;?></p>
-            <p>Transaction total: RM <?php 
+            <p>Number of Orders: <b><?php echo $order_list_length;?> </b></p>
+            <p>Transaction total: <b>RM <?php 
                                         $total=mysqli_fetch_array($total_spend);
                                         echo $total['totalspend'];
-                                    ?> 
+                                    ?> </b>
             </p>
             <br>
         </div><br>
@@ -262,4 +262,4 @@
     </body>
 
 </html>
-<?php include $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/includes/footer.php'; ?>
+<?php include '../includes/footer.php'; ?>

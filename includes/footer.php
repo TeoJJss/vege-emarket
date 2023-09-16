@@ -1,5 +1,5 @@
 <?php 
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
+    require '../modules/config.php';
 ?>
 <br><br>
 <footer>

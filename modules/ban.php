@@ -1,6 +1,6 @@
 <?php 
     /* UPDATE */
-    require $_SERVER['DOCUMENT_ROOT'].'/vege-emarket/modules/config.php'; 
+    require '../modules/config.php'; 
     if ($role !='admin'){
         echo "Access denied";
         header('Location: '.$base);
