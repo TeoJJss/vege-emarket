@@ -204,7 +204,7 @@
             <td class="product-left-part">
                 <h1 id="title" style="font-size: 3vw;" contenteditable="false"><?php echo $product_detail['productName']; ?></h1>
                 <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
-                    <img class="edit-button" src="../images/edit.jpg" alt="edit" width="3%" onclick="editMode('title')">
+                    <img class="edit-button" src="../images/edit.png" alt="edit" width="3%" onclick="editMode('title')">
                     <button class="save-button" id="save-button-title" onclick="saveEdit('title', 'productName')">SAVE</button><br>
                 <?php } ?>
                 
