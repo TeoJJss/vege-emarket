@@ -1,4 +1,5 @@
 <?php
+    echo '<link rel="shortcut icon" type="image/png" href="../images/favicon.png">'; // Put tab icon
     $base = 'http://'.$_SERVER['HTTP_HOST'].'/vege-emarket'; // Base URL, e.g. localhost'; 
     $role = '';
     

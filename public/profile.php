@@ -103,7 +103,7 @@
 
             <label for="gender"><h2>Gender</h2></label>
             <div class="input-container">
-                <input type="text" name="gender" id="gender" value="<?php echo $user_info['gender']; ?>" readonly>
+                <input type="text" name="gender" id="gender" value="<?php echo ucfirst($user_info['gender']); ?>" readonly>
             </div>
 
             <label for="birthday"><h2>Birthday</h2></label>
@@ -125,7 +125,7 @@
 
             <label for="role"><h2>Role</h2></label>
             <div class="input-container">
-                <input type="text" id="role" name="role" value="<?php echo $user_info['role']; ?>" readonly>
+                <input type="text" id="role" name="role" value="<?php echo ucfirst($user_info['role']); ?>" readonly>
             </div>
             <br>
             <button title="Save changes" type="submit" class="save" id="save">Save</button>

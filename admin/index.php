@@ -85,6 +85,7 @@
             width: 83vw;
             margin-left: 5vw;
             margin-top: 1vw;
+            margin-bottom: 1vw;
         }
         table.info-table{
             margin-left: 50px;
@@ -123,7 +124,6 @@
         div.mvc{
             max-width: 50vw;
             margin-right: 3vw;
-            margin-top: 1vh;
             float: left;
             border-radius: 25px;
             width: 35vw;
@@ -256,9 +256,9 @@
                                     ?> </b>
             </p>
             <br>
-        </div><br>
+        </div>
     </div>
-    
+    <br style="clear:both;">
     </body>
 
 </html>

@@ -5,7 +5,7 @@
 <footer>
     <style>
         footer{
-            background-color: #2E2E2E;
+            background-color: #006400; /* Dark green */
             text-align: left;
             clear: both;
             max-width: 100%;
@@ -22,10 +22,10 @@
         }
         td#footer{
             width: 50%;
-            color: aliceblue;
+            color: #FFFFFF;
         }
         td#footer-url > a{
-            color: aliceblue;
+            color: #FFFFFF;
             margin-left: 2vw;
             margin-right: 2vw;
             font-size: 20vw;
@@ -37,7 +37,7 @@
         }
         td#footer-url{
             clear:both;
-            color:aliceblue;
+            color:#FFFFFF;
             text-align: right;
             margin-right: 2%;
         }

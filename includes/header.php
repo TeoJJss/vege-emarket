@@ -84,13 +84,17 @@
 
         if (currentHour >= 6 && currentHour < 12) {
             greetTag.innerHTML="Good Morning";
+            greetTag.style.color="goldenrod";
         } else if (currentHour >= 12 && currentHour < 17) {
             greetTag.innerHTML="Good Afternoon";
+            greetTag.style.color="coral";
         }else if (currentHour>=17 && currentHour<22){
             greetTag.innerHTML="Good Evening";
+            greetTag.style.color="#CC9900"; // darker yellow
         }else if (currentHour>=22 || currentHour<6){
             greetTag.innerHTML="Good Night";
+            greetTag.style.color="darkblue";
         }
     </script>
 </header>
-<p style="clear:both; margin-bottom: 4%;"></p>
+<p style="clear:both; margin-bottom: 3%;"></p>

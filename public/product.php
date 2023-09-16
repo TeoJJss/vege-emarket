@@ -6,7 +6,9 @@
     if (isset($_GET['id'])){
         $id=$_GET['id'];
     }else{
-        echo "Empty";
+        echo "<center><h1>Invalid product! </h1>"; 
+        echo "<button onclick='javascript:history.go(-1)' style='cursor: pointer;'>Back</button><br>"; //Go back to previous page
+        echo "<small>Still having troubles? <a href='../public/contact.php' style='color:green;'>Report</a></small></center>";
         die;
     }
     $sql = "SELECT products.productName, products.category, products.priceLabel, products.availabilityStatus, users.userID as supplierID, users.userName as supplierName, users.email, users.phone,
@@ -19,7 +21,10 @@
     $product= mysqli_query($conn, $sql);
     $product_detail=mysqli_fetch_array($product); 
     if ($product_detail['productID']==""){
-        die("No product found");
+        echo "<center><h1>Product not found or deleted! </h1>"; 
+        echo "<button onclick='javascript:history.go(-1)' style='cursor: pointer;'>Back</button><br>"; //Go back to previous page
+        echo "<small>Still having troubles? <a href='../public/contact.php' style='color:green;'>Report</a></small></center>";
+        die;
     }
 ?>
 <!DOCTYPE html>
@@ -198,7 +203,7 @@
         }
     </style>
 </head>
-<body><br>
+<body>
     <table class="product-container">
         <tr class="product-first-container">
             <td class="product-left-part">
