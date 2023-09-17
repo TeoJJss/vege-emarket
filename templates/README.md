@@ -1,0 +1,1 @@
+This folder should include all webpages in .php which is pure HTML, no PHP in it.  

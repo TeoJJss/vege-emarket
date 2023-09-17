@@ -36,6 +36,10 @@ Files MUST be uploaded into the folders as shown below:
         <td>Save in "modules/"</td>
     </tr>
     <tr>
+        <td>PHP files with pure HTML, without any PHP</td>
+        <td>Save in "templates/"</td>
+    </tr>
+    <tr>
         <td>Files that can be accessed by more than one role</td>
         <td>Save in "public/"</td>
     </tr>

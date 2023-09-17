@@ -138,7 +138,7 @@
             background-color: oldlace;
             border-radius: 25px;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 1vw;
+            font-size: 1.3vw;
         }
         #title{
             color: darkgreen;
@@ -249,12 +249,13 @@
         </div>
         <div class="conclusion" id="down_card">
             <br>
-            <p>Number of Orders: <b><?php echo $order_list_length;?> </b></p>
-            <p>Transaction total: <b>RM <?php 
+            <ul style="list-style: none;">
+                <li>Number of Orders: <b><?php echo $order_list_length;?> </b></li><br>
+                <li>Transaction total: <b>RM <?php 
                                         $total=mysqli_fetch_array($total_spend);
                                         echo $total['totalspend'];
-                                    ?> </b>
-            </p>
+                                    ?></b></li>
+            </ul>
             <br>
         </div>
     </div>

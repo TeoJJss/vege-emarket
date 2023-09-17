@@ -1,14 +1,13 @@
 <?php 
     require '../modules/config.php';
+    $failed_template = '<center><iframe name="Product Not Found" loading="lazy" src="../templates/not_found.php" frameborder="0" width="100%" height="50%"></iframe></center>';
     if ($role!=""){
         include '../includes/header.php'; // Get header
     }
     if (isset($_GET['id'])){
         $id=$_GET['id'];
     }else{
-        echo "<center><h1>Invalid product! </h1>"; 
-        echo "<button onclick='javascript:history.go(-1)' style='cursor: pointer;'>Back</button><br>"; //Go back to previous page
-        echo "<small>Still having troubles? <a href='../public/contact.php' style='color:green;'>Report</a></small></center>";
+        echo $failed_template;
         die;
     }
     $sql = "SELECT products.productName, products.category, products.priceLabel, products.availabilityStatus, users.userID as supplierID, users.userName as supplierName, users.email, users.phone,
@@ -21,9 +20,7 @@
     $product= mysqli_query($conn, $sql);
     $product_detail=mysqli_fetch_array($product); 
     if ($product_detail['productID']==""){
-        echo "<center><h1>Product not found or deleted! </h1>"; 
-        echo "<button onclick='javascript:history.go(-1)' style='cursor: pointer;'>Back</button><br>"; //Go back to previous page
-        echo "<small>Still having troubles? <a href='../public/contact.php' style='color:green;'>Report</a></small></center>";
+        echo $failed_template;
         die;
     }
 ?>
