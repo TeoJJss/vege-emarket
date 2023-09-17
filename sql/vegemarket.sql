@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 14, 2023 at 09:22 AM
+-- Generation Time: Sep 17, 2023 at 11:40 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -20,9 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `vegemarket`
 --
-DROP DATABASE IF EXISTS `vegemarket`;
-CREATE DATABASE vegemarket;
-USE vegemarket;
+CREATE DATABASE IF NOT EXISTS `vegemarket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `vegemarket`;
+
 -- --------------------------------------------------------
 
 --
@@ -150,7 +150,7 @@ INSERT INTO `products` (`productID`, `productName`, `priceLabel`, `availabilityS
 ('P01', 'Corns', 10.10, 'available', 'Minimum purchase 5kg. Contact us for details', 'Selangor, Malaysia', '2022-02-22', 'kg', 'Poaceae', 'U02/corn.jpg', 'U02'),
 ('P02', 'Potato', 20.00, 'banned', 'potato desc', 'Kedah Malaysia', '2023-03-03', 'g', 'root', '', 'U02'),
 ('P03', 'Carrot', 55.00, 'deleted', 'Carrots are a popular and widely consumed root vegetable known for their distinctive orange color and sweet, earthy flavor. ', 'Johor, Malaysia', '2023-03-04', 'kg', 'root', 'U05/carrot.jpg', 'U05'),
-('P04', 'pumpkin', 20.00, 'available', 'Minimum purchase 10kg, contact for info :)', 'Melaka, Malaysia', '2023-09-09', 'kg', 'marrow', 'U05/pumpkin-3f3d894.jpg', 'U05');
+('P04', 'pumpkin', 20.10, 'out of stock', 'Minimum purchase 10kg, contact for info :)', 'Melaka, Malaysia', '2023-09-09', 'kg', 'marrow', 'U05/pumpkin-3f3d894.jpg', 'U05');
 
 -- --------------------------------------------------------
 
@@ -177,11 +177,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`userID`, `userName`, `gender`, `email`, `phone`, `birthday`, `password`, `role`, `accStatus`) VALUES
-('U01', 'consumer1', 'male', 'consumer1@example.com', '60111111111', '2000-01-19', '11111111', 'consumer', 'active'),
-('U02', 'supplier1', 'female', 'supplier_yes@example.com', '60111111113', '2001-01-19', '11111122', 'supplier', 'banned'),
-('U03', 'administrator_root', 'male', 'admin123@vegemarket.com', '60181111322', '2001-01-30', '11111133', 'admin', 'active'),
-('U04', 'consumer2', 'female', 'consumer4@example.com', '60123456789', '2003-06-06', '12121212', 'consumer', 'active'),
-('U05', 'supplier2', 'male', 'supplier2@example.com', '6012343434', '2000-01-01', '098765433abc', 'supplier', 'active');
+('U01', 'consumer1', 'male', 'consumer1@example.com', '60111111111', '2000-01-19', '1bbd886460827015e5d605ed44252251', 'consumer', 'active'),
+('U02', 'supplier1', 'female', 'supplier_yes@example.com', '60111111113', '2001-01-19', 'c0c473bee87a482f312ac656b1b6843d', 'supplier', 'banned'),
+('U03', 'admin_acc', 'male', 'admin123@vegemarket.com', '60181111344', '2001-01-30', 'c84ea8d3dde7130386098a18d0f2759d', 'admin', 'active'),
+('U04', 'consumer2', 'female', 'consumer4@example.com', '60123456789', '2003-06-06', '8ce87b8ec346ff4c80635f667d1592ae', 'consumer', 'active'),
+('U05', 'supplier2', 'male', 'supplier2@example.com', '6012343434', '2000-01-01', 'ec71b18fbbd8fc7c7ba74015d688bd51', 'supplier', 'active');
 
 --
 -- Constraints for dumped tables
