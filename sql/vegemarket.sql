@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `vegemarket`
 --
-CREATE DATABASE IF NOT EXISTS `vegemarket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+DROP DATABASE IF EXISTS `vegemarket`;
+CREATE DATABASE IF NOT EXISTS `vegemarket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `vegemarket`;
 
 -- --------------------------------------------------------
@@ -35,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `userID` varchar(100) NOT NULL,
   PRIMARY KEY (`cartID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `cart_product` (
   `productID` varchar(100) NOT NULL,
   PRIMARY KEY (`cartID`,`productID`),
   KEY `productID` (`productID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart_product`
@@ -76,13 +77,13 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `orderID` varchar(100) NOT NULL,
   `orderDate` date NOT NULL,
-  `address` varchar(1000) NOT NULL,
+  `address` text NOT NULL,
   `orderStatus` varchar(100) NOT NULL,
   `paymentMethod` varchar(100) NOT NULL,
   `userID` varchar(100) NOT NULL,
   PRIMARY KEY (`orderID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
@@ -103,11 +104,11 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   `orderID` varchar(100) NOT NULL,
   `productID` varchar(100) NOT NULL,
   `agreedPrice` float NOT NULL,
-  `remark` varchar(1000) NOT NULL,
+  `remark` varchar(255) NOT NULL,
   `confirmStatus` tinyint(1) NOT NULL,
   PRIMARY KEY (`orderID`,`productID`),
   KEY `productID` (`productID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders_products`
@@ -130,17 +131,17 @@ CREATE TABLE IF NOT EXISTS `products` (
   `productID` varchar(100) NOT NULL,
   `productName` varchar(100) NOT NULL,
   `priceLabel` float(255,2) NOT NULL,
-  `availabilityStatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `location` varchar(1000) NOT NULL,
+  `availabilityStatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
   `addDate` date NOT NULL,
   `unit` varchar(10) NOT NULL,
   `category` varchar(100) NOT NULL,
-  `imgPath` varchar(1000) NOT NULL,
+  `imgPath` varchar(255) NOT NULL,
   `userID` varchar(100) NOT NULL,
   PRIMARY KEY (`productID`),
   KEY `userID` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
@@ -170,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(10) NOT NULL,
   `accStatus` varchar(255) DEFAULT 'active',
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
