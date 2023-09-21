@@ -1,7 +1,7 @@
 <?php 
     require '../modules/config.php'; // Validate user role
     if ($role !='admin'){
-        header('Location: '.$base);
+        header('Location: ../index.php');
     }
     
     include '../includes/header.php'; // Get header
@@ -155,7 +155,7 @@
             <h3 class="card_title" style="text-align: center;">Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
             <span class="card_desc" >&nbsp;Total users: <b><?php echo $user_list_length; ?></b> </span><br><br>
-            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=user';" title="Go to User Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='../admin/console.php?type=user';" title="Go to User Management page">GO!</button>
 
             <br>&nbsp;
         </div>
@@ -163,7 +163,7 @@
             <h3 class="card_title" style="text-align: center;">Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
             <span class="card_desc" >&nbsp;Total products: <b><?php echo $product_list_length; ?></b> </span><br><br>
-            <button class="index-button" onclick="window.location.href='<?php echo $base; ?>/admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
+            <button class="index-button" onclick="window.location.href='../admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">
@@ -192,7 +192,7 @@
                             while($product_info=mysqli_fetch_array($products)) {
                                 $id=$product_info['productID'];
                                 echo "<tr><td> $count </td>";
-                                echo "<td class='product_name'>"."<a href='$base/public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
+                                echo "<td class='product_name'>"."<a href='../public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
                                 echo "<td>".$product_info['category']."</td>";
                                 echo "<td>".$product_info['sold']."</td>";
                                 echo "<td>".$product_info['supplierName']."</td>";

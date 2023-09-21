@@ -52,9 +52,9 @@
         <tr id="footer">
             <td class="copyright" id="footer"><span id="footer-copyright">Copyright © 2023 Vege e-Market. All rights reserved.</span></td>
             <td class="footer-url" id="footer-url">
-                <a style="font-size: 1vw;" href="<?php echo $base.'/index.php'; ?>" class="footer">Home</a> |
-                <a style="font-size: 1vw;" href="<?php echo $base.'/public/about.php'; ?>" class="footer">About Us</a> | 
-                <a style="font-size: 1vw;" href="<?php echo $base.'/public/contact.php'; ?>" class="footer">Contact</a>
+                <a style="font-size: 1vw;" href="../index.php" class="footer">Home</a> |
+                <a style="font-size: 1vw;" href="../public/about.php" class="footer">About Us</a> | 
+                <a style="font-size: 1vw;" href="../public/contact.php" class="footer">Contact</a>
             </td>
         </tr>
     </table>

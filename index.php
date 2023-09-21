@@ -2,9 +2,9 @@
     require './modules/config.php';
 
     if ($role!=''){
-        header("Location: $base/$role/index.php");
+        header("Location: ./$role/index.php");
     }else{
-        header("Location: $base/public/login.php");
+        header("Location: ./public/login.php");
     }
         
 ?>

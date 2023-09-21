@@ -2,7 +2,7 @@
     require '../modules/config.php'; 
     if ($role !='supplier'){
         echo "Access denied";
-        header('Location: '.$base);
+        header('Location: ../index.php');
     }
 
     /* UPDATE */
@@ -12,5 +12,5 @@
     $sql_update="UPDATE products SET $col='$new' WHERE productID='$product_id' AND userID='$user_id'";
 
     mysqli_query($conn, $sql_update);
-    echo "<script>location.href='$base/public/product.php?id=$product_id'</script>";
+    echo "<script>location.href='../public/product.php?id=$product_id'</script>";
 ?>

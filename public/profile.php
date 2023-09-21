@@ -1,7 +1,7 @@
 <?php 
     require '../modules/config.php'; // Validate user role
     if ($role == ''){
-        header("Location: $base");
+        header("Location: ../index.php");
     }
     
     include '../includes/header.php'; // Get header
@@ -19,7 +19,7 @@
         /* UPDATE */
         $update_sql = "UPDATE users SET userName='$username', email='$email', phone='$phone' WHERE userID='$user_id'";
         mysqli_query($conn, $update_sql);
-        header("Location: $base/public/profile.php");
+        header("Location: ../public/profile.php");
         exit();
     }
 ?>

@@ -235,8 +235,8 @@
                         <div class="availability" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
                         <div id="availability-status-dropdown" class="availability-status-dropdown-content">
                             <p>Change your product's availability</p>
-                            <a href="<?php echo $base."/modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>">Available</a><br><br>
-                            <a href="<?php echo $base."/modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>">Out of Stock</a><br> &nbsp;
+                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>">Available</a><br><br>
+                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>">Out of Stock</a><br> &nbsp;
                         </div>
                     <?php }else{ ?>
                         <div class="availability" id="status" style="cursor: default;"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
@@ -257,7 +257,7 @@
                     <?php if ($product_detail['availabilityStatus'] != "available"){ ?>
                         <button class="product-button" id="add-to-cart" style="cursor: not-allowed;" title="This product is unavailable" disabled>ADD TO CART</button>
                     <?php }else{ 
-                        $add_cart = "$base/modules/add_cart.php?id=$id"; ?>
+                        $add_cart = "../modules/add_cart.php?id=$id"; ?>
                         <button class="product-button" id="add-to-cart" onclick="window.location.href='<?php echo $add_cart; ?>';">ADD TO CART</button>
                     <?php } ?>
                 <?php }else if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
@@ -320,7 +320,7 @@
                 alert('Please enter numeric value for Price Label! ');
                 location.reload();
             }else{
-                var url=`<?php echo $base.'/modules/save_edit.php?'?>id=<?php echo $id; ?>&col=${column}&new=${new_value}`;
+                var url=`../modules/save_edit.php?id=<?php echo $id; ?>&col=${column}&new=${new_value}`;
                 window.location.href=url;
                 target.setAttribute('contenteditable','false');
                 document.getElementById(`save-button-${field}`).style.display='none';
@@ -329,12 +329,12 @@
         }
         function chgStatus(type, id, action){
             if (window.confirm("Are you sure?")) {
-                window.location.href=`<?php echo $base.'/modules/ban.php?'?>type=${type}&id=${id}&action=${action}`;
+                window.location.href=`../modules/ban.php?type=${type}&id=${id}&action=${action}`;
             }
         }
         function dltItem(id){
             if (window.confirm("Delete this product?")) {
-                window.location.href=`<?php echo $base.'/modules/delete_item.php?'?>id=${id}`;
+                window.location.href=`../modules/delete_item.php?id=${id}`;
             }
         }
     </script>

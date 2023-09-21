@@ -3,7 +3,7 @@
     require '../modules/config.php'; 
     if ($role !='admin'){
         echo "Access denied";
-        header('Location: '.$base);
+        header('Location: ../index.php');
     }
     if ($_GET['type']=='user'){
         $id=$_GET['id'];
@@ -24,6 +24,6 @@
         $sql="UPDATE products SET availabilityStatus='$new_status' WHERE productID='$id';";
         mysqli_query($conn, $sql);
     }
-    echo "<script>alert('Update success'); location.href='".$base."/admin/console.php?type=".$_GET['type']."';</script>";
+    echo "<script>alert('Update success'); location.href='../admin/console.php?type=".$_GET['type']."';</script>";
 
 ?>

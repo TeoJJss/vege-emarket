@@ -1,7 +1,7 @@
 <?php 
     require '../modules/config.php'; // Validate user role
     if ($role !='admin'){
-        header('Location: '.$base);
+        header('Location: ../index.php');
     }
     include '../includes/header.php'; // Get header
 
@@ -151,7 +151,7 @@
                                 $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
                                 echo '<td>'.$count.'</td>';
-                                echo '<td class="search-key">'."<a class='search-product-url' href='$base/public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
+                                echo '<td class="search-key">'."<a class='search-product-url' href='../public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">RM'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
                                 echo '<td class="search-key">'.$product_info['supplierName'].'</td>';
@@ -230,7 +230,7 @@
 
         function chgStatus(type, id, action){
             if (window.confirm("Are you sure?")) {
-                window.location.href=`<?php echo $base.'/modules/ban.php?'?>type=${type}&id=${id}&action=${action}`;
+                window.location.href=`<?php echo '../modules/ban.php?'?>type=${type}&id=${id}&action=${action}`;
             }
         }
 

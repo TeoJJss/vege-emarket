@@ -60,13 +60,13 @@
         }
     </style>
     <div class="header_logo">
-        <a href="<?php echo $base.'/index.php'; ?>" title="Vege e-Market"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
+        <a href="../index.php" title="Vege e-Market"><img src="../images/logo.png" alt="Vege e-Market" height="60vh"></a>
     </div>
     <div class="header_welcome">
         <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a><br>
                     <div id="header-username-dropdown" class="header-username-dropdown-content">
-                        <a href="<?php echo $base.'/public/profile.php'; ?>">Profile</a><br><br>
-                        <a href="<?php echo $base.'/modules/logout.php'; ?>">Logout</a><br> &nbsp;
+                        <a href="../public/profile.php">Profile</a><br><br>
+                        <a href="../modules/logout.php">Logout</a><br> &nbsp;
                     </div>
     </div>
     <script>

@@ -3,7 +3,7 @@
     require '../modules/config.php';
     if ($role !='consumer'){
         echo "Access denied";
-        header('Location: '.$base);
+        header('Location: ../index.php');
     }
     $product_id=$_GET['id'];
 
@@ -15,5 +15,5 @@
     mysqli_query($conn, $insert_sql);
 
     echo "<script>alert('Add to cart success');</script>";
-    echo "<script>location.href='".$base."/public/product.php?id=".$product_id."';</script>"; // Redirect to Cart page when the page is ready
+    echo "<script>location.href='../public/product.php?id=".$product_id."';</script>"; // Redirect to Cart page when the page is ready
 ?>
