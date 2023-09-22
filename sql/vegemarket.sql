@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `productName` varchar(100) NOT NULL,
   `priceLabel` float(255,2) NOT NULL,
   `availabilityStatus` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `description` text NOT NULL,
   `location` varchar(255) NOT NULL,
   `addDate` date NOT NULL,
   `unit` varchar(10) NOT NULL,
