@@ -21,6 +21,9 @@
             if(!empty($_POST["remember"])) {
                 setcookie ("email", $Email, time()+(365*24*60*60));
                 setcookie ("password", $_POST["password"], time()+(365*24*60*60));
+            }else {
+                setcookie("email", "", time() - 3600);
+                setcookie("password", "", time() - 3600);
             }
                 
             header("Location: ../index.php");
@@ -53,10 +56,9 @@
             <section>
                 <p>Password</p>
                 <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['password']; } ?>" required>
-            </section>
-
-            <input type="submit" value="Login" class="form-btn">
+            </section>  
             <p><input type="checkbox" name="remember" />remember me?</p>
+            <input type="submit" value="Login" class="form-btn">
             <p>Don't have an account?</p><a>
         </form>
     </div>
