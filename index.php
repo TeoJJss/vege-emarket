@@ -1,10 +1,10 @@
 <?php
-    require './modules/config.php';
-
-    if ($role!=''){
+    session_start();
+    if ($_SESSION['role']!=''){
+        $role=$_SESSION['role'];
         header("Location: ./$role/index.php");
     }else{
-        header("Location: ./public/login.php");
+        session_write_close();
+        header("Location: ./public/index.php");
     }
-        
 ?>

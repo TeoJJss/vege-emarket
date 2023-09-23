@@ -13,14 +13,15 @@
     }
     $web_name="Vege e-Market";
 
-    // session_start();
+    if (session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
     if (isset($_SESSION['role'])){
         // If user has login, use the data from DB
         $role=$_SESSION['role']; 
         $username = $_SESSION['username'];
+        $user_id=$_SESSION['user_id'];
     }else{
         $role=''; // Otherwise, the user is guest
     }
-
-    $role='admin'; $user_id='U03'; // Remove this line later
 ?>

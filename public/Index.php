@@ -1,29 +1,34 @@
 <?php
-require "../modules/config.php";
-if ($_SERVER['REQUEST_METHOD']=='POST'){
+    require "../modules/config.php";
+    if ($_SERVER['REQUEST_METHOD']=='POST'){
 
-    $Email= $_POST["email"];
-    $Password = md5($_POST["password"]);
+        $Email= $_POST["email"];
+        $Password = md5($_POST["password"]);
 
-    $sql="Select * From users where 
-        email ='$Email' and password ='$Password'";
+        $sql="SELECT * From users WHERE 
+            email ='$Email' AND password ='$Password'";
 
-    $result=mysqli_query($conn,$sql);
+        $result=mysqli_query($conn,$sql);
+        
+        if(mysqli_num_rows($result) > 0) {
+            $user_info = mysqli_fetch_array($result);
+            $_SESSION['email'] = $Email;
+            $_SESSION['username'] = $user_info['userName'];
+            $_SESSION['user_id'] = $user_info['userID'];
+            $role = $user_info['role'];
+            $_SESSION['role'] = $user_info['role'];
 
-    if(mysqli_num_rows($result) > 0) {
-       $user_info = mysqli_fetch_array($result);
-        $_SESSION['email'] = $Email;
-       $_SESSION['username'] = $user_info['userName'];
-       $role = $user_info['role'];
-       $_SESSION['role'] = $user_info['role'];
-        header("Location:../index.php");
+            if(!empty($_POST["remember"])) {
+                setcookie ("email", $Email, time()+(365*24*60*60));
+                setcookie ("password", $_POST["password"], time()+(365*24*60*60));
+            }
+                
+            header("Location: ../index.php");
+        }
+        else {
+            echo'<script>alert("Wrong username or password. Please try again.")</script>';
+        }
     }
-    else {
-        echo'<script>alert("Wrong username or password. Please try again.")</script>';
-    }
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">  
@@ -35,24 +40,32 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 <body>
     <div class="form-container">
 
-        <form method="post">
+        <form id="loginForm" method="post">
             <section>
             <h3>Login</h3>
             </section>
         
             <section>
                 <p>Email</p>
-                <input type="email" name="email" required placeholder="Enter your Email">
+                <input type="email" name="email" placeholder="Enter your Email" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email']; } ?>" required>
             </section>
 
             <section>
                 <p>Password</p>
-                <input type="Password" name="password" required placeholder="Enter your Password">
+                <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['password']; } ?>" required>
             </section>
 
             <input type="submit" value="Login" class="form-btn">
+            <p><input type="checkbox" name="remember" />remember me?</p>
             <p>Don't have an account?</p><a>
-            </form>
-        </div>
+        </form>
+    </div>
+    <?php
+        // Submit the form if the cookies are set
+        if (isset($_COOKIE['email']) && isset($_COOKIE['password'])){
+            echo '<script>document.getElementById("loginForm").submit();</script>';
+        }
+    ?>
 </body>
+<?php include '../includes/footer.php'; ?>
 </html>

@@ -50,4 +50,4 @@ Files MUST be uploaded into the folders as shown below:
     </tr>
 </table>
 
-Create as many functionalities which was taught in class as possible. Refer https://github.com/TeoJJss/web_dev_homework   
+Create as many functionalities which were taught in class as possible. Refer https://github.com/TeoJJss/web_dev_homework   

@@ -1,5 +1,7 @@
 <?php
-	echo "logout not available";
-	// session_destroy();
-	// header("Location: ".$base);
+	session_start();
+	session_destroy();
+	setcookie("email","");
+	setcookie("password","");
+	header("Location: ../index.php");
 ?>
