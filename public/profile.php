@@ -39,8 +39,9 @@
         }
         div.container{
             background-color: oldlace;
+            min-width: max-content;
+            min-height: max-content;
             width: 40%;
-            height: 80%;
             margin-left: 30vw;
 
         }
@@ -86,7 +87,6 @@
         label{
             color: forestgreen;
         }
-
     </style>
 </head>
 <body>
@@ -113,13 +113,13 @@
 
             <label for="email"><h2>Email</h2></label>
             <div class="input-container">
-                <input type="email" id="email" name="email" value="<?php echo $user_info['email']; ?>" readonly required>
+                <input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" value="<?php echo $user_info['email']; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('email')"><img src="../images/edit.png" alt="Edit" width="100%"></button>
             </div>
 
             <label for="phone"><h2>Phone Number</h2></label>
             <div class="input-container">
-                <input type="tel" id="phone" name="phone" value="<?php echo $user_info['phone']; ?>" readonly required>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{11,12}" value="<?php echo $user_info['phone']; ?>" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('phone')"><img src="../images/edit.png" alt="Edit" width="100%"></button>
             </div>
 
@@ -128,7 +128,7 @@
                 <input type="text" id="role" name="role" value="<?php echo ucfirst($user_info['role']); ?>" readonly>
             </div>
             <br>
-            <button title="Save changes" type="submit" class="save" id="save">Save</button>
+            <button title="Save changes" type="submit" class="save" style="font-size: 1vw;" id="save">Save</button>
         </form>
     </div><br>
     <script>
