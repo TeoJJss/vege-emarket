@@ -30,7 +30,7 @@ USE `vegemarket`;
 -- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `cart`;
+
 CREATE TABLE IF NOT EXISTS `cart` (
   `cartID` varchar(100) NOT NULL,
   `userID` varchar(100) NOT NULL,
@@ -52,7 +52,7 @@ INSERT INTO `cart` (`cartID`, `userID`) VALUES
 -- Table structure for table `cart_product`
 --
 
-DROP TABLE IF EXISTS `cart_product`;
+
 CREATE TABLE IF NOT EXISTS `cart_product` (
   `cartID` varchar(100) NOT NULL,
   `productID` varchar(100) NOT NULL,
@@ -73,7 +73,7 @@ INSERT INTO `cart_product` (`cartID`, `productID`) VALUES
 -- Table structure for table `orders`
 --
 
-DROP TABLE IF EXISTS `orders`;
+
 CREATE TABLE IF NOT EXISTS `orders` (
   `orderID` varchar(100) NOT NULL,
   `orderDate` date NOT NULL,
@@ -99,7 +99,6 @@ INSERT INTO `orders` (`orderID`, `orderDate`, `address`, `orderStatus`, `payment
 -- Table structure for table `orders_products`
 --
 
-DROP TABLE IF EXISTS `orders_products`;
 CREATE TABLE IF NOT EXISTS `orders_products` (
   `orderID` varchar(100) NOT NULL,
   `productID` varchar(100) NOT NULL,
@@ -126,7 +125,6 @@ INSERT INTO `orders_products` (`orderID`, `productID`, `agreedPrice`, `remark`, 
 -- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `productID` varchar(100) NOT NULL,
   `productName` varchar(100) NOT NULL,
@@ -159,7 +157,6 @@ INSERT INTO `products` (`productID`, `productName`, `priceLabel`, `availabilityS
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `userID` varchar(100) NOT NULL,
   `userName` varchar(100) NOT NULL,
