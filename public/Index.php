@@ -19,8 +19,8 @@
             $_SESSION['role'] = $user_info['role'];
 
             if(!empty($_POST["remember"])) {
-                setcookie ("email", $Email, time()+(365*24*60*60));
-                setcookie ("password", $_POST["password"], time()+(365*24*60*60));
+                setcookie("email", $Email, time()+(365*24*60*60));
+                setcookie("password", $_POST["password"], time()+(365*24*60*60));
             }else {
                 setcookie("email", "", time() - 3600);
                 setcookie("password", "", time() - 3600);
@@ -55,19 +55,13 @@
 
             <section>
                 <p>Password</p>
-                <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['password']; } ?>" required>
+                <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password']; } ?>" required>
             </section>  
-            <p><input type="checkbox" name="remember" />remember me?</p>
+            <p><input type="checkbox" name="remember">remember me?</p>
             <input type="submit" value="Login" class="form-btn">
             <p>Don't have an account?</p><a>
         </form>
     </div>
-    <?php
-        // Submit the form if the cookies are set
-        if (isset($_COOKIE['email']) && isset($_COOKIE['password'])){
-            echo '<script>document.getElementById("loginForm").submit();</script>';
-        }
-    ?>
 </body>
 <?php include '../includes/footer.php'; ?>
 </html>
