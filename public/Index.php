@@ -29,7 +29,7 @@
             header("Location: ../index.php");
         }
         else {
-            echo'<script>alert("Wrong username or password. Please try again.")</script>';
+            include '../templates/login_err.php';
         }
     }
 ?>
