@@ -29,7 +29,7 @@
             header("Location: ../index.php");
         }
         else {
-            include '../templates/login_err.php';
+            include '../includes/login_err.php';
         }
     }
 ?>
