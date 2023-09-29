@@ -1,6 +1,9 @@
 <?php
     echo '<link rel="shortcut icon" type="image/png" href="../images/favicon.png">'; // Put tab icon
     $role = '';
+
+    // Initiate Error handler
+    include_once('../modules/err_handler.php');
     
     // Connection to Database
     $host="localhost";
@@ -9,7 +12,7 @@
     $database="vegemarket";
     $conn=mysqli_connect($host, $user, $password,$database);
     if(mysqli_connect_errno()){
-        die("Failed to connect to database."); //Terminate the website if no database
+        die; //Terminate the website if no database
     }
     $web_name="Vege e-Market";
 

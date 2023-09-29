@@ -1,6 +1,3 @@
-<?php 
-    require '../modules/config.php';
-?>
 <br><br>
 <footer>
     <style>
