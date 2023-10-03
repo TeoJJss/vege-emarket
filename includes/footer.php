@@ -56,3 +56,6 @@
         </tr>
     </table>
 </footer>
+<?php 
+    mysqli_close($conn);
+?>
