@@ -109,6 +109,7 @@
         #order_details_td{
             font-size: 1vw;
             text-align: left;
+            padding-left: 6%;
         }
         .order_details{
             width: 35%;
@@ -141,7 +142,8 @@
                     <?php
                         if ($product_list_length){
                             $product_sql = "SELECT products.productID, products.productName, products.availabilityStatus
-                                    FROM products WHERE products.availabilityStatus != 'deleted' ORDER BY productID ASC";
+                                    FROM products WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
+                                    ORDER BY productID ASC";
                             $products = mysqli_query($conn,$product_sql);
                             while($product_status = mysqli_fetch_array($products)) {
                                 $id = $product_status['productID'];
@@ -165,7 +167,7 @@
                 </tbody>
             </table>
             <div class="button">
-                <button class="product-button" onclick="window.location.href='../supplier/myproducts.php?type=user';" title="My Products Page">My Products</button>
+                <button class="product-button" onclick="window.location.href='../supplier/myproducts.php';" title="My Products Page">My Products</button>
             </div>
             <br>
         </div>
@@ -186,8 +188,12 @@
                 <?php
                     if ($order_list_length){
                         $order_sql = "SELECT orders.orderID, users.userID, users.userName, orders.orderDate, orders.address, orders_products.remark
-                        FROM orders INNER JOIN orders_products ON orders.orderID=orders_products.orderID INNER JOIN users ON orders.userID = users.userID
-                        ORDER BY orders.orderDate ASC";
+                                      FROM orders 
+                                      INNER JOIN orders_products ON orders.orderID=orders_products.orderID 
+                                      INNER JOIN users ON orders.userID = users.userID 
+                                      INNER JOIN products ON products.productID=orders_products.productID
+                                      WHERE products.userID='$user_id'
+                                      ORDER BY orders.orderDate DESC";
                         $orders = mysqli_query($conn, $order_sql);
                         while($order_info=mysqli_fetch_array($orders)) {
                             echo "<tr><td>".$order_info['orderID']."</td>";
@@ -201,7 +207,7 @@
             </tbody>
         </table>
         <div class="button">
-                <button class="product-button" onclick="window.location.href='../supplier/myorders.php?type=user';" title="My Orders Page">My Products</button>
+                <button class="product-button" onclick="window.location.href='../supplier/myorders.php';" title="My Orders Page">My Orders</button>
         </div>
     </div>
 </body>

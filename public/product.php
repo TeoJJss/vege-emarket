@@ -231,7 +231,7 @@
                         <img class="edit-button" src="../images/edit.png" alt="edit" width="5%"onclick="editMode('priceLabel')">
                         <button class="save-button" id="save-button-priceLabel" onclick="saveEdit('priceLabel', 'priceLabel')">SAVE</button><br>
                     <?php } ?></div>
-                    <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
+                    <?php if ($role=="supplier" && $user_id==$product_detail['supplierID'] && $product_detail['availabilityStatus']!='banned'){ ?>
                         <div class="availability" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
                         <div id="availability-status-dropdown" class="availability-status-dropdown-content">
                             <p>Change your product's availability</p>
