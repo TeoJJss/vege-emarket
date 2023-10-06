@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
         <label for="">Date of birth</label>    
         </section>
         <section>
-        <input type="Date" name="date" required placeholder="enter your Date of Birth">
+        <input type="Date" name="date" min="1923-01-01" max="2013-12-31" required placeholder="enter your Date of Birth">
         </section>
 
         <section>
@@ -174,3 +174,4 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
 </div>
 </body>
 </html>
+<?php include '../includes/footer.php'; ?>
