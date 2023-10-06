@@ -3,8 +3,7 @@
 // connect to database
 require "../modules/config.php";
 
-if(isset($_POST['submit'])){
- 
+if ($_SERVER['REQUEST_METHOD']=='POST'){
     $userName = ($_POST['name']);
     $birthday = $_POST["date"];
     $email= ($_POST['email']);
@@ -14,31 +13,39 @@ if(isset($_POST['submit'])){
     $gender= $_POST["gender"];
     $role = $_POST["user_type"];
 
-
-
-    $sql= "Select * from users where Email = '$email' and Password = '$password'";
+    $sql= "SELECT * from users where email = '$email'";
     $result=mysqli_query($conn,$sql);
 
 
     if(mysqli_num_rows($result) > 0) {
-    $error[] = "User already exist!";
-
+        $error[] = "User already exist!";
     }
     elseif($password != $cpassword){
-        $error[] = "Password is not matched!";}
-
-
+        $error[] = "Password and Confirmed Password are not matched!";
+    }
     else{
-        $sql = "INSERT INTO 'users' ('userName', 'gender', 'email', 'phone', 'birthday', 'password', 'role') 
-        VALUES('$userName', '$gender', '$email', '$phone','$birthday', '$password', '$role')";
-        mysqli_query($conn,$sql);
-        header('location:Index.php');}
-    
-    if (mysqli_query($conn, $sql)) {
-        die('Error:'.mysqli_error($conn));
-    } else{
-        echo "success";
-        echo "<script> alert('1 record added!')</script>";
+        $new_user_id=uniqid("U"); 
+        # Insert into users table
+        $sql = "INSERT INTO users(userID, userName, gender, email, phone, birthday, password, role, accStatus) 
+                VALUES('$new_user_id', '$userName', '$gender', '$email', '$phone','$birthday', '$password', '$role', 'active')";
+        
+        if (!mysqli_query($conn,$sql)) {
+            trigger_error("Insertion to users table fail", E_USER_NOTICE);
+            die;
+        } else{
+            if ($role=='consumer'){
+                $new_cart_id=uniqid("C");
+                # Insert into cart table
+                $cart_sql = "INSERT INTO cart(cartID, userID)
+                            VALUES('$new_cart_id', '$new_user_id')";
+                if (!mysqli_query($conn,$cart_sql)) {
+                    trigger_error("Insertion to cart table fail", E_USER_NOTICE);
+                    die;
+                } 
+            }     
+            echo "success";
+            echo "<script> alert('Registration success!'); window.location.href='../index.php';</script>";
+        }
     }
 }
 
@@ -51,8 +58,6 @@ if(isset($_POST['submit'])){
         foreach($error as $error){
             echo '<span clas"error-msg">'.$error. '</span>';
         }}
-
-
     ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,7 +98,7 @@ if(isset($_POST['submit'])){
         <label for="">Email</label> 
         </section>
         <section>
-        <input type="Email" Email="email" required placeholder = "Enter your Email">
+        <input type="Email" name="email" required placeholder = "Enter your Email">
         </section>
         
         <section>
@@ -114,7 +119,7 @@ if(isset($_POST['submit'])){
         <label for="">Phone Number</label> 
         </section>
         <section>    
-            <input id="phone" type="Tel"> 
+            <input id="phone" name="Tel" type="Tel"> 
             <span id="valid-msg" class="hide"></span>
             <span id="error-msg" class="hide"></span>
             
@@ -154,7 +159,7 @@ if(isset($_POST['submit'])){
         </section>
         <section>
         <select name="user_type">
-            <option value="user">user</option>
+            <option value="consumer">consumer</option>
             <option value="supplier">supplier</option>
         </select>
         </section>
