@@ -162,7 +162,7 @@
                                 $sql = "SELECT products.productID, products.productName, COUNT(orders_products.productID) as sold, products.availabilityStatus
                                         FROM products 
                                         LEFT JOIN orders_products ON orders_products.orderID = products.productID
-                                        WHERE products.availabilityStatus != 'deleted'
+                                        WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
                                         GROUP BY products.productID
                                         ORDER BY products.productID ASC";
                                 $products = mysqli_query($conn, $sql);
