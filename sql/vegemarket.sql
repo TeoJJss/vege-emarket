@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `orderID` varchar(100) NOT NULL,
   `orderDate` date NOT NULL,
   `address` text NOT NULL,
-  `orderStatus` varchar(100) NOT NULL,
   `paymentMethod` varchar(100) NOT NULL,
   `userID` varchar(100) NOT NULL,
   PRIMARY KEY (`orderID`),
@@ -89,9 +88,9 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`orderID`, `orderDate`, `address`, `orderStatus`, `paymentMethod`, `userID`) VALUES
-('O01', '2022-02-23', '12, Address 11, KL', 'paid', 'credit card', 'U01'),
-('O02', '2022-02-23', '12, Address 11, KL', 'shipped', 'credit card', 'U01');
+INSERT INTO `orders` (`orderID`, `orderDate`, `address`, `paymentMethod`, `userID`) VALUES
+('O01', '2022-02-23', '12, Address 11, KL', 'credit card', 'U01'),
+('O02', '2022-02-23', '12, Address 11, KL', 'credit card', 'U01');
 
 -- --------------------------------------------------------
 
@@ -104,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
   `productID` varchar(100) NOT NULL,
   `agreedPrice` float NOT NULL,
   `remark` varchar(255) NOT NULL,
-  `confirmStatus` tinyint(1) NOT NULL,
+  `status` varchar(255) NOT NULL,
   PRIMARY KEY (`orderID`,`productID`),
   KEY `productID` (`productID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -113,11 +112,11 @@ CREATE TABLE IF NOT EXISTS `orders_products` (
 -- Dumping data for table `orders_products`
 --
 
-INSERT INTO `orders_products` (`orderID`, `productID`, `agreedPrice`, `remark`, `confirmStatus`) VALUES
-('O01', 'P01', 80, '10kg', 0),
-('O01', 'P02', 40, '900g', 1),
-('O02', 'P01', 60, '5kg', 0),
-('O02', 'P03', 100, '', 0);
+INSERT INTO `orders_products` (`orderID`, `productID`, `agreedPrice`, `remark`, `status`) VALUES
+('O01', 'P01', 80, '10kg', 'paid'),
+('O01', 'P02', 40, '900g', 'delivered'),
+('O02', 'P01', 60, '5kg', 'shipped'),
+('O02', 'P03', 100, '', 'paid');
 
 -- --------------------------------------------------------
 

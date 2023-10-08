@@ -1,11 +1,6 @@
 <?php 
     require '../modules/config.php';
 
-    /* READ (change to session after login page done) */
-    $read_sql = "SELECT userName FROM users WHERE userID='$user_id'";
-
-    $user_info=mysqli_fetch_array(mysqli_query($conn, $read_sql));
-    $username=$user_info['userName'];
 ?>
 
 <header>
