@@ -12,6 +12,10 @@
         
         if(mysqli_num_rows($result) > 0) {
             $user_info = mysqli_fetch_array($result);
+            if ($user_info['accStatus']=='banned'){
+                trigger_error('<strong style="text-align: center; color: red;">Your account is banned by admin! </strong>', E_USER_WARNING);
+                die;
+            }
             $_SESSION['email'] = $Email;
             $_SESSION['username'] = $user_info['userName'];
             $_SESSION['user_id'] = $user_info['userID'];
