@@ -115,6 +115,26 @@
                 <option value="Poaceae">Poaceae</option>
                 <option value="Root">Root</option>
                 <option value="Marrow">Marrow</option>
+                <option value="leafy">Leafy</option>
+                <option value="cruciferous">Cruciferous</option>
+                <option value="gourd">Gourd</option>
+                <option value="nightshade">Nightshade</option>
+                <option value="legume">Legume</option>
+                <option value="stem">Stem</option>
+                <option value="bulb">Bulb</option>
+                <option value="fungus">Fungus</option>
+                <option value="tuber">Tuber</option>
+                <option value="herb">Herbaceous</option>
+                <option value="vine">Vine</option>
+                <option value="allium">Allium</option>
+                <option value="pod">Podded</option>
+                <option value="shoot">Shoot</option>
+                <option value="spice">Spice</option>
+                <option value="tropical">Tropical</option>
+                <option value="temperate">Temperate</option>
+                <option value="cactus">Cactus</option>
+                <option value="aquatic">Aquatic</option>
+                <option value="miscellaneous">Miscellaneous</option>
             </select><br>
             <textarea name="description" id="description" required placeholder="Description" rows="4" style="resize: none;"></textarea><br>
             <select id="status" name="status" required>
@@ -123,11 +143,20 @@
                 <option value="out of stock">Out of Stock</option>
             </select><br>
             <input type="text" name="location" id="location" placeholder="Location"><br>
-            <input type="number" name="price" id="price" required placeholder="Price">
+            <input type="number" name="price" id="price" required placeholder="Price (RM)">
             <select id="unit" name="unit" required>
                 <option value="" disabled selected>Unit</option>
                 <option value="KG">KG</option>
                 <option value="G">G</option>
+                <option value="oz">Ounces (oz)</option>
+                <option value="lb">Pounds (lb)</option>
+                <option value="piece">Pieces</option>
+                <option value="bunch">Bunches</option>
+                <option value="head">Heads</option>
+                <option value="stalk">Stalks</option>
+                <option value="bulb">Bulbs</option>
+                <option value="bundle">Bundles</option>
+                <option value="bag">Bags</option>
             </select><br><br>
             <label for="image" class="file-input-label">Insert product picture:</label><br>
             <div class="file-input-container">

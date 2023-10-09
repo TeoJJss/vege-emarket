@@ -25,7 +25,7 @@
             display: flex;
             align-items: center;
             flex-direction: column;
-            margin-left: 2vw;
+            margin-left: 1vw;
             margin-right: 2vw;
             min-height: 80%;
         }
@@ -151,6 +151,7 @@
                         <tr class="product-table-header">
                             <th>ID</th>
                             <th>Name</th>
+                            <th>Price</th>
                             <th>Sold</th>
                             <th>Status</th>
                             <th>Action</th>
@@ -159,9 +160,9 @@
                     <tbody>
                         <?php
                             if ($product_list_length){
-                                $sql = "SELECT products.productID, products.productName, COUNT(orders_products.productID) as sold, products.availabilityStatus
+                                $sql = "SELECT products.productID, products.productName, COUNT(orders_products.productID) as sold, products.availabilityStatus, products.priceLabel, products.unit
                                         FROM products 
-                                        LEFT JOIN orders_products ON orders_products.orderID = products.productID
+                                        LEFT JOIN orders_products ON orders_products.productID = products.productID
                                         WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
                                         GROUP BY products.productID
                                         ORDER BY products.productID ASC";
@@ -171,6 +172,7 @@
                                     echo "<tr class='searchable-row'>";
                                     echo "<td class='search-key'>".$product_info['productID']."</td>";
                                     echo "<td class='search-key'>"."<a href='../public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
+                                    echo "<td class='search-key'>RM ".$product_info['priceLabel'].'/'.$product_info['unit']."</td>";
                                     echo "<td class='search-key'>".$product_info['sold']."</td>";
 
                                     if ($product_info['availabilityStatus']=="available"){

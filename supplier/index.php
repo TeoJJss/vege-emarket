@@ -34,6 +34,7 @@
             float: left;
             background-color: beige;
             width: 40vw;
+            height: 70%;
             border-radius: 25px;
             margin-left: 5vw;
             margin-bottom: 2vw;
@@ -71,14 +72,14 @@
             font-weight: bolder;
         }
         .product_name{
-            width: 60%;
+            width: 50%;
         }
         .product_status{
             width: 20%;
         }
         table.product_table{
-            margin-left: 75px;
-            max-width: 80%;
+            margin-left: 35px;
+            max-width: 90%;
             line-height: 1.6;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
@@ -135,13 +136,14 @@
                     <tr>
                         <th>ID</th>
                         <th class = "product_name">Name</th>
+                        <th class = "product_price">Price</th>
                         <th class = "product_status">Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         if ($product_list_length){
-                            $product_sql = "SELECT products.productID, products.productName, products.availabilityStatus
+                            $product_sql = "SELECT products.productID, products.productName, products.availabilityStatus, products.priceLabel, products.unit
                                     FROM products WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
                                     ORDER BY productID ASC";
                             $products = mysqli_query($conn,$product_sql);
@@ -149,6 +151,7 @@
                                 $id = $product_status['productID'];
                                 echo "<tr><td>".$product_status['productID']."</td>";
                                 echo "<td class='product_name'>"."<a href='../public/product.php?id=$id' style='color:darkgreen;'>".$product_status['productName']."</a></td>";
+                                echo "<td>RM".$product_status['priceLabel'].'/'.$product_status['unit']."</td>";
                                 if ($product_status['availabilityStatus']=="available"){
                                     echo "<td>"."<img src= '../images/available_status.png' height='28'"."</td>";
                                 }

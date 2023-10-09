@@ -243,7 +243,7 @@
                     <?php } ?>
                 </div>
                 <div class="product-contacts">
-                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.png" alt="phone"><a class="contact" href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank">Click Here to Chat</a></div>
+                    <div class="product-contact"><img class="contact-icon" src="../images/whatsapp.png" alt="phone"><a class="contact" href="https://api.whatsapp.com/send?phone=<?php echo $product_detail['phone']; ?>" target="_blank">Click Here to Chat</a>&nbsp;(<?php echo $product_detail['supplierName']; ?>)</div>
                     <div class="product-contact"><img class="contact-icon" src="../images/phone1.png" alt="phone"><a class="contact" href="tel:+<?php echo $product_detail['phone']; ?>"><?php echo $product_detail['phone']; ?></a></div>
                     <div class="product-contact"><img class="contact-icon" src="../images/email.png" alt="phone"><a class="contact" href="mailto:<?php echo $product_detail['email']; ?>"><?php echo $product_detail['email']; ?></a></div>    
                 </div>
