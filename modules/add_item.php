@@ -48,9 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                    VALUES ('$productID', '$name', '$price', '$availability', '$description', '$location', '$addDate', '$unit', '$category', '$image_des', '$user_id')";
 
     if (mysqli_query($conn, $insert_sql)) {
-        echo "<script>alert('Item added!'); location.href='../index.php';</script>";
+        echo "<script>alert('Item added successfully!'); location.href='../supplier/myproducts.php';</script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        echo "<script>alert('Failed to add product!'); location.href='../supplier/myproducts.php';</script>";
     }
 }
 ?>

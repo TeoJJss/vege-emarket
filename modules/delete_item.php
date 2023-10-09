@@ -13,8 +13,8 @@
         /* DELETE */
         $dlt_sql="DELETE FROM cart_product WHERE productID='$product_id';";
         mysqli_query($conn, $dlt_sql);
-        echo "<script>alert('Delete success!'); location.href='../index.php';</script>";
+        echo "<script>alert('Delete success!'); location.href='../supplier/myproducts.php';</script>";
     }else{
-        echo "<script>alert('Deletion failed!'); location.href='../index.php';</script>";
+        echo "<script>alert('Deletion failed!'); location.href='../supplier/myproducts.php';</script>";
     }
 ?>

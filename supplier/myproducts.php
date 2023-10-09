@@ -194,7 +194,7 @@
                 </table>
             </div>
             <div class="button">
-                <button class="addproducts_button" onclick="window.location.href='../supplier/addproducts.php?type=user';" title="Add Products">Add Products</button>
+                <button class="addproducts_button" onclick="window.location.href='../supplier/addproducts.php';" title="Add Products">Add Products</button>
             </div>
         </div>
     </div>
