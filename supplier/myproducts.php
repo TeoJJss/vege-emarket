@@ -116,7 +116,7 @@
         }
         table.product-content-table {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            width: 100%; 
+            min-width: 100%; 
             margin-top: 200px;
             margin: 0 auto; 
         }
@@ -127,6 +127,7 @@
         }
         table.product-content-table td{
             text-align: center;
+            min-width: 10vw;
             max-width: 10vw;
             font-size: 1.2vw;
             overflow: hidden;
@@ -201,15 +202,7 @@
         </div>
     </div>
     <script src="../src/search.js"></script>
-    <script>
-
-        function dltItem(id){
-            if (window.confirm("Delete this product?")) {
-                window.location.href=`../modules/delete_item.php?id=${id}`;
-            }
-        }
-        
-    </script>
+    <script src="../src/dltItem.js"></script>
 </body>
 </html>
 <?php include '../includes/footer.php'; ?>

@@ -339,12 +339,8 @@
                 window.location.href=`../modules/ban.php?type=${type}&id=${id}&action=${action}`;
             }
         }
-        function dltItem(id){
-            if (window.confirm("Delete this product?")) {
-                window.location.href=`../modules/delete_item.php?id=${id}`;
-            }
-        }
     </script>
+    <script src="../src/dltItem.js"></script>
 </body>
 </html>
 <?php include '../includes/footer.php'; ?>
