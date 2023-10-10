@@ -72,7 +72,8 @@
             font-weight: bolder;
         }
         .product_name{
-            width: 50%;
+            max-width: 50%;
+            overflow: hidden;
         }
         .product_status{
             width: 20%;
@@ -80,7 +81,7 @@
         table.product_table{
             margin-left: 35px;
             max-width: 90%;
-            line-height: 1.6;
+            line-height: 2;
             font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
         table.product_table th{

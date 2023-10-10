@@ -34,6 +34,10 @@
     <style>
         h1#title{
             color: darkgreen;
+            max-width: 60%;
+            margin-top: 2vh;
+            min-width: 7%;
+            display: flex;
         }
         button.product-button{
             margin-left: 30%;
@@ -163,8 +167,8 @@
         img.edit-button{
             cursor: pointer;
         }
-        h1#title{
-            display: inline-block;
+        img#edit-title-btn{
+            margin-left: 10vw;
         }
         button.save-button{
             display: none;
@@ -206,7 +210,7 @@
             <td class="product-left-part">
                 <h1 id="title" style="font-size: 3vw;" contenteditable="false"><?php echo $product_detail['productName']; ?></h1>
                 <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
-                    <img class="edit-button" src="../images/edit.png" alt="edit" width="3%" onclick="editMode('title')">
+                    <img class="edit-button" id="edit-title-btn" src="../images/edit.png" alt="edit" width="3%" onclick="editMode('title')">
                     <button class="save-button" id="save-button-title" onclick="saveEdit('title', 'productName')">SAVE</button><br>
                 <?php } ?>
                 
@@ -232,7 +236,7 @@
                         <button class="save-button" id="save-button-priceLabel" onclick="saveEdit('priceLabel', 'priceLabel')">SAVE</button><br>
                     <?php } ?></div>
                     <?php if ($role=="supplier" && $user_id==$product_detail['supplierID'] && $product_detail['availabilityStatus']!='banned'){ ?>
-                        <div class="availability" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
+                        <div class="availability" title="Click here to change status" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
                         <div id="availability-status-dropdown" class="availability-status-dropdown-content">
                             <p>Change your product's availability</p>
                             <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>">Available</a><br><br>
@@ -318,6 +322,9 @@
 
             if (field=='priceLabel' && isNaN(parseFloat(new_value))){ // Check if price is number
                 alert('Please enter numeric value for Price Label! ');
+                location.reload();
+            }else if (field=='title' && new_value.length > 15){
+                alert('Maximum length of product\'s name is 15 characters! ');
                 location.reload();
             }else{
                 var url=`../modules/save_edit.php?id=<?php echo $id; ?>&col=${column}&new=${new_value}`;

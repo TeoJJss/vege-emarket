@@ -127,7 +127,9 @@
         }
         table.product-content-table td{
             text-align: center;
+            max-width: 10vw;
             font-size: 1.2vw;
+            overflow: hidden;
             line-height: 3;
         }
 

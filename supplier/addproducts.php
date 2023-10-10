@@ -109,7 +109,7 @@
     <p id="title">Add Products</p>
     <div class="form-container">
         <form method="post" enctype="multipart/form-data" action="../modules/add_item.php">
-            <input type="text" name="name" id="name" placeholder="Product Name"><br>
+            <input type="text" name="name" id="name" maxlength="15" placeholder="Product Name"><br>
             <select id="category" name="category" required> 
                 <option value="" disabled selected>Category</option>
                 <option value="Poaceae">Poaceae</option>

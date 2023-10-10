@@ -87,6 +87,8 @@
             padding-bottom: 2vw;
             padding-right: 10vw;
             text-align: center;
+            max-width: 4.7vw;
+            overflow: hidden;
         }
         table.console-content-table{
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -111,11 +113,11 @@
         #title{
             color: darkgreen;
         }
-        a.search-product-url{
-            color: green;
-        }
         tr.console-table-headers{
             color: #006400;
+        }
+        td.search-key > a{
+            color:darkgreen;
         }
     </style>
 </head>
@@ -135,7 +137,7 @@
             <table class="console-content-table">
                 <thead>
                     <tr class="console-table-headers">
-                        <th></th>
+                        <th id="count"></th>
                         <th>Product Name</th>
                         <th>Price Label</th>
                         <th>Category</th>
@@ -150,7 +152,7 @@
                             while ($product_info=mysqli_fetch_array($product_list)){
                                 $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
-                                echo '<td>'.$count.'</td>';
+                                echo '<td id="count">'.$count.'</td>';
                                 echo '<td class="search-key">'."<a class='search-product-url' href='../public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">RM'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
@@ -196,7 +198,8 @@
                                 echo '<td>'.$count.'</td>';
                                 echo '<td class="search-key">'.$user_info['userName'].'</td>';
                                 echo '<td class="search-key">'.$user_info['role'].'</td>';
-                                echo '<td class="search-key">'.$user_info['phone'].';<br>'.$user_info['email'].'</td>';
+                                echo "<td class='search-key'><a href='tel:$user_info[phone]'>".$user_info['phone']."</a>;<br>
+                                        <a href='mailto:$user_info[email]'>".$user_info['email'].'</a></td>';
                                 $id = $user_info['userID'] ;
                                 if ($user_info['accStatus'] != 'banned'){ ?>
                                     <td><button class='ban-button' onclick="chgStatus('user', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
