@@ -101,6 +101,9 @@
             background-color: mediumseagreen;
             font-weight: bolder;
         }
+        small.note{
+            color: red;
+        }
 </style>
 
 </head>
@@ -136,7 +139,7 @@
                 <option value="aquatic">Aquatic</option>
                 <option value="miscellaneous">Miscellaneous</option>
             </select><br>
-            <textarea name="description" id="description" required placeholder="Description" rows="4" style="resize: none;"></textarea><br>
+            <textarea name="description" placeholder="Description" rows="4" style="resize: none;" maxlength="255" required></textarea><br>
             <select id="status" name="status" required>
                 <option value="" disabled selected>Availability Status</option>
                 <option value="available">Available</option>
@@ -162,6 +165,7 @@
             <div class="file-input-container">
                 <input type="file" name="image" id="image" class="file-input"><br>
             </div>
+            <small class="note">Note: Sensitive characters such as <b>"</b> and <b>'</b> will be rejected. </small>
             <div class="buttons">
                 <input type="submit" name="submit" value="Add Product">
                 <input type="reset" name="reset" value="Reset">

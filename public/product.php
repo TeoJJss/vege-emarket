@@ -33,11 +33,7 @@
     <link rel="stylesheet" href="../styles/title.css">
     <style>
         h1#title{
-            color: darkgreen;
-            max-width: 60%;
-            margin-top: 2vh;
-            min-width: 7%;
-            display: flex;
+            margin-top: 3vh;
         }
         button.product-button{
             margin-left: 30%;
