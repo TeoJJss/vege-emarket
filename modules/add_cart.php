@@ -2,8 +2,7 @@
     /* INSERT */
     require '../modules/config.php';
     if ($role !='consumer'){
-        echo "Access denied";
-        header('Location: ../index.php');
+        include '../modules/access_denied.php';
     }
     $product_id=$_GET['id'];
 

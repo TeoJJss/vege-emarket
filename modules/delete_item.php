@@ -3,8 +3,7 @@
     
     /* UPDATE */ 
     if ($role !='supplier'){
-        echo "Access denied";
-        header('Location: ../index.php');
+        include '../modules/access_denied.php';
     }
     $product_id=$_GET['id'];
     $dlt_sql="UPDATE products SET availabilityStatus='deleted' WHERE products.productID='$product_id' AND products.userID='$user_id';";

@@ -3,8 +3,7 @@ require '../modules/config.php';
 
 /* INSERT */
 if ($role != 'supplier') {
-    echo "Access denied";
-    header('Location: ../index.php');
+    include '../modules/access_denied.php';
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -2,8 +2,7 @@
     /* UPDATE */
     require '../modules/config.php'; 
     if ($role !='admin'){
-        echo "Access denied";
-        header('Location: ../index.php');
+        include '../modules/access_denied.php';
     }
     if ($_GET['type']=='user'){
         $id=$_GET['id'];

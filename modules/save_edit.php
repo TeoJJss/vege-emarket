@@ -1,8 +1,7 @@
 <?php
     require '../modules/config.php'; 
     if ($role !='supplier'){
-        echo "Access denied";
-        header('Location: ../index.php');
+        include '../modules/access_denied.php';
     }
 
     /* UPDATE */

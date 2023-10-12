@@ -2,6 +2,7 @@
     require '../modules/config.php'; // Validate user role
     if ($role !='admin'){
         header('Location: ../index.php');
+        die;
     }
     include '../includes/header.php'; // Get header
 

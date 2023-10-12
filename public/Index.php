@@ -41,6 +41,9 @@
 <html lang="en">  
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="B2B Vegetable Agricultural marketplace">
+    <meta name="keywords" content="B2B, vegetable, agriculture">
+    <meta name="author" content="WDT Group 19 (2023)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
