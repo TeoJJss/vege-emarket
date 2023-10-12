@@ -47,109 +47,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');*{
-   font-family: 'Poppins', sans-serif;
-   margin:0; padding:0;
-   box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-}
 
-.container{
-   min-height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding:20px;
-   padding-bottom: 60px;
-}
-
-
-.container .content .btn{
-   display: inline-block;
-   padding:10px 30px;
-   font-size: 20px;
-   background: darkgreen;
-   color:#ffffff;
-   margin:0 5px;
-   text-transform: capitalize;
-}
-
-.container .content .btn:hover{
-   background: darkgreen;
-}
-
-.form-container{
-   min-height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding:20px;
-   padding-bottom: 60px;
-   background: #FFFDD0;
-}
-
-.form-container form{
-   padding:20px;
-   border-radius: 5px;
-   box-shadow: 0 5px 10px rgba(0,0,0,.1);
-   background: white;
-   text-align: center;
-   width: 500px;
-}
-
-.form-container form h3{
-   font-size: 30px;
-   text-transform: uppercase;
-   margin-bottom: 10px;
-   color:#333333;
-}
-
-.form-container form input,
-.form-container form select{
-   width: 100%;
-   padding:10px 15px;
-   font-size: 17px;
-   margin:8px 0;
-   background: #eeeeee;
-   border-radius: 5px;
-}
-
-.form-container form select option{
-   background: #ffffff;
-}
-
-.form-container form .form-btn{
-   background:#eeeeee;
-   color:darkgreen;
-   text-transform: capitalize;
-   font-size: 20px;
-   cursor: pointer;
-}
-
-.form-container form .form-btn:hover{
-   background: lightgreen;
-   color:#ffffff;
-}
-
-.form-container form p{
-   margin-top: 10px;
-   font-size: 20px;
-   color:#333333;
-}
-
-.form-container form p a{
-   color:darkgreen;
-}
-
-.form-container form h2 a{
-    margin-top: 10px;
-   font-size: 14px;
-   color:darkgreen;
-   float: right;
-}
-
-</styles>
+</style>
 </head>
 <body>
     <div class="form-container">
@@ -167,10 +66,16 @@
             <section>
                 <p>Password</p>
                 <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password']; } ?>" required>
-            </section>  
-            <p><input type="checkbox" name="remember">remember me?</p>
+                <h2><a href="ResetPassword1.php">Forgot Password?</a><h2>
+            </section>    
+            <br></br>
+            <section>
+            <p>remember me?</p>
+            </section>
+            
+            <input type="checkbox"name="remember">
             <input type="submit" value="Login" class="form-btn">
-            <p>Don't have an account?</p><a>
+            <p>Don't have an account? <a href="Register.php">Register Now!</p> 
         </form>
     </div>
 </body>
