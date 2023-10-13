@@ -196,7 +196,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             </section>
             
             <section>
-            <label for="">Name</label>
+            <label for="name">Name</label>
             </section>
             <section>
             <input type="text" name="name" required placeholder="Enter your Name" maxlength="15">
@@ -210,7 +210,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             </section>
 
             <section>
-            <br>Choose your gender<br>
+            <br><label for="gender">Choose your gender</label><br>
                 <div class="radio-button">
                     <label for="">
                         <input type="radio" name="gender" value="Male" required="required">Male
@@ -222,7 +222,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             </section>
             <br>
             <section>
-            <label for="">Email</label> 
+            <label for="email">Email</label> 
             </section>
             <section>
             <input type="Email" name="email" required placeholder = "Enter your Email" maxlength="30">
@@ -243,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             </section>
             <br>
             <section>
-            <label for="">Phone Number</label> 
+            <label for="Tel">Phone Number</label> 
             </section>
             <section>    
                 <input id="phone" name="Tel" type="Tel" pattern="[0-9]{11,12}" style="width: 25vw;" required placeholder="0000000000 (include country code)"> 

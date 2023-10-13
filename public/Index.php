@@ -59,12 +59,12 @@
             </section>
         
             <section>
-                <p>Email</p>
+                <label for="email">Email</label>
                 <input type="email" name="email" placeholder="Enter your Email" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email']; } ?>" required>
             </section>
 
             <section>
-                <p>Password</p>
+                <label for="password">Password</label>
                 <input type="password" name="password" placeholder="Enter your Password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password']; } ?>" required>
                 <h2><a href="ResetPassword1.php">Forgot Password?</a><h2>
             </section>    

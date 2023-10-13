@@ -27,7 +27,3 @@
     <span class="login-alert-closebtn" onclick="document.getElementById('login-alert').style.display='none';">&times;</span> 
     <strong>Wrong username or password.</strong> Please try again.
 </div>
-
-<!-- 
-    How To Create an Alert Message Box. (2023). W3schools.com. https://www.w3schools.com/howto/howto_js_alert.asp
- -->

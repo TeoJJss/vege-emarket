@@ -44,7 +44,7 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 13vw;
+            right: 12vw;
         } 
         div.header-username-dropdown-content > a{
             cursor: pointer;
