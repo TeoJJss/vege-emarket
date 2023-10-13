@@ -66,226 +66,239 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
          };
         }
     ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.9/js/intlTelInput.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+    <link rel="stylesheet" href="../styles/cdnjs.cloudflare.com_ajax_libs_intl-tel-input_17.0.3_css_intlTelInput.min.css" />
+    <script src="../src/cdnjs.cloudflare.com_ajax_libs_intl-tel-input_17.0.3_js_intlTelInput.min.js"></script>
+    <script src="../src/cdnjs.cloudflare.com_ajax_libs_intl-tel-input_11.0.9_js_intlTelInput.js"></script>
     <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');*{
-   font-family: 'Poppins', sans-serif;
-   margin:0; padding:0;
-   box-sizing: border-box;
-   outline: none; border:none;
-   text-decoration: none;
-}
+        @import url('../styles/fonts.googleapis.com_css2_family=Poppins_wght@100;200;300;400;500;600&display=swap.css');*{
+        font-family: 'Poppins', sans-serif;
+        margin:0; padding:0;
+        box-sizing: border-box;
+        outline: none; border:none;
+        text-decoration: none;
+        }
 
-.container{
-   min-height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding:20px;
-   padding-bottom: 60px;
-}
-
-
-.container .content .btn{
-   display: inline-block;
-   padding:10px 30px;
-   font-size: 20px;
-   background: darkgreen;
-   color:black;
-   margin:0 5px;
-   text-transform: capitalize;
-}
-
-.container .content .btn:hover{
-   background: darkgreen;
-}
-
-.form-container{
-   min-height: 100vh;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   padding:20px;
-   padding-bottom: 60px;
-   background: #FFFDD0;
-}
-
-.form-container form{
-   padding:20px;
-   border-radius: 5px;
-   box-shadow: 0 5px 10px rgba(0,0,0,.1);
-   background: white;
-   text-align: center;
-   width: 500px;
-}
-
-.form-container form h3{
-   font-size: 30px;
-   text-transform: uppercase;
-   margin-bottom: 10px;
-   color:#333333;
-}
+        .container{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:20px;
+        padding-bottom: 60px;
+        }
 
 
-.form-container form input,.form-container form select{
-   width: 100%;
-   padding:10px 15px;
-   font-size: 17px;
-   margin:8px 0;
-   background: #eeeeee;
-   border-radius: 5px;
-}
+        .container .content .btn{
+        display: inline-block;
+        padding:10px 30px;
+        font-size: 20px;
+        background: darkgreen;
+        color:black;
+        margin:0 5px;
+        text-transform: capitalize;
+        }
 
-.form-container .radio-button{
-    display:flex;
-    width:100%;
-    justify-content:space-around;
-    margin:8px 0;
-    padding:10px;
-}
+        .container .content .btn:hover{
+        background: darkgreen;
+        }
 
-.form-container form select option{
-   background: #ffffff;
-}
+        .form-container{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding:20px;
+        padding-bottom: 60px;
+        background: #FFFDD0;
+        }
 
-.form-container form .form-btn{
-   background:#eeeeee;
-   color:darkgreen;
-   text-transform: capitalize;
-   font-size: 20px;
-   cursor: pointer;
-}
+        .form-container form{
+        padding:20px;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0,0,0,.1);
+        background: white;
+        text-align: center;
+        width: 500px;
+        }
 
-.form-container form .form-btn:hover{
-   background: lightgreen;
-   color:#ffffff;
-}
+        .form-container form h3{
+        font-size: 30px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        color:#333333;
+        }
 
-.form-container form p{
-   margin-top: 10px;
-   font-size: 20px;
-   color:#333333;
-}
 
-.form-container form p a{
-   color:darkgreen;
-}
+        .form-container form input,.form-container form select{
+        width: 100%;
+        padding:10px 15px;
+        font-size: 17px;
+        margin:8px 0;
+        background: #eeeeee;
+        border-radius: 5px;
+        }
 
-.error-msg{
-    display:block;
-   background:red;
-   color:#ffffff;
-   font-size: 20px;
-   padding:10px;
-}
+        .form-container .radio-button{
+            display:flex;
+            width:100%;
+            justify-content:space-around;
+            margin:8px 0;
+            padding:10px;
+        }
 
-</style>
+        .form-container form select option{
+        background: #ffffff;
+        }
+
+        .form-container form .form-btn{
+        background:#eeeeee;
+        color:darkgreen;
+        text-transform: capitalize;
+        font-size: 20px;
+        cursor: pointer;
+        }
+
+        .form-container form .form-btn:hover{
+        background: lightgreen;
+        color:#ffffff;
+        }
+
+        .form-container form p{
+        margin-top: 10px;
+        font-size: 20px;
+        color:#333333;
+        }
+
+        .form-container form p a{
+        color:darkgreen;
+        }
+
+        .error-msg{
+            display:block;
+            background:red;
+            color:#ffffff;
+            font-size: 20px;
+            padding:10px;
+        }
+        img.eye-button{
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<div class="form-container">
+    <div class="form-container">
 
-    <form action=""method="post">
+        <form action=""method="post">
 
+            
+            <section>
+            <h3>Register Now!</h3>
+            </section>
+            
+            <section>
+            <label for="">Name</label>
+            </section>
+            <section>
+            <input type="text" name="name" required placeholder="Enter your Name" maxlength="15">
+            </section>
+            <br>
+            <section>
+            <label for="date">Date of birth</label>    
+            </section>
+            <section>
+            <input type="Date" name="date" min="1923-01-01" max="2013-12-31" required placeholder="enter your Date of Birth">
+            </section>
+
+            <section>
+            <br>Choose your gender<br>
+                <div class="radio-button">
+                    <label for="">
+                        <input type="radio" name="gender" value="Male" required="required">Male
+                    </label>
+                    <label for="">   
+                        <input type="radio" name="gender" value="Female">Female
+                    </label>
+                    </div>
+            </section>
+            <br>
+            <section>
+            <label for="">Email</label> 
+            </section>
+            <section>
+            <input type="Email" name="email" required placeholder = "Enter your Email" maxlength="30">
+            </section>
+            <br>
+            <section>
+            <label for="Password">Password <img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></label> 
+            </section>
+            <section>
+            <input type="Password" name="Password" id="passwordInput" required placeholder = "Enter your Password">
+            </section>
+            <br>
+            <section>
+            <label for="ConfirmPassword">Confirm Password <img src="../images/showPassword.png" class="eye-button" id="show-confirm-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-confirm-btn')"></label> 
+            </section>
+            <section>
+            <input type="Password" name="ConfirmPassword" id="confirmInput" required placeholder = "Confirm your Password">
+            </section>
+            <br>
+            <section>
+            <label for="">Phone Number</label> 
+            </section>
+            <section>    
+                <input id="phone" name="Tel" type="Tel" pattern="[0-9]{11,12}" style="width: 25vw;" required placeholder="0000000000 (include country code)"> 
         
-        <section>
-        <h3>Register Now!</h3>
-        </section>
-        
+                <script> 
+                    const input = document.querySelector("#phone");
+                        const button = document.querySelector("#btn");
+                        const errorMsg = document.querySelector("#error-msg");
+                        const validMsg = document.querySelector("#valid-msg");
 
-        
-        <section>
-        <label for="">Name</label>
-        </section>
-        <section>
-        <input type="text" name="name" required placeholder="Enter your Name">
-        </section>
-        
-        <section>
-        <label for="">Date of birth</label>    
-        </section>
-        <section>
-        <input type="Date" name="date" min="1923-01-01" max="2013-12-31" required placeholder="enter your Date of Birth">
-        </section>
+                        // here, the index maps to the error code returned from getValidationError - see readme
+                        const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
 
-        <section>
-        <br>choose your gender<br>
-            <div class="radio-button">
-                <label for="">
-                    <input type="radio" name="gender" value="Male" required="required">Male
-                </label>
-                <label for="">   
-                    <input type="radio" name="gender" value="Female">Female
-                </label>
-                </div>
-        </section>
-        
-        <section>
-        <label for="">Email</label> 
-        </section>
-        <section>
-        <input type="Email" name="email" required placeholder = "Enter your Email">
-        </section>
-        
-        <section>
-        <label for="">Password</label> 
-        </section>
-        <section>
-        <input type="Password" name="Password" required placeholder = "Enter your Password">
-        </section>
+                        // initialise plugin
+                        const iti = window.intlTelInput(input, {
+                        utilsScript: "/intl-tel-input/js/utils.js?1695806485509"
+                        });
 
-        <section>
-        <label for="">Confirm Password</label> 
-        </section>
-        <section>
-        <input type="Password" name="ConfirmPassword" required placeholder = "Confirm your Password">
-        </section>
+                </script>
+            </section>
+            <br>
+            <section>
+            <label for="user_type">Roles</label> 
+            </section>
+            <section>
+            <select name="user_type" style="width: 15vw;" required>
+                <option value="" disabled selected>Select a role</option>
+                <option value="consumer">consumer</option>
+                <option value="supplier">supplier</option>
+            </select>
+            </section>
+        <br>
+            <input type="submit" value="register" class="form-btn">
+            
 
-        <section>
-        <label for="">Phone Number</label> 
-        </section>
-        <section>    
-            <input id="phone" name="Tel" type="Tel" pattern="[0-9]{11,12}" required placeholder="0000000000"> 
-      
-            <script> 
-               const input = document.querySelector("#phone");
-                const button = document.querySelector("#btn");
-                const errorMsg = document.querySelector("#error-msg");
-                const validMsg = document.querySelector("#valid-msg");
-
-                // here, the index maps to the error code returned from getValidationError - see readme
-                const errorMap = ["Invalid number", "Invalid country code", "Too short", "Too long", "Invalid number"];
-
-                // initialise plugin
-                const iti = window.intlTelInput(input, {
-                utilsScript: "/intl-tel-input/js/utils.js?1695806485509"
-                });
-
-            </script>
-        </section>
-        
-        <section>
-        <label for="">Roles</label> 
-        </section>
-        <section>
-        <select name="user_type">
-            <option value="consumer">consumer</option>
-            <option value="supplier">supplier</option>
-        </select>
-        </section>
-       
-        <input type="submit" value="register" class="form-btn">
-           
-
-        <p>already have an account? <a href="../index.php">Login Now!</a></p>
-    
-    
-    
-    </form>
-      
-       
-</div>
+            <p>already have an account? <a href="../index.php">Login Now!</a></p>
+        </form> 
+    </div>
+    <script>
+        function showPassword(button) {
+            if (button == "show-password-btn"){
+                var inputField = document.getElementById("passwordInput");
+            }else if (button == "show-confirm-btn"){
+                var inputField = document.getElementById("confirmInput");
+            }   
+            var showBtn = document.getElementById(button);
+            if (inputField.type === "password") {
+                inputField.type = "text";
+                showBtn.style.border="1px solid"
+            } else {
+                inputField.type = "password";
+                showBtn.style.border="none"
+            }
+        }
+    </script>
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
-<?php include '../includes/footer.php'; ?>

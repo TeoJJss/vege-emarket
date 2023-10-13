@@ -75,7 +75,7 @@
             
             <input type="checkbox"name="remember">
             <input type="submit" value="Login" class="form-btn">
-            <p>Don't have an account? <a href="Register.php">Register Now!</p> 
+            <p>Don't have an account? <a href="Register.php">Register Now!</a></p> 
         </form>
     </div>
 </body>
