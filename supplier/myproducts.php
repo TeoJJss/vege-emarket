@@ -139,7 +139,7 @@
 </head>
 <body>
     <h1 id="title">Supplier Page</h1>
-    <p id="title">Supplier Products</p>
+    <p id="title">My Products</p>
     <div class="product-container">
         <div class="menu_topbar">
             <p>Products</p>
