@@ -185,8 +185,10 @@
                             WHERE suppliers.userID = '$user_id' $search_value
                             ORDER BY orders.orderDate DESC";
                     $orders = mysqli_query($conn, $sql);
-
-                   while($order_info = mysqli_fetch_array($orders)) {
+                    if (mysqli_num_rows($orders)==0){
+                        echo "<center><b>Nothing found</b></center>";
+                    }
+                    while($order_info = mysqli_fetch_array($orders)) {
                         echo '<div class="order-container">';
                         echo '<table class="order-header">';
                         echo '<tbody>';
@@ -239,6 +241,8 @@
                         echo '</table>';
                         echo '</div><br>';
                     }
+                }else{
+                    echo "<center><b>Nothing found</b></center>";
                 }
             ?>
         </div>
