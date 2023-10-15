@@ -93,6 +93,8 @@
             text-align: center;
             font-size: 1.2vw;
             line-height: 2;
+            word-wrap: break-word;
+            max-width: 48px;
         }
         table.orders_table{
             max-width: 95%;
@@ -108,6 +110,8 @@
             border-bottom: 1px solid darkgreen;
             text-align: center;
             font-size: 1.2vw;
+            word-wrap: break-word;
+            max-width: 48px;
         }
         #order_details_td{
             font-size: 1vw;

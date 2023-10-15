@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     <script src="../src/cdnjs.cloudflare.com_ajax_libs_intl-tel-input_17.0.3_js_intlTelInput.min.js"></script>
     <script src="../src/cdnjs.cloudflare.com_ajax_libs_intl-tel-input_11.0.9_js_intlTelInput.js"></script>
     <style>
-        @import url('../styles/fonts.googleapis.com_css2_family=Poppins_wght@100;200;300;400;500;600&display=swap.css');*{
+        @import url('../styles/fonts.googleapis.com_css2_family=Poppins_wght@100;200;300;400;500;600&display=swap.css'); form *{
         font-family: 'Poppins', sans-serif;
         margin:0; padding:0;
         box-sizing: border-box;
@@ -299,6 +299,6 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             }
         }
     </script>
-    <?php include '../includes/footer.php'; ?>
 </body>
+<?php include '../includes/footer.php'; ?>
 </html>

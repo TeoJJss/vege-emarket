@@ -133,6 +133,7 @@
             font-size: 1.2vw;
             overflow: hidden;
             line-height: 3;
+            word-wrap: break-word;
         }
 
     </style>

@@ -2,6 +2,7 @@
     require '../modules/config.php'; // Validate user role
     if ($role !='supplier'){
         header('Location: ../index.php');
+        die;
     }
 
     include '../includes/header.php'; // Get header
@@ -23,7 +24,7 @@
     <link rel="stylesheet" href="../styles/title.css">
     <style>
         a{
-        color: green;
+            color: green;
         }
         .page-container{
             display: flex;
@@ -44,19 +45,22 @@
             flex-direction: column;
             align-items: center; 
         }
-        table{
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            min-width: 100%; 
+        table.order-header {
+            border-spacing: 0;
         }
         table.order-header td{
-            border-bottom: 1px solid green;
+            border-bottom: 2px solid green;
             font-weight: normal;
             font-size: 1.2vw;
             padding-bottom: 15px;
+            max-width: 18vw;
             vertical-align: top;
+            padding-left: 50px;
         }
-        td{
+        table.order-header, table.order-content{
             font-size: 1.4vw;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            min-width: 100%; 
         }
         td.order-id{
             text-align: center;
@@ -72,7 +76,7 @@
         td.order-date{
             width: 34%;
         }
-        tr.second-row td{
+        tr.second-row  td{
             text-align: center;
         }
         td.status{
@@ -84,9 +88,11 @@
         }
         tr.third-row td{
             padding-top: 20px;
-            text-align: left;
+            text-align: center;
             vertical-align: top;
             min-height: 100px;
+            max-width: 18vw;
+            word-wrap: break-word;
         }
         .submit-button {
             background-color: darkgreen;
@@ -136,7 +142,8 @@
                             JOIN orders_products ON orders.orderID = orders_products.orderID
                             JOIN products on orders_products.productID = products.productID
                             JOIN users AS suppliers ON products.userID = suppliers.userID
-                            WHERE suppliers.userID = '$user_id'";
+                            WHERE suppliers.userID = '$user_id'
+                            ORDER BY orders.orderDate DESC";
                     $orders = mysqli_query($conn, $sql);
 
                    while($order_info = mysqli_fetch_array($orders)) {
@@ -154,7 +161,7 @@
                         echo '<table class="order-content">';
                         echo '<tbody>';
                         echo '<tr class="second-row">';
-                        echo '<td class="product-name">'.$order_info['productName'].'</td>';
+                        echo "<td class='product-name'><a href='../public/product.php?id=$order_info[productID]'>".$order_info['productName'].'</a></td>';
                         echo '<td class="product-price">RM'.$order_info['agreedPrice'].'</td>';
                         echo '<td class="order-date">Date: '.$order_info['orderDate'].'</td>';
                         echo '</tr>';
@@ -190,7 +197,7 @@
                         echo '</tr>';
                         echo '</tbody>';
                         echo '</table>';
-                        echo '</div>';
+                        echo '</div><br>';
                     }
                 }
             ?>
