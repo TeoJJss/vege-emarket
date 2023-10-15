@@ -7,8 +7,9 @@ if ($role != 'supplier') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //ProductID 
-    $productID = uniqid("P");
+    //ProductID
+    $prefix = date('Ymd'); 
+    $productID = uniqid("P".$prefix);
 
     //Other input from form
     $category = $_POST['category'];
