@@ -112,6 +112,9 @@
         button.delete_button{
             cursor: pointer;
         }
+        button.delete_button:hover{
+            background-color: red;
+        }
         .table-container {
             max-height: 400px; 
             overflow-y: auto; 

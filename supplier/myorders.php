@@ -47,6 +47,7 @@
         .order-container{
             background-color: beige;
             padding: 20px;
+            padding-bottom: 10px;
             width: 60%;
             box-sizing: border-box;
             border-radius: 20px;
@@ -70,12 +71,14 @@
             font-size: 1.4vw;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             min-width: 100%; 
+            padding-top: 20px;
         }
         td.order-id{
             text-align: center;
         }
         td.customer-name{
             width: 20%;
+            font-size: 2vw;
         }
         td.product-name{
             color: green;
@@ -96,7 +99,7 @@
             text-align: left;
         }
         tr.third-row td{
-            padding-top: 20px;
+            padding-top: 40px;
             text-align: center;
             vertical-align: top;
             min-height: 100px;
@@ -124,6 +127,7 @@
             font-size: 1.2vw; 
             color: black; 
             cursor: pointer;
+            text-align: center;
         }
         select.status-dropdown option[value="paid"] {
             background-color: lightsteelblue;
@@ -190,7 +194,7 @@
                     echo '<td class="customer-name">'.$order_info['customerName'].'</th>';
                     echo '<td class="customer-contacts"><a href="tel:'.$order_info['customerPhone'].'">'.$order_info['customerPhone'].'</a><br>';
                     echo '<a href="mailto:'.$order_info['customerEmail'].'">'.$order_info['customerEmail'].'</a></th>';
-                    echo '<td class="order-id">Order ID: '.$order_info['orderID'].'</th>';
+                    echo '<td class="order-id"><b>Order ID: </b>'.$order_info['orderID'].'</th>';
                     echo '</tr>';
                     echo '</tbody>';
                     echo '</table>';
@@ -198,11 +202,11 @@
                     echo '<tbody>';
                     echo '<tr class="second-row">';
                     echo "<td class='product-name'><a href='../public/product.php?id=$order_info[productID]'>".$order_info['productName'].'</a></td>';
-                    echo '<td class="product-price">RM'.$order_info['agreedPrice'].'</td>';
-                    echo '<td class="order-date">Date: '.$order_info['orderDate'].'</td>';
+                    echo '<td class="product-price"><b>RM </b>'.$order_info['agreedPrice'].'</td>';
+                    echo '<td class="order-date"><b>Date: </b>'.$order_info['orderDate'].'</td>';
                     echo '</tr>';
                     echo '<tr class="third-row">';
-                    echo '<td class="address">Address: <br>'.$order_info['address'].'</td>';
+                    echo '<td class="address"><b>Address: </b><br>'.$order_info['address'].'</td>';
                     echo '<td class= "status">';
                     
                     // Dynamic field for order status
@@ -229,7 +233,7 @@
                     echo '</div>';
 
                     echo '</td>';
-                    echo '<td class="remark">Remark: <br>'.$order_info['remark'].'</td>';
+                    echo '<td class="remark"><b>Remark: </b><br>'.$order_info['remark'].'</td>';
                     echo '</tr>';
                     echo '</tbody>';
                     echo '</table>';
