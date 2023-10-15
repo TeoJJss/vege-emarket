@@ -6,12 +6,14 @@
     }
 
     include '../includes/header.php'; // Get header
+    $sql = "SELECT products.productID, products.productName, COUNT(orders_products.productID) as sold, products.availabilityStatus, products.priceLabel, products.unit
+            FROM products 
+            LEFT JOIN orders_products ON orders_products.productID = products.productID
+            WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
+            GROUP BY products.productID
+            ORDER BY products.productID ASC";
+    $products = mysqli_query($conn, $sql);
 
-    //Count number of products
-    $product_list = mysqli_query($conn, "SELECT * FROM products");
-    if ($product_list){
-        $product_list_length = mysqli_num_rows($product_list);
-    }
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +115,7 @@
         .table-container {
             max-height: 400px; 
             overflow-y: auto; 
-            width: 80%;
+            width: 100%;
         }
         table.product-content-table {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -129,10 +131,10 @@
         table.product-content-table td{
             text-align: center;
             min-width: 10vw;
-            max-width: 10vw;
+            max-width: 17vw;
             font-size: 1.2vw;
             overflow: hidden;
-            line-height: 3;
+            line-height: 2;
             word-wrap: break-word;
         }
 
@@ -164,35 +166,26 @@
                     </thead>
                     <tbody>
                         <?php
-                            if ($product_list_length){
-                                $sql = "SELECT products.productID, products.productName, COUNT(orders_products.productID) as sold, products.availabilityStatus, products.priceLabel, products.unit
-                                        FROM products 
-                                        LEFT JOIN orders_products ON orders_products.productID = products.productID
-                                        WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
-                                        GROUP BY products.productID
-                                        ORDER BY products.productID ASC";
-                                $products = mysqli_query($conn, $sql);
-                                while($product_info = mysqli_fetch_array($products)) {
-                                    $id = $product_info['productID'];
-                                    echo "<tr class='searchable-row'>";
-                                    echo "<td class='search-key'>".$product_info['productID']."</td>";
-                                    echo "<td class='search-key'>"."<a href='../public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
-                                    echo "<td class='search-key'>RM ".$product_info['priceLabel'].'/'.$product_info['unit']."</td>";
-                                    echo "<td class='search-key'>".$product_info['sold']."</td>";
+                            while($product_info = mysqli_fetch_array($products)) {
+                                $id = $product_info['productID'];
+                                echo "<tr class='searchable-row'>";
+                                echo "<td class='search-key'>".$product_info['productID']."</td>";
+                                echo "<td class='search-key'>"."<a href='../public/product.php?id=$id' style='color:darkgreen;'>".$product_info['productName']."</a></td>";
+                                echo "<td class='search-key'>RM ".$product_info['priceLabel'].'/'.$product_info['unit']."</td>";
+                                echo "<td class='search-key'>".$product_info['sold']."</td>";
 
-                                    if ($product_info['availabilityStatus']=="available"){
-                                        echo "<td>"."<img src= '../images/available_status.png' height='28'"."</td>";
-                                    }
-                                    else if ($product_info['availabilityStatus']=="out of stock") {
-                                        echo "<td class='product_status'>"."<img src= '../images/outofstock_status.png' height='24'"."</td>";
-                                    }
-                                    else if ($product_info['availabilityStatus']=="banned") {
-                                        echo "<td class='search-key'>".'<span style ="color: red;">Banned</span>';
-                                    }
-                                    
-                                    echo "<td>"."<button class='delete_button' onclick='dltItem(\"$id\");'>"."<img class = 'delete_img' src='../images/trash.png'>"."</button>"."</td>";
-                                    echo "</tr>";
+                                if ($product_info['availabilityStatus']=="available"){
+                                    echo "<td>"."<img src= '../images/available_status.png' height='28'"."</td>";
                                 }
+                                else if ($product_info['availabilityStatus']=="out of stock") {
+                                    echo "<td class='product_status'>"."<img src= '../images/outofstock_status.png' height='24'"."</td>";
+                                }
+                                else if ($product_info['availabilityStatus']=="banned") {
+                                    echo "<td class='search-key'>".'<span style ="color: red;">Banned</span>';
+                                }
+                                
+                                echo "<td>"."<button class='delete_button' onclick='dltItem(\"$id\");'>"."<img class = 'delete_img' src='../images/trash.png'>"."</button>"."</td>";
+                                echo "</tr>";
                             }
                         ?>
                     </tbody>

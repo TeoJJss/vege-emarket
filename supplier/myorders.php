@@ -6,17 +6,22 @@
     }
 
     include '../includes/header.php'; // Get header
-
-    // Count number of orders
-    $order_list = mysqli_query($conn, "SELECT * FROM orders");
-    if ($order_list){
-        $order_list_length = mysqli_num_rows($order_list);
-    }
     if (isset($_GET['q'])){
         $search_value="AND (customers.userName LIKE '%$_GET[q]%' OR products.productName LIKE '%$_GET[q]%')";
     }else{
         $search_value="";
     }
+
+    $sql = "SELECT customers.userName AS customerName, customers.email AS customerEmail, customers.phone AS customerPhone, orders.orderID, products.productName, 
+                    orders.address, orders_products.agreedPrice, orders_products.status, orders.orderDate, orders_products.remark, orders_products.productID 
+            FROM users AS customers
+            JOIN orders ON customers.userID = orders.userID
+            JOIN orders_products ON orders.orderID = orders_products.orderID
+            JOIN products on orders_products.productID = products.productID
+            JOIN users AS suppliers ON products.userID = suppliers.userID
+            WHERE suppliers.userID = '$user_id' $search_value
+            ORDER BY orders.orderDate DESC";
+    $orders = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -174,75 +179,61 @@
                 }
             ?><br>
             <?php
-                if ($order_list_length){
-                    $sql = "SELECT customers.userName AS customerName, customers.email AS customerEmail, customers.phone AS customerPhone, orders.orderID, products.productName, 
-                                    orders.address, orders_products.agreedPrice, orders_products.status, orders.orderDate, orders_products.remark, orders_products.productID 
-                            FROM users AS customers
-                            JOIN orders ON customers.userID = orders.userID
-                            JOIN orders_products ON orders.orderID = orders_products.orderID
-                            JOIN products on orders_products.productID = products.productID
-                            JOIN users AS suppliers ON products.userID = suppliers.userID
-                            WHERE suppliers.userID = '$user_id' $search_value
-                            ORDER BY orders.orderDate DESC";
-                    $orders = mysqli_query($conn, $sql);
-                    if (mysqli_num_rows($orders)==0){
-                        echo "<center><b>Nothing found</b></center>";
-                    }
-                    while($order_info = mysqli_fetch_array($orders)) {
-                        echo '<div class="order-container">';
-                        echo '<table class="order-header">';
-                        echo '<tbody>';
-                        echo '<tr class="first-row">';
-                        echo '<td class="customer-name">'.$order_info['customerName'].'</th>';
-                        echo '<td class="customer-contacts"><a href="tel:'.$order_info['customerPhone'].'">'.$order_info['customerPhone'].'</a><br>';
-                        echo '<a href="mailto:'.$order_info['customerEmail'].'">'.$order_info['customerEmail'].'</a></th>';
-                        echo '<td class="order-id">Order ID: '.$order_info['orderID'].'</th>';
-                        echo '</tr>';
-                        echo '</tbody>';
-                        echo '</table>';
-                        echo '<table class="order-content">';
-                        echo '<tbody>';
-                        echo '<tr class="second-row">';
-                        echo "<td class='product-name'><a href='../public/product.php?id=$order_info[productID]'>".$order_info['productName'].'</a></td>';
-                        echo '<td class="product-price">RM'.$order_info['agreedPrice'].'</td>';
-                        echo '<td class="order-date">Date: '.$order_info['orderDate'].'</td>';
-                        echo '</tr>';
-                        echo '<tr class="third-row">';
-                        echo '<td class="address">Address: <br>'.$order_info['address'].'</td>';
-                        echo '<td class= "status">';
-                        
-                        // Dynamic field for order status
-                        echo '<div class="select-css">';
-                        echo '<form method= "POST" action="../modules/status_update.php">';
-                        echo '<select class="status-dropdown" name="status" data-order-id="' . $order_info['orderID'] . '" style="background-color: ';
-                            if ($order_info['status'] === 'paid') {
-                                echo 'lightsteelblue';
-                            } elseif ($order_info['status'] === 'shipped') {
-                                echo 'orange';
-                            } elseif ($order_info['status'] === 'delivered') {
-                                echo 'palegreen; cursor: not-allowed;';
-                            }
-                        echo '">';
-                        echo '<option value="shipped" ' . ($order_info['status'] === 'shipped' ? 'selected' : '') . ($order_info['status'] === 'delivered' ? 'disabled' : '') . '>SHIPPED</option>';
-                        echo '<option value="paid" ' . ($order_info['status'] === 'paid' ? 'selected' : '') . ($order_info['status'] === 'delivered' ? 'disabled' : '') . '>PAID</option>';
-                        echo '<option value="delivered" ' . ($order_info['status'] === 'delivered' ? 'selected' : '') . ' disabled>DELIVERED</option>';
-                        echo '</select>';
-                        echo '<br>';
-                        echo '<input type="hidden" name = "order_id" value="'. $order_info['orderID'].'">';
-                        echo '<input type="hidden" name = "product_id" value="'. $order_info['productID'].'">';
-                        echo '<input type="submit" class="submit-button" value="Confirm Update"'.($order_info['status'] === 'delivered' ? 'disabled style="cursor: not-allowed;"' : ''). '>';
-                        echo '</form>';
-                        echo '</div>';
-
-                        echo '</td>';
-                        echo '<td class="remark">Remark: <br>'.$order_info['remark'].'</td>';
-                        echo '</tr>';
-                        echo '</tbody>';
-                        echo '</table>';
-                        echo '</div><br>';
-                    }
-                }else{
+                if (mysqli_num_rows($orders)==0){
                     echo "<center><b>Nothing found</b></center>";
+                }
+                while($order_info = mysqli_fetch_array($orders)) {
+                    echo '<div class="order-container">';
+                    echo '<table class="order-header">';
+                    echo '<tbody>';
+                    echo '<tr class="first-row">';
+                    echo '<td class="customer-name">'.$order_info['customerName'].'</th>';
+                    echo '<td class="customer-contacts"><a href="tel:'.$order_info['customerPhone'].'">'.$order_info['customerPhone'].'</a><br>';
+                    echo '<a href="mailto:'.$order_info['customerEmail'].'">'.$order_info['customerEmail'].'</a></th>';
+                    echo '<td class="order-id">Order ID: '.$order_info['orderID'].'</th>';
+                    echo '</tr>';
+                    echo '</tbody>';
+                    echo '</table>';
+                    echo '<table class="order-content">';
+                    echo '<tbody>';
+                    echo '<tr class="second-row">';
+                    echo "<td class='product-name'><a href='../public/product.php?id=$order_info[productID]'>".$order_info['productName'].'</a></td>';
+                    echo '<td class="product-price">RM'.$order_info['agreedPrice'].'</td>';
+                    echo '<td class="order-date">Date: '.$order_info['orderDate'].'</td>';
+                    echo '</tr>';
+                    echo '<tr class="third-row">';
+                    echo '<td class="address">Address: <br>'.$order_info['address'].'</td>';
+                    echo '<td class= "status">';
+                    
+                    // Dynamic field for order status
+                    echo '<div class="select-css">';
+                    echo '<form method= "POST" action="../modules/status_update.php">';
+                    echo '<select class="status-dropdown" name="status" data-order-id="' . $order_info['orderID'] . '" style="background-color: ';
+                        if ($order_info['status'] === 'paid') {
+                            echo 'lightsteelblue';
+                        } elseif ($order_info['status'] === 'shipped') {
+                            echo 'orange';
+                        } elseif ($order_info['status'] === 'delivered') {
+                            echo 'palegreen; cursor: not-allowed;';
+                        }
+                    echo '">';
+                    echo '<option value="shipped" ' . ($order_info['status'] === 'shipped' ? 'selected' : '') . ($order_info['status'] === 'delivered' ? 'disabled' : '') . '>SHIPPED</option>';
+                    echo '<option value="paid" ' . ($order_info['status'] === 'paid' ? 'selected' : '') . ($order_info['status'] === 'delivered' ? 'disabled' : '') . '>PAID</option>';
+                    echo '<option value="delivered" ' . ($order_info['status'] === 'delivered' ? 'selected' : '') . ' disabled>DELIVERED</option>';
+                    echo '</select>';
+                    echo '<br>';
+                    echo '<input type="hidden" name = "order_id" value="'. $order_info['orderID'].'">';
+                    echo '<input type="hidden" name = "product_id" value="'. $order_info['productID'].'">';
+                    echo '<input type="submit" class="submit-button" value="Confirm Update"'.($order_info['status'] === 'delivered' ? 'disabled style="cursor: not-allowed;"' : ''). '>';
+                    echo '</form>';
+                    echo '</div>';
+
+                    echo '</td>';
+                    echo '<td class="remark">Remark: <br>'.$order_info['remark'].'</td>';
+                    echo '</tr>';
+                    echo '</tbody>';
+                    echo '</table>';
+                    echo '</div><br>';
                 }
             ?>
         </div>
