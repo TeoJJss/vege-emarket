@@ -130,7 +130,7 @@
             <?php
                 if ($order_list_length){
                     $sql = "SELECT customers.userName AS customerName, customers.email AS customerEmail, customers.phone AS customerPhone, orders.orderID, products.productName, 
-                                    orders.address, orders_products.agreedPrice, orders_products.status, orders.orderDate, orders_products.remark
+                                    orders.address, orders_products.agreedPrice, orders_products.status, orders.orderDate, orders_products.remark, orders_products.productID 
                             FROM users AS customers
                             JOIN orders ON customers.userID = orders.userID
                             JOIN orders_products ON orders.orderID = orders_products.orderID
@@ -180,6 +180,7 @@
                         echo '</select>';
                         echo '<br>';
                         echo '<input type="hidden" name = "order_id" value="'. $order_info['orderID'].'">';
+                        echo '<input type="hidden" name = "product_id" value="'. $order_info['productID'].'">';
                         echo '<input type="submit" class="submit-button" value="Confirm Update"'. ($order_info['status'] === 'delivered' ? 'disabled' : ''). '>';
                         echo '</form>';
                         echo '</div>';
