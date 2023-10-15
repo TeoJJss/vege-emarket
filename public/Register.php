@@ -24,7 +24,8 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
         $error[] = "Password and Confirmed Password are not matched!";
     }
     else{
-        $new_user_id=uniqid("U"); 
+        $prefix = date('Ymd'); 
+        $new_user_id=uniqid("U".$prefix); 
         # Insert into users table
         $sql = "INSERT INTO users(userID, userName, gender, email, phone, birthday, password, role, accStatus) 
                 VALUES('$new_user_id', '$userName', '$gender', '$email', '$phone','$birthday', '$password', '$role', 'active')";
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
             die;
         } else{
             if ($role=='consumer'){
-                $new_cart_id=uniqid("C");
+                $new_cart_id=uniqid("C".$prefix);
                 # Insert into cart table
                 $cart_sql = "INSERT INTO cart(cartID, userID)
                             VALUES('$new_cart_id', '$new_user_id')";
