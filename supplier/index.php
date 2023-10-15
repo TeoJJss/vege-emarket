@@ -93,7 +93,7 @@
             text-align: center;
             font-size: 1.2vw;
             line-height: 2;
-            word-wrap: break-word;
+            overflow-x: hidden;
             max-width: 48px;
         }
         table.orders_table{
