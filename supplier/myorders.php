@@ -12,7 +12,11 @@
     if ($order_list){
         $order_list_length = mysqli_num_rows($order_list);
     }
-
+    if (isset($_GET['q'])){
+        $search_value="AND (customers.userName LIKE '%$_GET[q]%' OR products.productName LIKE '%$_GET[q]%')";
+    }else{
+        $search_value="";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -114,6 +118,7 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 1.2vw; 
             color: black; 
+            cursor: pointer;
         }
         select.status-dropdown option[value="paid"] {
             background-color: lightsteelblue;
@@ -126,6 +131,26 @@
         select.status-dropdown option[value="delivered"] {
             background-color: palegreen;
         }
+        div.search-container{
+            display: flex;
+            align-items: center;
+        }
+        input.order-search-input{
+            width: 23vw;
+            font-size: 1vw;
+            height: 2.5vw;
+            min-height: 2vw;
+        }
+        button.search-button{
+            cursor: pointer;
+            height: 2.5vw;
+            min-width: 2vw;
+            width: fit-content;
+            font-size: 1.5vw;
+        }
+        small#search-term{
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -133,6 +158,21 @@
     <h1 id="title">Supplier Page</h1>
     <p id="title">My Orders</p>
     <div class="page-container">
+            <div class="search-container">
+                <input type="text" class="order-search-input" id="order-search-input" placeholder="Search orders by customer name or product name" 
+                        onkeypress="if(event.key == 'Enter'){search()}" value="<?php 
+                                                                                    if (isset($_GET['q'])){
+                                                                                        echo $_GET['q']; 
+                                                                                    }
+                                                                                ?>" 
+                                                                                autofocus>
+                <button class="search-button" onclick="search()" title="Press Enter or click me to search">🔍</button>
+            </div>
+            <?php 
+                if ($search_value!=""){
+                    echo "<small id='search-term'>Search term: '$_GET[q]'</small>";
+                }
+            ?><br>
             <?php
                 if ($order_list_length){
                     $sql = "SELECT customers.userName AS customerName, customers.email AS customerEmail, customers.phone AS customerPhone, orders.orderID, products.productName, 
@@ -142,7 +182,7 @@
                             JOIN orders_products ON orders.orderID = orders_products.orderID
                             JOIN products on orders_products.productID = products.productID
                             JOIN users AS suppliers ON products.userID = suppliers.userID
-                            WHERE suppliers.userID = '$user_id'
+                            WHERE suppliers.userID = '$user_id' $search_value
                             ORDER BY orders.orderDate DESC";
                     $orders = mysqli_query($conn, $sql);
 
@@ -178,7 +218,7 @@
                             } elseif ($order_info['status'] === 'shipped') {
                                 echo 'orange';
                             } elseif ($order_info['status'] === 'delivered') {
-                                echo 'palegreen';
+                                echo 'palegreen; cursor: not-allowed;';
                             }
                         echo '">';
                         echo '<option value="shipped" ' . ($order_info['status'] === 'shipped' ? 'selected' : '') . ($order_info['status'] === 'delivered' ? 'disabled' : '') . '>SHIPPED</option>';
@@ -188,7 +228,7 @@
                         echo '<br>';
                         echo '<input type="hidden" name = "order_id" value="'. $order_info['orderID'].'">';
                         echo '<input type="hidden" name = "product_id" value="'. $order_info['productID'].'">';
-                        echo '<input type="submit" class="submit-button" value="Confirm Update"'. ($order_info['status'] === 'delivered' ? 'disabled' : ''). '>';
+                        echo '<input type="submit" class="submit-button" value="Confirm Update"'.($order_info['status'] === 'delivered' ? 'disabled style="cursor: not-allowed;"' : ''). '>';
                         echo '</form>';
                         echo '</div>';
 
@@ -203,6 +243,12 @@
             ?>
         </div>
     </div>
+    <script>
+        function search(){
+            var input = document.getElementById("order-search-input").value;
+            window.location.href="myorders.php?q="+input
+        }
+    </script>
 </body>
 </html>
 <?php include '../includes/footer.php'; ?>
