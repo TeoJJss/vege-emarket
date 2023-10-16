@@ -7,9 +7,11 @@ function showPassword(button) {
     var showBtn = document.getElementById(button);
     if (inputField.type === "password") {
         inputField.type = "text";
-        showBtn.style.border = "1px solid"
+        showBtn.src = "../images/hidePassword.png";
+        showBtn.title = "Click to hide password";
     } else {
         inputField.type = "password";
-        showBtn.style.border = "none"
+        showBtn.src = "../images/showPassword.png";
+        showBtn.title = "Click to show password";
     }
 }

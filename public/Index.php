@@ -158,10 +158,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: darkgreen;
             float: right;
         }
-        section#remember, label.remmeber{
-            display: inline;
-            float: left;
-        }
     </style>
     <link rel="stylesheet" href="../styles/showPassword.css">
 </head>
