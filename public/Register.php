@@ -182,6 +182,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             font-size: 20px;
             padding: 10px;
         }
+
+        .form-container a:hover {
+            text-decoration: underline;
+        }
     </style>
     <link rel="stylesheet" href="../styles/showPassword.css">
 </head>
@@ -199,24 +203,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="name">Name</label>
             </section>
             <section>
-                <input type="text" name="name" required placeholder="Enter your Name" maxlength="15">
+                <input type="text" id="name" name="name" required placeholder="Enter your Name" maxlength="15">
             </section>
             <br>
             <section>
                 <label for="date">Date of birth</label>
             </section>
             <section>
-                <input type="Date" name="date" min="1923-01-01" max="2013-12-31" required placeholder="enter your Date of Birth">
+                <input type="Date" name="date" id="date" min="1923-01-01" max="2013-12-31" required placeholder="enter your Date of Birth">
             </section>
 
             <section>
-                <br><label for="gender">Choose your gender</label><br>
+                <br>Choose your gender<br>
                 <div class="radio-button">
-                    <label for="">
-                        <input type="radio" name="gender" value="Male" required="required">Male
+                    <label for="male">
+                        <input id="male" type="radio" name="gender" value="Male" required="required">Male
                     </label>
-                    <label for="">
-                        <input type="radio" name="gender" value="Female">Female
+                    <label for="female">
+                        <input id="female" type="radio" name="gender" value="Female">Female
                     </label>
                 </div>
             </section>
@@ -225,25 +229,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="email">Email</label>
             </section>
             <section>
-                <input type="Email" name="email" required placeholder="Enter your Email" maxlength="30">
+                <input type="Email" id="email" name="email" required placeholder="Enter your Email" maxlength="30">
             </section>
             <br>
             <section>
-                <label for="Password">Password <img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></label>
+                <label for="passwordInput">Password <img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></label>
             </section>
             <section>
                 <input type="Password" name="Password" id="passwordInput" required placeholder="Enter your Password">
             </section>
             <br>
             <section>
-                <label for="ConfirmPassword">Confirm Password <img src="../images/showPassword.png" class="eye-button" id="show-confirm-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-confirm-btn')"></label>
+                <label for="confirmInput">Confirm Password <img src="../images/showPassword.png" class="eye-button" id="show-confirm-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-confirm-btn')"></label>
             </section>
             <section>
                 <input type="Password" name="ConfirmPassword" id="confirmInput" required placeholder="Confirm your Password">
             </section>
             <br>
             <section>
-                <label for="Tel">Phone Number</label>
+                <label for="phone">Phone Number</label>
             </section>
             <section>
                 <input id="phone" name="Tel" type="Tel" pattern="[0-9]{11,12}" style="width: 25vw;" required placeholder="0000000000 (include country code)">
@@ -268,7 +272,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="user_type">Roles</label>
             </section>
             <section>
-                <select name="user_type" style="width: 15vw;" required>
+                <select id="user_type" name="user_type" style="width: 15vw;" required>
                     <option value="" disabled selected>Select a role</option>
                     <option value="consumer">consumer</option>
                     <option value="supplier">supplier</option>

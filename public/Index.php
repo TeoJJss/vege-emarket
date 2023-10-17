@@ -158,13 +158,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: darkgreen;
             float: right;
         }
+
+        .form-container a:hover {
+            text-decoration: underline;
+        }
     </style>
     <link rel="stylesheet" href="../styles/showPassword.css">
 </head>
 
 <body>
     <div class="form-container">
-
+        <?php
+            
+        ?>
         <form id="loginForm" method="post">
             <section>
                 <h3>Login</h3>
@@ -174,22 +180,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="email">
                     <p>Email</p>
                 </label>
-                <input type="email" name="email" placeholder="Enter your Email" value="<?php if (isset($_COOKIE['email'])) {
+                <input type="email" id="email" name="email" placeholder="Enter your Email" value="<?php if (isset($_COOKIE['email'])) {
                                                                                             echo $_COOKIE['email'];
                                                                                         } ?>" required>
             </section>
 
             <section>
-                <label for="password">
-                    <p>Password <img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></p>
-                </label>
+                    <p><label for="passwordInput">Password </label><img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></p>
                 <input type="password" name="password" id="passwordInput" placeholder="Enter your Password" value="<?php if (isset($_COOKIE['password'])) {
                                                                                                     echo $_COOKIE['password'];
                                                                                                 } ?>" required>
                 <h2><a href="reset_password.php">Forgot Password?</a></h2>
             </section>
             <br></br>
-            <label for="remember" class="remember">Remember me?</label><input type="checkbox" name="remember">
+            <label for="remember" class="remember">Remember me?</label><input type="checkbox" id="remember" name="remember">
             <input type="submit" value="Login" class="form-btn">
             <p>Don't have an account? <a href="Register.php">Register Now!</a></p>
         </form>

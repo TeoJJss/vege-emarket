@@ -6,7 +6,6 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 2.5vh;
         width: 85%;
-
         max-height: 2.5vh;
     }
     .login-alert-closebtn {
@@ -23,7 +22,9 @@
         color: black;
     }
 </style>
+<center>
 <div class="login-alert" id="login-alert">
     <span class="login-alert-closebtn" onclick="document.getElementById('login-alert').style.display='none';">&times;</span> 
     <strong>Wrong username or password.</strong> Please try again.
 </div>
+</center>

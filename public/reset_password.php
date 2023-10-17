@@ -164,6 +164,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       font-size: 20px;
       color: #333333;
    }
+
+   .form-container a:hover {
+      text-decoration: underline;
+   }
+
+   div.form-container h3{
+      font-size: 1.3vw;
+   }
 </style>
 <link rel="stylesheet" href="../styles/showPassword.css">
 <!DOCTYPE html>
@@ -190,27 +198,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       <form action="" method="post">
          <section>
-            <h2>Reset your password </h2>
+            <h1>Reset your password </h1><br>
             <h3>Please enter your Details to Verify</h3>
          </section>
 
          <section>
-            <P>Email</p>
+            <label for="email"><P>Email</p></label>
          </section>
          <section>
-            <input type="email" name="email" required placeholder="Enter your Email">
-         </section>
-
-         <section>
-            <P>Username</p>
+            <input type="email" id="email" name="email" required placeholder="Enter your Email">
          </section>
 
          <section>
-            <input type="text" name="name" required placeholder="Enter your Name">
+            <label for="username"><p>Username</p></label>
          </section>
 
          <section>
-            <P>Phone Number</p>
+            <input type="text" id="username" name="name" required placeholder="Enter your Name">
+         </section>
+
+         <section>
+            <label for="phone"><p>Phone Number</p></label>
          </section>
 
          <section>
@@ -220,11 +228,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <br></br>
 
          <section>
-            <h2>Enter new password<h2>
+            <h3>Enter new password<h3>
          </section>
 
          <section>
-            <P>New Password <img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></p>
+            <p><label for="passwordInput">New Password </label><img src="../images/showPassword.png" class="eye-button" id="show-password-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-password-btn')"></p>
          </section>
 
          <section>
@@ -232,7 +240,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </section>
 
          <section>
-            <P>Confirm Password <img src="../images/showPassword.png" class="eye-button" id="show-confirm-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-confirm-btn')"></p>
+            <P><label for="confirmInput">Confirm Password </label><img src="../images/showPassword.png" class="eye-button" id="show-confirm-btn" alt="show password" title="Click to show password" width="5%" onclick="showPassword('show-confirm-btn')"></p>
          </section>
 
          <section>
