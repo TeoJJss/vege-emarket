@@ -75,9 +75,11 @@
             background-color: wheat;
             max-width: 74%;
             max-height: 50%;
-            padding-left: 1%;
+            padding-left: 20px;
             padding-top: 0.3%;
+            word-wrap: break-word;
             padding-bottom: 0.5%;
+            padding-right: 20px;
         }
         img.product-pic {
             margin-top: 3vh;
@@ -85,10 +87,10 @@
             margin-bottom: 2vh;
             max-height: 10%;
             max-width: 75%;
-            min-width: 30%;
+            min-width: 70%;
         }
         td.product-left-part{
-            max-width: 50%;
+            max-width: 10vw;
             width: 90%;
             padding: 0;
         }
@@ -136,12 +138,14 @@
         div.product-contact{
             font-family: Arial, Helvetica, sans-serif;
             padding: 2%;
-            margin-left: 20%;
+            margin-left: 10%;
         }
         div.item-details-container{
             display: flex;
             justify-content: space-between;
             margin-right: 30vw;
+            padding-left: 20px;
+            padding-bottom: 10px;
         }
         img#product-category-icon{
             margin-left: 5vw;
@@ -151,6 +155,7 @@
             padding-top: 0.5%;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 2vw;
+            padding-left: 20px;
         }
         span.detail{
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -197,6 +202,12 @@
             color: green;
             font-size: 1.3vw;
             padding-bottom: 10%;
+        }
+        div.product-info-left{
+            max-width: 100%;
+        }
+        p#description{
+            text-align: justify;
         }
     </style>
 </head>

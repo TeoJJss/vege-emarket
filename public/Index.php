@@ -172,17 +172,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
         ?>
         <form id="loginForm" method="post">
-            <section>
-                <h3>Login</h3>
+            <section><br>
+                <h3><img src="../images/enter.png" alt="Login" width="5%"> Login</h3><br>
             </section>
 
             <section>
                 <label for="email">
-                    <p>Email</p>
+                    <p>Email <img src="../images/email.png" alt="Email" width="5%"></p>
                 </label>
                 <input type="email" id="email" name="email" placeholder="Enter your Email" value="<?php if (isset($_COOKIE['email'])) {
                                                                                             echo $_COOKIE['email'];
-                                                                                        } ?>" required>
+                                                                                        } ?>" required autofocus>
             </section>
 
             <section>

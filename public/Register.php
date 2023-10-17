@@ -195,8 +195,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form action="" method="post">
 
 
-            <section>
-                <h3>Register Now!</h3>
+            <section><br>
+                <h1><img src="../images/register.png" alt="Register" width="5%"> Register Now!</h1><br>
             </section>
 
             <section>

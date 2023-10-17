@@ -86,7 +86,7 @@
         }
         div.console-container th, div.console-container td{
             padding-bottom: 2vw;
-            padding-right: 10vw;
+            padding-right: 7vw;
             text-align: center;
             max-width: 4.7vw;
             overflow: hidden;
@@ -120,6 +120,15 @@
         td.search-key > a{
             color:darkgreen;
         }
+        td#count{   
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 14px;
+        }
+        table#console-content-user-table td,table#console-content-user-table th{
+            padding-right: 10vw;
+        }
     </style>
 </head>
 <body>
@@ -138,7 +147,7 @@
             <table class="console-content-table">
                 <thead>
                     <tr class="console-table-headers">
-                        <th id="count"></th>
+                        <th id="count">ID</th>
                         <th>Product Name</th>
                         <th>Price Label</th>
                         <th>Category</th>
@@ -153,7 +162,7 @@
                             while ($product_info=mysqli_fetch_array($product_list)){
                                 $id = $product_info['productID'] ;
                                 echo '<tr class="searchable-row">';
-                                echo '<td id="count">'.$count.'</td>';
+                                echo '<td id="count">'.$id.'</td>';
                                 echo '<td class="search-key">'."<a class='search-product-url' href='../public/product.php?id=$id'>".$product_info['productName'].'</a></td>';
                                 echo '<td class="search-key">RM'.$product_info['priceLabel'].'</td>';
                                 echo '<td class="search-key">'.$product_info['category'].'</td>';
@@ -180,7 +189,7 @@
                 <input type="text" class="user-content-search-input" id="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
                 <button class="search-button" >🔍</button>
             </div><br>
-            <table class="console-content-table">
+            <table class="console-content-table" id="console-content-user-table">
                 <thead>
                     <tr class="console-table-headers">
                         <th></th>
