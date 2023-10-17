@@ -146,7 +146,7 @@
                 <option value="available">Available</option>
                 <option value="out of stock">Out of Stock</option>
             </select><br>
-            <input type="text" name="location" id="location" placeholder="Location"><br>
+            <input type="text" name="location" id="location" maxlength="15" placeholder="Location"><br>
             <input type="number" name="price" id="price" required placeholder="Price (RM)">
             <select id="unit" name="unit" required>
                 <option value="" disabled selected>Unit</option>
@@ -162,9 +162,9 @@
                 <option value="bundle">Bundles</option>
                 <option value="bag">Bags</option>
             </select><br><br>
-            <label for="image" class="file-input-label">Insert product picture:</label><br>
+            <label for="image" class="file-input-label">Insert product picture: <small><font color="red">Accept png, jpg, jpeg</font></small></label><br>
             <div class="file-input-container">
-                <input type="file" name="image" id="image" class="file-input"><br>
+                <input type="file" name="image" id="image" class="file-input" accept=".png, .jpg, .jpeg, image/png, image/jpeg"><br>
             </div>
             <small class="note">Note: Sensitive characters such as <b>"</b> and <b>'</b> will be rejected. </small>
             <div class="buttons">
