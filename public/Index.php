@@ -168,10 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <div class="form-container">
-        <?php
-            
-        ?>
         <form id="loginForm" method="post">
+            <a href="../index.php"><img src="../images/logo.png" width="50%"></a>
             <section><br>
                 <h3><img src="../images/enter.png" alt="Login" width="5%"> Login</h3><br>
             </section>

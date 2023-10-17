@@ -193,8 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="form-container">
 
         <form action="" method="post">
-
-
+            <a href="../index.php"><img src="../images/logo.png"></a>
             <section><br>
                 <h1><img src="../images/register.png" alt="Register" width="5%"> Register Now!</h1><br>
             </section>

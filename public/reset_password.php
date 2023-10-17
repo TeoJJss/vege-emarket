@@ -197,8 +197,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <div class="form-container">
 
       <form action="" method="post">
+         <a href="../index.php"><img src="../images/logo.png"></a>
          <section>
-            <h1><img src="../images/reset-password.png" alt="reset" width="5%"> Reset your password </h1><br>
+            <br><h1><img src="../images/reset-password.png" alt="reset" width="5%"> Reset your password </h1><br>
             <h3>Please enter your Details to Verify</h3>
          </section>
 
