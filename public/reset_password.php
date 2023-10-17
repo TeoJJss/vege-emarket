@@ -249,7 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
          <p><input type="submit" value="Next" class="form-btn"></p>
 
-         <a class="form-btn" href="Index.php">back></a>
+         <a class="form-btn" href="Index.php">< back</a>
          <p style="clear:both;">Encounter an issue? <a style="color: darkgreen;" href="../public/contact.php">Contact us!</a></p>
       </form>
    </div>
