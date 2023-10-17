@@ -34,6 +34,7 @@
     <style>
         h1#title{
             margin-top: 3vh;
+            margin-bottom: 1vh;
         }
         button.product-button{
             margin-left: 30%;
@@ -327,15 +328,16 @@
             var target = document.getElementById(field);
             var new_value=target.innerHTML;
 
-            if (field=='priceLabel' && isNaN(parseFloat(new_value))){ // Check if price is number
-                alert('Please enter numeric value for Price Label! ');
-                location.reload();
+            if (field=='priceLabel' && (isNaN(parseFloat(new_value))||new_value<1)){ // Check if price is number
+                alert('Please enter positive numeric value for Price Label! ');
             }else if (field=='title' && new_value.length > 15){
                 alert('Maximum length of product\'s name is 15 characters! ');
-                // location.reload();
+            }else if (field=='title' && new_value.length < 1){
+                alert('Product name cannot be empty! ');
             }else if (field=='description' && new_value.length > 100){
                 alert('Maximum length of product\'s description is 100 characters! ');
-                // location.reload();
+            }else if (field=='description' && new_value.length < 1){
+                alert('Description cannot be empty! ');
             }else{
                 var url=`../modules/save_edit.php?id=<?php echo $id; ?>&col=${column}&new=${new_value}`;
                 window.location.href=url;
