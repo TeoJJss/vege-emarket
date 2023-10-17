@@ -28,6 +28,7 @@
             width: 80%;
             height: 30vw;
             border: 0.1px solid;
+            background-color: floralwhite;
         }
         div.contact-table{
             display: flex;
