@@ -110,7 +110,7 @@
 </head>
 <body>
     <h1 id="title">Supplier Page</h1>
-    <p id="title">Add Products</p>
+    <p id="title">Add Product</p>
     <div class="form-container">
         <form method="post" enctype="multipart/form-data" action="../modules/add_item.php">
             <input type="text" name="name" id="name" maxlength="15" placeholder="Product Name"><br>
@@ -140,7 +140,7 @@
                 <option value="aquatic">Aquatic</option>
                 <option value="miscellaneous">Miscellaneous</option>
             </select><br>
-            <textarea name="description" placeholder="Description" rows="4" style="resize: none;" maxlength="255" required></textarea><br>
+            <textarea name="description" placeholder="Description" rows="4" style="resize: none;" maxlength="100" required></textarea><br>
             <select id="status" name="status" required>
                 <option value="" disabled selected>Availability Status</option>
                 <option value="available">Available</option>
