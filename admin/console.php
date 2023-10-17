@@ -58,7 +58,7 @@
             max-width: 80vw;
             padding: 20px;
             box-sizing: border-box;
-            overflow: scroll;
+            overflow: auto;
         }
         div.console-container #user-content, div.console-container #product-content{
             display: none;

@@ -117,8 +117,8 @@
             background-color: oldlace;
             margin-left: 5vw;
             max-height: 30vw;
-            overflow-x: scroll;
-            overflow-y: scroll;
+            overflow-x: auto;
+            overflow-y: auto;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 1vw;
         }
