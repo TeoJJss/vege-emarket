@@ -34,7 +34,7 @@
     <style>
         h1#title{
             margin-top: 3vh;
-            margin-bottom: 1vh;
+            margin-bottom: 2vh;
         }
         button.product-button{
             margin-left: 30%;
@@ -174,8 +174,9 @@
         }
         button.save-button{
             display: none;
-            margin-left: 20%;
+            margin-left: 17%;
             cursor: pointer;
+            margin-bottom: 1px;
         }
         div.price{
             display: inline-block;

@@ -147,7 +147,7 @@
                 <option value="out of stock">Out of Stock</option>
             </select><br>
             <input type="text" name="location" id="location" maxlength="15" placeholder="Location"><br>
-            <input type="number" name="price" id="price" min="1" required placeholder="Price (RM)">
+            <input type="number" name="price" id="price" min="1" required placeholder="Price per unit (RM)">
             <select id="unit" name="unit" required>
                 <option value="" disabled selected>Unit</option>
                 <option value="KG">KG</option>
