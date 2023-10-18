@@ -62,10 +62,12 @@
             font-weight: bolder;
             color: white;
             border: none;
-            width: 20%;
+            width: 10%;
             height: 30px;
             border-radius: 5px;
-
+            bottom: 10vh;
+            position: fixed;
+            align-self: center;
         }
         button.product-button:hover{
             cursor: pointer;
@@ -215,9 +217,7 @@
                 ?>
             </tbody>
         </table>
-        <div class="button">
-                <button class="product-button" onclick="window.location.href='../supplier/myorders.php';" title="My Orders Page">My Orders</button>
-        </div>
+        <button class="product-button" onclick="window.location.href='../supplier/myorders.php';" title="My Orders Page">My Orders</button>
     </div>
 </body>
 
