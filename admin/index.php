@@ -153,7 +153,7 @@
         <p id="title">Admin HomePage</p>
         <br>
         <div class="manage_user" id="up_card">
-            <h3 class="card_title" style="text-align: center;">Manage Users</h3>
+            <h3 class="card_title" style="text-align: center;"><img src="../images/user-management.png" alt="User Management" width="5%"> Manage Users</h3>
             <p class="card_desc">Manage the <b>users</b> in this website</p>
             <span class="card_desc" >&nbsp;Total users: <b><?php echo $user_list_length; ?></b> </span><br><br>
             <button class="index-button" onclick="window.location.href='../admin/console.php?type=user';" title="Go to User Management page">GO!</button>
@@ -161,14 +161,14 @@
             <br>&nbsp;
         </div>
         <div class="manage_product" id="up_card">
-            <h3 class="card_title" style="text-align: center;">Manage Products</h3>
+            <h3 class="card_title" style="text-align: center;"><img src="../images/product-management.png" alt="Product Management" width="5%"> Manage Products</h3>
             <p class="card_desc">Manage the <b>products</b> in this website</p>
             <span class="card_desc" >&nbsp;Total products: <b><?php echo $product_list_length; ?></b> </span><br><br>
             <button class="index-button" onclick="window.location.href='../admin/console.php?type=product';" title="Go to Product Management page">GO!</button>
             <br>&nbsp;
         </div>
         <div class="top_selling" id="mid_card">
-            <h3 class="card_title" style="text-align: left;">Top Selling Products</h3>
+            <h3 class="card_title" style="text-align: left;"><img src="../images/top-selling.png" alt="Top Selling" width="2%"> Top Selling Products</h3>
             <table class="info-table">
                 <thead>
                     <?php if ($product_list_length){ ?>
@@ -209,7 +209,7 @@
             <br>&nbsp;
         </div>
         <div class="mvc" >
-            <h3 class="card_title" style="text-align: left;">Most Valuable Customers</h3>
+            <h3 class="card_title" style="text-align: left;"><img src="../images/most-valuable.png" alt="Top Selling" width="6%"> Most Valuable Customers</h3>
             <table class="customer">
                 <thead>
                     <?php if ($user_list_length){ ?>

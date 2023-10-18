@@ -136,8 +136,8 @@
     <p id="title">Admin Console</p>
     <div class="console-container">
         <div class="menu">
-            <button onclick="tab('user');" id="user-tab">User</button>
-            <button onclick="tab('product');" id="product-tab">Product</button>
+            <button onclick="tab('user');" id="user-tab">User <img src="../images/user-management.png" alt="User Management" width="5%"></button>
+            <button onclick="tab('product');" id="product-tab">Product <img src="../images/product-management.png" alt="Product Management" width="5%"></button>
         </div>
         <div class="content" id="product-content">
             <div class="search-container">
