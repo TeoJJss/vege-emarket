@@ -136,7 +136,7 @@
         <p id="title">Supplier HomePage</p>
         <br>
         <div class="product_stock" id="card">
-            <h3 class="card_title" style="text-align: left;">Product Stock</h3>
+            <h3 class="card_title" style="text-align: left;"><img src="../images/stock.png" alt="Stock Management" width="5%"> Product Stock</h3>
             <table class="product_table">
                 <thead>
                     <tr>
@@ -183,7 +183,7 @@
     </div>
 
     <div class="incoming_orders" id="card">
-        <h3 class="card_title" style="text-align: left;">Incoming Orders</h3>
+        <h3 class="card_title" style="text-align: left;"><img src="../images/order.png" alt="Orders" width="5%"> Incoming Orders</h3>
         <table class="orders_table">
             <thead>
                 <tr>
