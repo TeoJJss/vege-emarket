@@ -44,12 +44,15 @@
             overflow: auto;
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            right: 12vw;
+            right: 10vw;
         } 
         div.header-username-dropdown-content > a{
             cursor: pointer;
             color: darkgreen;
             padding-top: 1px;
+        }
+        div.header-username-dropdown-content > a:hover{
+            font-size: 1.5vw;
         }
     </style>
     <div class="header_logo">
@@ -57,7 +60,7 @@
     </div>
     <div class="header_welcome">
         <span id="header_greeting">Welcome</span>, <br> <a class="username-dropdown-btn" onclick="displayUsernameDropdown()"><?php echo $username; ?></a><br>
-                    <div id="header-username-dropdown" class="header-username-dropdown-content">
+                    <div id="header-username-dropdown" class="header-username-dropdown-content"><br>
                         <a href="../public/profile.php"><img src="../images/profile.png" alt="Profile" width="15%"> Profile</a><br><br>
                         <a href="../modules/logout.php"><img src="../images/logout.png" alt="Profile" width="15%"> Logout</a><br> &nbsp;
                     </div>

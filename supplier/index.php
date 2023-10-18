@@ -162,7 +162,7 @@
                                     echo "<td>"."<img src= '../images/available_status.png' height='28'"."</td>";
                                 }
                                 else if ($product_status['availabilityStatus']=="out of stock") {
-                                    echo "<td class='product_status'>"."<img src= '../images/outofstock_status.png' height='24'"."</td>";
+                                    echo "<td class='product_status'>"."<img src= '../images/outofstock_status.png' height='24'>"."</td>";
                                 }
                                 else if ($product_status['availabilityStatus']=="banned") {
                                     echo "<td>".'<span style ="color: red;">Banned</span>';

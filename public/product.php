@@ -193,12 +193,13 @@
             text-align: center;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             right: 7vw;  
+            padding: 5px;
         }
         div.availability-status-dropdown-content > a{
             color: darkgreen;
         }
         div.availability-status-dropdown-content > a:hover{
-            background-color: wheat;
+            font-size: 1.5vw;
         }
         a.contact{
             color: green;
@@ -239,7 +240,7 @@
             </td>
             <td class="product-right-part">
                 <div class="product-right-card">
-                    <div class="price">RM <span id="priceLabel"><?php echo $product_detail['priceLabel']; ?></span>
+                    <div class="price" title="Price label">RM <span id="priceLabel"><?php echo $product_detail['priceLabel']; ?></span>
                     <?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
                         <img class="edit-button" src="../images/edit.png" alt="edit" width="5%"onclick="editMode('priceLabel')">
                         <button class="save-button" id="save-button-priceLabel" onclick="saveEdit('priceLabel', 'priceLabel')">SAVE</button><br>
@@ -248,8 +249,8 @@
                         <div class="availability" title="Click here to change status" id="status" style="cursor: pointer;" onclick="showStatusOption()"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
                         <div id="availability-status-dropdown" class="availability-status-dropdown-content">
                             <p>Change your product's availability</p>
-                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>">Available</a><br><br>
-                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>">Out of Stock</a><br> &nbsp;
+                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=available"; ?>"><img src="../images/available_status.png" alt="green" height="24" title="available"> Available</a><br><br>
+                            <a href="<?php echo "../modules/save_edit.php?id=$id&col=availabilityStatus&new=out%20of%20stock"; ?>"><img src="../images/outofstock_status.png" alt="red"  height="24" title="out of stock"> Out of Stock</a><br> &nbsp;
                         </div>
                     <?php }else{ ?>
                         <div class="availability" id="status" style="cursor: default;"><?php echo ucwords($product_detail['availabilityStatus']);?></div>
