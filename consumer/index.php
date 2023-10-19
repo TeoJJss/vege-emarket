@@ -1,202 +1,178 @@
 <?php
     require '../modules/config.php'; // Validate user role
-    if ($role !='consumer'){
+    if ($role != 'consumer') {
         header('Location: ../index.php');
         die;
     }
+    
+    $new_arrival = mysqli_query($conn, "SELECT products.imgPath, products.productName, products.priceLabel, products.productID 
+                                        FROM products 
+                                        WHERE availabilityStatus ='available'
+                                        ORDER BY products.addDate DESC LIMIT 8");
+    $vegetableTypes = array("Root", "Marrow", "Tropical", "Cactus", "Aquatic", "Leafy", "Spice", "Poaceae", "Gourd", "Stem", "Herbaceous", 
+                            "Fungus", "Bulb");
 
-    $new_arrival = mysqli_query($conn, "SELECT * FROM products ORDER BY products.addDate");
-
+    if ($_SERVER['REQUEST_METHOD']=='POST'){
+        $q=$_POST['search-input'];
+        echo "<script>location.href='../consumer/searchresults.php?keyword=$q'</script>";
+    }
     include '../includes/header.php';
-
-   
 ?>
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link rel="stylesheet" href="../styles/title.css">
-<script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
-<style>
-    .search{
-        background-color: #eee;
-        width: 260px;
-        height: 45px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 25px;
-        float: right;
-        margin: 50px;
-    }
-    input{
-        font-size: 20px;
-        width: 240px;
-        margin-top: 15px;
-        border: none;
-        outline: none;
-        background: none;
-    }
-    .fa-solid:hover{
-        color: orangered;
-        cursor: pointer;
-    }
+    <!-- <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script> -->
+    <style>
+        button.search-btn{
+            width: 7vw;
+            height: 5vh;
+        }
 
-    h2 {
-        border: 1px solid #ccc; 
-        width:120px;
-        background:none;
-        align-items: center;
-        background-color: #eee
-        margin-left: 25px;
-        font-size: 18px;
-    }
-    .h2-box {
-        background-color: #eee;
-        padding: 5px; 
-        float:left;
-        clear:both;
-        margin:15px;
-    }
-    .order{
-        float:right;
-        margin-right:10px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    .round-button {
-        border: none;
-        outline: none;
-        background-color: none; 
-        padding: 5px 5px; 
-        text-align: center; 
-        text-decoration: none; 
-        display: inline-block; 
-        margin: 10px;
-    }
-    .clear{
-        clear:both;
-    }
-    .gray-row {
-        background-color: gray; 
-        padding: 10px; 
-    }
-
-    .clear.box {
-    background-color: gray; 
-    padding: 10px; 
-    display: flex; 
-    flex-wrap: wrap; 
-    }
-  
-    .clear.gray-row div {
-    margin: 5px; 
-    padding: 15px; 
-    border: 1px solid white; 
-    font-size: 20;
-    width: 75px; 
-    height: 75px; 
-    background-color:white;
-    }
-
-    .box{
-            width: 100px;
-            height: 100px;
-            background-color:bisque;
-            float:left;
-            border-radius:10px;
-            margin:10px;
-            padding:10px;
-    }
-    .box2{
+        input#search {
+            font-size: 20px;
+            width: 240px;
+            height: 5vh;
+            margin-top: 15px;
+            border: 1px solid;
+            outline: none;
+            background: none;
+        }
+        h2.card-title {
+            border: 1px solid #ccc;
             width: 200px;
-            height: 300px;
-            background-color:bisque;
-            float:left;
-            border-radius:10px;
-            margin:40px;
+            background: none;
+            align-items: center;
+            clear: both;
+            background-color: green;
+            margin-left: 10vw;
+            font-size: 30px;
             padding:10px;
-            
-    }
-    .right{
-        margin-left: 85px; 
-    }
-    
-</style>
-<body >
-    <div>
-        <div>
-        <h1 id="title">Consumer page</h1>
-        <p id="title">Homepage</p>
-        <div class="order"> 
-            <a href="orderhistory.php" target ="_blank">
-                <u>Order History</u>
-            </a>
-            <a href="cart.php" target="_blank">
-                <button class="round-button"><img src="../images/shopping-cart.png" width="16"></button>
-            </a>
-        </div> 
-    </div>
+            margin-bottom: 5px;
+        }
+        div.home-wrapper{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        div.top-area{
+            float: right;
+            text-align: right;
+            margin-right: 13vw;
+            margin-bottom: 3vh;
+            font-size: 1.5vw;
+        }
+        div.home-wrapper a{
+            color: darkgreen;
+        }
+        input.product-search-input{
+            width: 23vw;
+            font-size: 1vw;
+            height: 2.5vw;
+            min-height: 2vw;
+        }
+        button.search-button{
+            cursor: pointer;
+            height: 2.5vw;
+            min-width: 2vw;
+            width: fit-content;
+            font-size: 1.5vw;
+        }
+        div.search-container{
+            margin-right: 1vw;
+        }
+        div.new-arrivals-banner{
+            margin-left: 10vw;
+            font-size: 1.3vw;
+        }
+        div.cat-banner{
+            background-color: palegreen;
+            margin-left: 8vw;
+            max-width: 80vw;
+            padding: 20px;
+            overflow: auto;
+        }
+        div.cat-banner img{
+            background-color: darkgreen;
+            border-radius: 100px;
+            padding: 30px;
+            min-width: 3vw;
+        }
+        div.cat-banner td{
+            max-width: 30vw;
+            text-align: center;
+        }
+        div.cat-banner table{
+            border-spacing: 10px;
+        }
+        div#box {
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 17vw;
+            max-width: 17vw;
+            min-height: 200px;
+            max-height: 305px;
+            float: left;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: lightgreen;
+            border-collapse: collapse;
+        }
+        img.product-img{
+            min-height: 200px;
+            max-height: 200px;
+            min-width: 100%;
+            max-width: 100px;
+        }
+    </style>
 
-    <div class="search">
-        <form action="searchresults.php" method="get">
-            <input type="search" name ="q" placeholder="Search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </form>
-        
-    </div>
-
-    <div>
-        <h2 class="h2-box right">Categories</h2>
-        <div class="clear right">
-        <?php 
-                    $search_key ="";
-                    if (isset($_POST['search']))
-                        {
-                            $search_key = $_POST["search_key"];
-                        }
-                    $sql = "SELECT * FROM products WHERE productName LIKE '%search_key%'";
-                    $search = mysqli_query($conn, "SELECT * FROM products");
-            $home = mysqli_query($conn, "SELECT * FROM products");
-            while($row = mysqli_fetch_array($home))
-            {
-                echo'<div class="box">';
-                echo '<p>'.$row['category'].'</p>';
-                echo '</div>';
-            }
-
-        ?>
+<body>
+    <h1 id="title">Consumer page</h1>
+    <p id="title">Homepage</p>
+    <div class="home-wrapper">
+        <div class="top-area">
+            <a href="../consumer/orderhistory.php" style="vertical-align: middle;">Order History</a>
+            <a href="../consumer/cart.php" style="vertical-align: middle;" id="cart-btn"><img src="../images/shopping-cart.png" alt="Cart" width="8%"></a>
+            <br><br>
+            <form method="post" id="search-form">
+                <div class="search-container">
+                    <input type="text" name="search-input" class="product-search-input" id="product-search-input" placeholder="Search products" style="vertical-align: middle;" required>
+                    <button class="search-button" type="submit" style="vertical-align: middle;">🔍</button>
+                </div>
+            </form>
         </div>
-    </div>
-    <div>
-        <h2 class="h2-box right">New Arrivals</h2>
-        <div class="clear right"><a href="../public/product.php" target="_blank">
-            <?php 
-                $home = mysqli_query($conn, "SELECT * FROM products ORDER BY products.addDate DESC");
-                while($row = mysqli_fetch_array($home))
-                {
-                    echo'<div class="box2">';
-                    if ($row['imgPath']== "U02/corn.jpg"){
-                        echo'<img src ="../assets/U02/corn.jpg" width="200">';
-                    }
-                    else if ($row['productName']== "pumpkin"){
-                        echo'<img src ="../assets/U05/pumpkin-3f3d894.jpg" width="200">';
-                    }
-                    else if ($row['productName']== "corn"){
-                        echo'<img src ="../assets/potato.jpg" width="200">';
-                    }
-                    else if ($row['productName']== "carrot"){
-                        echo'<img src ="../assets/carrot.png" width="200">';
-                    }
-                    echo '<p>'.$row['productName'].'</p>';
-                    echo '<p>'.$row['priceLabel'].'</p>';
-                    echo '</div>';
-                }
-            ?>
+        <div class="mid-part">
+            <h2 class="card-title" style="width: max-content;">Categories</h2>
+            <div class="cat-banner">
+                <table>
+                    <tr>
+                        <?php
+                            foreach ($vegetableTypes as $type) {
+                                echo '<td><a href="../consumer/searchresults.php?cat='.$type.'">';
+                                echo '<img src="../images/' .$type. '-vege.png" alt="' . $type. '" width="60vw"><br>';
+                                echo '<span style="font-weight: bold;">' . $type . '</span>';
+                                echo '</a><td>';
+                            }
+                        ?>
+                    </tr>
+                </table>
+            </div>
+        </div><br>
+        <div class="new-arrivals">
+            <h2 class="card-title">New Arrivals</h2>
+            <div class="new-arrivals-banner">
+                <?php while ($product_info = mysqli_fetch_array($new_arrival)) { ?>
+                    <div id="box">
+                        <a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><img src="../assets/<?php echo $product_info['imgPath']; ?>" alt="Corn" class="product-img"></a>
+                        <p><b>Item Name: </b><a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><?php echo $product_info['productName']; ?></a></p>
+                        <p><b>Price: </b>RM <?php echo $product_info['priceLabel']; ?></p>
+                    </div>
+                <?php } ?>  
+            </div>
         </div>
     </div>
 </body>
 </head>
 </html>
-<?php include '../includes/footer.php';?>
+<?php include '../includes/footer.php'; ?>
