@@ -88,7 +88,7 @@
             overflow: auto;
         }
         div.cat-banner img{
-            background-color: darkgreen;
+            background-color: lightgreen;
             border-radius: 100px;
             padding: 30px;
             min-width: 3vw;

@@ -296,7 +296,7 @@
                 </div>
             </td>
         </tr>
-    </table>
+    </table><br>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var status = document.getElementById('status');
