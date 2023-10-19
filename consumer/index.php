@@ -31,16 +31,6 @@
             width: 7vw;
             height: 5vh;
         }
-
-        input#search {
-            font-size: 20px;
-            width: 240px;
-            height: 5vh;
-            margin-top: 15px;
-            border: 1px solid;
-            outline: none;
-            background: none;
-        }
         h2.card-title {
             border: 1px solid #ccc;
             width: 200px;
@@ -167,7 +157,7 @@
             <div class="new-arrivals-banner">
                 <?php while ($product_info = mysqli_fetch_array($new_arrival)) { ?>
                     <div id="box">
-                        <a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><img src="../assets/<?php echo $product_info['imgPath']; ?>" alt="Corn" class="product-img"></a>
+                        <a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><img src="../assets/<?php echo $product_info['imgPath']; ?>" alt="<?php echo $product_info['productName']; ?>" class="product-img"></a>
                         <p><b>Item Name: </b><a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><?php echo $product_info['productName']; ?></a></p>
                         <p><b>Price: </b>RM <?php echo $product_info['priceLabel']; ?></p>
                     </div>
