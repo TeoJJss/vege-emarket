@@ -4,6 +4,25 @@
         header('Location: ../index.php');
         die;
     }
+    if ($_SERVER['REQUEST_METHOD']=='POST'){
+        $q=$_POST['search-input'];
+        echo "<script>location.href='../consumer/searchresults.php?keyword=$q'</script>";
+    }
+    $query = "SELECT * FROM products WHERE products.availabilityStatus ='available' ";
+    if (isset($_GET['keyword']) && isset($_GET["cat"])){
+        $key = $_GET['keyword'];
+        $cat = $_GET["cat"];
+        $query .="AND products.productName LIKE '%$key%' AND products.category = '$cat'";
+    }else if (isset($_GET["cat"])){
+        $cat = $_GET["cat"];
+        $query .="AND products.category = '$cat' ";
+    }else if (isset($_GET['keyword'])){
+        $key = $_GET['keyword'];
+        $query.="AND products.productName LIKE '%$key%' ";
+    }else{
+        trigger_error("Nothing found! ", E_USER_ERROR);
+    }
+    $product_list=mysqli_query($conn, $query);
     include '../includes/header.php';
 ?>
 <!DOCTYPE html>
@@ -14,58 +33,75 @@
     <title>Search Results</title>
     <link rel="stylesheet" href="../styles/title.css">
     <style>
-        .box{
-            width: 200px;
-            height: 200px;
-            background-color:bisque;
-            float:left;
-            border-radius:10px;
-            margin:10px;
-            padding:10px;
+        img.product-img{
+            min-height: 200px;
+            max-height: 200px;
+            min-width: 100%;
+            max-width: 100px;
         }
-        .right{
-        margin: 85px; 
-    }
+        div#box {
+            font-family: Arial, Helvetica, sans-serif;
+            min-width: 17vw;
+            max-width: 17vw;
+            min-height: 200px;
+            max-height: 305px;
+            float: left;
+            margin: 10px;
+            margin-right: 20px;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: lightgreen;
+            border-collapse: collapse;
+        }
+        div.products a{
+            color: darkgreen;
+            font-weight: bold;
+        }
+        div.products{
+            margin-left: 10vw;
+            font-size: 1.3vw;
+        }
+        input.product-search-input{
+            width: 23vw;
+            font-size: 1vw;
+            height: 2.5vw;
+            min-height: 2vw;
+        }
+        button.search-button{
+            cursor: pointer;
+            height: 2.5vw;
+            min-width: 2vw;
+            width: fit-content;
+            font-size: 1.5vw;
+        }
+        div.search-container{
+            margin-left: 40vw;
+        }
     </style>
 </head>
 <body>
     <h1 id="title">Consumer page</h1>
     <p id="title">Search Results</p>
-    <div class="right">
-        <?php
-            $search_key ="";
-            if (isset($_POST['search']))
-                {
-                    $search_key = $_POST["search_key"];
-                }
-            $sql = "SELECT * FROM products WHERE productName LIKE '%search_key%'";
-            $search = mysqli_query($conn, "SELECT * FROM products");
-                
-            
-            while($row = mysqli_fetch_array($search))
-            {
-                echo '<div class="box">';
-                
-                
-                
-                if ($row['imgPath']== "U02/corn.jpg"){
-                    echo'<img src ="../assets/U02/corn.jpg" width="150">';
-                }
-                else if ($row['productName']== "pumpkin"){
-                    echo'<img src ="../assets/U05/pumpkin-3f3d894.jpg" width="150">';
-                }
-                else if ($row['productName']== "corn"){
-                    echo'<img src ="../assets/potato.jpg" width="50">';
-                }
-                else if ($row['productName']== "carrot"){
-                    echo'<img src ="../assets/carrot.png" width="50">';
-                }
-                echo '<h3>'.$row['productName'].'</h3>';
-                echo '</div>';
-            }
-        ?>
+    <form method="post" id="search-form">
+        <div class="search-container">
+            <input type="text" name="search-input" class="product-search-input" id="product-search-input" placeholder="Search products" style="vertical-align: middle;" required><button class="search-button" type="submit" style="vertical-align: middle;">🔍</button>
+        </div>
+    </form>
+    <?php 
+        if (mysqli_num_rows($product_list) == 0){
+            echo "<br><center><h1>Nothing was found! Please use other keyword or category. </h1></center>";
+            die;
+        }
+    ?>
+    <div class="products">
+        <?php while ($product_info = mysqli_fetch_array($product_list)) { ?>
+            <div id="box">
+                <a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><img src="../assets/<?php echo $product_info['imgPath']; ?>" alt="<?php echo $product_info['productName']; ?>" class="product-img"></a>
+                <p><b>Item Name: </b><a href="../public/product.php?id=<?php echo $product_info['productID']; ?>"><?php echo $product_info['productName']; ?></a></p>
+                <p><b>Price: </b>RM <?php echo $product_info['priceLabel']; ?></p>
+            </div>
+        <?php } ?>  
     </div>
-</ul>
 </div>
 </body>
 </html>
