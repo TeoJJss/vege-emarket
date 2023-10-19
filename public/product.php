@@ -226,7 +226,7 @@
                 
                 <div class="product-info-container"> 
                     <div class="product-info-left">
-                        <img id="product-category-icon" src="../images/category.png" alt="Category: " width="3%"><a id="product-category" style="font-size: 1.5vw;"><?php echo $product_detail['category']; ?></a><br>
+                        <img id="product-category-icon" src="../images/category.png" alt="Category: " width="3%"><a id="product-category" style="font-size: 1.5vw; color:black;" <?php if ($role=="consumer"){ echo "href='../consumer/searchresults.php?cat=$product_detail[category]'"; }; ?>><?php echo $product_detail['category']; ?></a><br>
                         <img src="../assets/<?php echo $product_detail['imgPath']; ?>" alt="No Product Picture" class="product-pic" width="900vw" height="500vw" ><br>
                         <div id="Description">
                             <h3 class="product-card-title">Description<?php if ($role=="supplier" && $user_id==$product_detail['supplierID']){ ?>
