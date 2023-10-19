@@ -17,11 +17,19 @@
         $email=$_POST['email'];
         $phone=$_POST['phone'];
 
-        /* UPDATE */
-        $update_sql = "UPDATE users SET userName='$username', email='$email', phone='$phone' WHERE userID='$user_id'";
-        mysqli_query($conn, $update_sql);
-        header("Location: ../public/profile.php");
-        exit();
+        $sql = "SELECT * from users where email = '$email'";
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) > 0) {
+            echo "<script>alert('Email is used by another account'); </script>";
+        }else{
+            /* UPDATE */
+            $update_sql = "UPDATE users SET userName='$username', email='$email', phone='$phone' WHERE userID='$user_id'";
+            mysqli_query($conn, $update_sql);
+            header("Location: ../public/profile.php");
+            exit();
+        }
     }
 ?>
 <!DOCTYPE html>
