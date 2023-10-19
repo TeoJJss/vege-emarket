@@ -4,10 +4,14 @@
         header('Location: ../index.php');
         die;
     }
+
+    // For search bar
     if ($_SERVER['REQUEST_METHOD']=='POST'){
         $q=$_POST['search-input'];
         echo "<script>location.href='../consumer/searchresults.php?keyword=$q'</script>";
     }
+
+    // For query results
     $query = "SELECT * FROM products WHERE products.availabilityStatus ='available' ";
     if (isset($_GET['keyword']) && isset($_GET["cat"])){
         $key = $_GET['keyword'];
@@ -23,6 +27,7 @@
         trigger_error("Nothing found! ", E_USER_ERROR);
     }
     $product_list=mysqli_query($conn, $query);
+    
     include '../includes/header.php';
 ?>
 <!DOCTYPE html>
