@@ -12,7 +12,8 @@
         $newStatus = $_POST["status"];
     
         $sql = "UPDATE orders_products SET status = '$newStatus' 
-                WHERE orderID = '$orderId' AND productID = '$productId' AND productID IN (SELECT productID FROM products WHERE userID = '$user_id')";
+                WHERE orders_products.orderID = '$orderId' AND orders_products.productID = '$productId' 
+                AND orders_products.productID IN (SELECT products.productID FROM products WHERE products.userID = '$user_id')";
     
         if (mysqli_query($conn, $sql)) {
             echo "<script>location.href='../supplier/myorders.php'; alert('Status updated successfully!');</script>";

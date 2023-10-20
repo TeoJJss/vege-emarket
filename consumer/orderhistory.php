@@ -17,7 +17,8 @@
                 $update_sql = "UPDATE orders_products
                                 SET orders_products.status = 'delivered'
                                 WHERE orders_products.orderID='$order_id'
-                                AND orders_products.productID='$product_id'";
+                                AND orders_products.productID='$product_id'
+                                AND orders_products.orderID IN (SELECT orders.orderID FROM orders WHERE orders.userID = '$user_id')";
                 if (mysqli_query($conn, $update_sql)) {
                     echo "<script>alert('Update Success! ');</script>";
                 }else{
