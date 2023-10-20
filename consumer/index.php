@@ -128,7 +128,7 @@
         <div class="top-area">
             <a href="../consumer/orderhistory.php" style="vertical-align: middle;">Order History</a>
             <a href="../consumer/cart.php" style="vertical-align: middle;" id="cart-btn"><img src="../images/shopping-cart.png" alt="Cart" width="8%"></a>
-            <br>
+            <br><br>
             <form method="post" id="search-form">
                 <div class="search-container">
                     <input type="text" name="search-input" class="product-search-input" id="product-search-input" placeholder="Search products" style="vertical-align: middle;" required><button class="search-button" type="submit" style="vertical-align: middle;">🔍</button>

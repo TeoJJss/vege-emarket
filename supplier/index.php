@@ -8,15 +8,19 @@
     include '../includes/header.php'; // Get header
 
     //Count number of products
-    $product_list = mysqli_query($conn, "SELECT * FROM products");
+    $product_list = mysqli_query($conn, "SELECT * FROM products WHERE products.userID='$user_id'");
     if ($product_list){
         $product_list_length = mysqli_num_rows($product_list);
+    }else{
+        $product_list_length = 0;
     }
 
     // Count number of orders
     $order_list = mysqli_query($conn, "SELECT * FROM orders");
     if ($order_list){
         $order_list_length = mysqli_num_rows($order_list);
+    }else{
+        $order_list_length = 0;
     }
     
 ?>
@@ -152,8 +156,8 @@
                     <?php
                         if ($product_list_length){
                             $product_sql = "SELECT products.productID, products.productName, products.availabilityStatus, products.priceLabel, products.unit
-                                    FROM products WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
-                                    ORDER BY productID ASC";
+                                            FROM products WHERE products.availabilityStatus != 'deleted' AND products.userID='$user_id'
+                                            ORDER BY productID ASC";
                             $products = mysqli_query($conn,$product_sql);
                             while($product_status = mysqli_fetch_array($products)) {
                                 $id = $product_status['productID'];
@@ -172,7 +176,7 @@
                                 echo "</tr>";
                             }
                         }else{
-                            echo "<br><p>No product advertised</p>";
+                            echo "<tr><center><p style='color:red;'>No product advertised</p><center></tr>";
                         }
                     ?>
                 </tbody>
@@ -213,6 +217,8 @@
                             echo "<td>".$order_info['remark']."</td>";
                             echo "</tr>";
                         }
+                    }else{
+                        echo "<tr><center><p style='color:red;'>No received orders</p><center></tr>";
                     }
                 ?>
             </tbody>

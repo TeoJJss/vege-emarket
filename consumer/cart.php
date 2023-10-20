@@ -5,7 +5,7 @@
         die;
     }
     $sum=0;
-    $sql = "SELECT products.imgPath, products.productName, products.priceLabel, products.productID
+    $sql = "SELECT products.imgPath, products.productName, products.priceLabel, products.productID, products.unit
             FROM products
             JOIN cart_product ON products.productID = cart_product.productID
             JOIN cart ON cart_product.cartID = cart.cartID
@@ -122,7 +122,7 @@
                         <tr>
                             <td><a href="../public/product.php?id=<?php echo $item['productID'] ?>"><img src="../assets/<?php echo $item['imgPath'];?>" alt="<?php echo $item['productName'] ?>" class="product-img"></a></td>
                             <td><a href="../public/product.php?id=<?php echo $item['productID'] ?>"><?php echo $item['productName'] ?></a></td>
-                            <td>RM <?php echo $item['priceLabel'] ?></td>
+                            <td>RM <?php echo $item['priceLabel'] ?>/<?php echo $item['unit'];?></td>
                             <td><button onclick="location.href='../modules/cart-delete.php?id=<?php echo $item['productID'] ?>'" class="delete_button"><img src="../images/trash.png" alt="Delete" class='delete_img'></button></td>
                         </tr>
                     <?php 

@@ -113,7 +113,7 @@
     <p id="title">Add Product</p>
     <div class="form-container">
         <form method="post" enctype="multipart/form-data" action="../modules/add_item.php">
-            <input type="text" name="name" id="name" maxlength="15" placeholder="Product Name"><br>
+            <input type="text" name="name" id="name" maxlength="15" placeholder="Product Name" required><br>
             <select id="category" name="category" required> 
                 <option value="" disabled selected>Category</option>
                 <option value="Poaceae">Poaceae</option>
@@ -146,7 +146,7 @@
                 <option value="available">Available</option>
                 <option value="out of stock">Out of Stock</option>
             </select><br>
-            <input type="text" name="location" id="location" maxlength="15" placeholder="Location"><br>
+            <input type="text" name="location" id="location" maxlength="15" placeholder="Location" required><br>
             <input type="number" name="price" id="price" min="1" required placeholder="Price per unit (RM)">
             <select id="unit" name="unit" required>
                 <option value="" disabled selected>Unit</option>

@@ -17,7 +17,7 @@
         $email=$_POST['email'];
         $phone=$_POST['phone'];
 
-        $sql = "SELECT * from users where email = '$email'";
+        $sql = "SELECT * from users where email = '$email' AND userID != '$user_id'";
 
         $result = mysqli_query($conn, $sql);
 
@@ -103,7 +103,7 @@
     <h1 id="title">Profile</h1>
     <div class="container">
         <br>
-        <form class="profile" method="post" onsubmit="window.confirm('Save changes?');save();">
+        <form class="profile" method="post">
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
                 <input type="text" name="username" id="username" value="<?php echo $user_info['userName']; ?>" readonly required>

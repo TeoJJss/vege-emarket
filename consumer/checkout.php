@@ -6,8 +6,8 @@
     }
 
     include '../includes/header.php';
-
-    $product_sql="SELECT products.imgPath, products.productName, products.priceLabel, users.userName, products.productID, products.availabilityStatus
+    $block=false;
+    $product_sql="SELECT products.imgPath, products.productName, products.priceLabel, users.userName, products.productID, products.availabilityStatus, products.unit
                     FROM cart_product
                     LEFT JOIN cart ON cart_product.cartID = cart.cartID
                     LEFT JOIN products ON cart_product.productID=products.productID
@@ -39,16 +39,20 @@
         
         
         if (mysqli_query($conn, $sql)){    
+            $sql = "INSERT INTO orders_products(orderID, productID, agreedPrice, remark, status) VALUES";
             for ($i=0; $i < count($ids); $i++) {
                 $id= $ids[$i];
                 $price=$prices[$i];
                 $remark = $remarks[$i];
-                $sql = "INSERT INTO orders_products(orderID, productID, agreedPrice, remark, status)
-                        VALUES ('$orderID', '$id', '$price', '$remark', 'paid')";
-                if (!mysqli_query($conn, $sql)){  
-                    echo "<script>alert('Something went wrong!')</script>";
-                    die;
+                if ($i != count($ids)-1) {
+                    $sql .= "('$orderID', '$id', '$price', '$remark', 'paid'),";
+                }else{
+                    $sql .= "('$orderID', '$id', '$price', '$remark', 'paid');";
                 }
+            }
+            if (!mysqli_query($conn, $sql)){ 
+                echo "<script>alert('Something went wrong!')</script>";
+                die;
             }
             $dlt_sql = "DELETE FROM cart_product WHERE cartID=(SELECT cartID FROM cart WHERE userID='$user_id')";
             mysqli_query($conn, $dlt_sql);
@@ -183,11 +187,10 @@
                         <td>
                             <label for="agreedPrice" class="product-info-title">Enter Agreed Price</label>
                             <input type="number" name="agreedPrice[]" id="agreedPrice" placeholder="Enter a finalized price with the supplier, in RM" min="0" oninput="addTotal()" required><br>
-                            <span id="priceLabel">Price tag: RM <?php echo $product_info['priceLabel']; ?></span>
+                            <span id="priceLabel">Price tag: RM <?php echo $product_info['priceLabel']; ?>/<?php echo $product_info['unit'];?></span>
                             
                                 <?php
-                                    $block=false;
-                                    if ($product_info['availabilityStatus']=='banned' || $product_info['availabilityStatus']=='deleted'){
+                                    if ($product_info['availabilityStatus']!='available'){
                                         echo "<br><br><small style='color: red;'>This product is $product_info[availabilityStatus]</small>";
                                         $block = true;
                                     }

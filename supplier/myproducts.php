@@ -198,7 +198,7 @@
                 <button class="addproducts_button" onclick="window.location.href='../supplier/addproducts.php';" title="Add Products">Add Products</button>
             </div>
         </div>
-    </div>
+    </div><br>
     <script src="../src/search.js"></script>
     <script src="../src/dltItem.js"></script>
 </body>

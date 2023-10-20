@@ -35,6 +35,7 @@
             ORDER BY orders.orderDate DESC";
 
     $order_list=mysqli_query($conn, $sql);
+    
     include '../includes/header.php';
 ?>
 
@@ -106,6 +107,11 @@
     <h1 id="title">Consumer page</h1>
     <p id="title">Order History</p><br>
     <div class="order-wrapper">
+        <?php 
+            if (mysqli_num_rows($order_list) < 1) {
+                echo '<h2>Nothing in the Order History!</h2>';
+            }
+        ?>
         <?php while ($order=mysqli_fetch_array($order_list)){ 
             // Status Color
             if ($order['status']=='paid'){
