@@ -1,5 +1,11 @@
 <?php
 require "../modules/config.php";
+
+if ($role != ''){
+   header("Location: ../index.php");
+   die;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
    $Email = $_POST["email"];
