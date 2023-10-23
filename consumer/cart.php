@@ -4,6 +4,7 @@
         header('Location: ../index.php');
         die;
     }
+    $block=false;
     $sum=0;
     $sql = "SELECT products.imgPath, products.productName, products.priceLabel, products.productID, products.unit
             FROM products
@@ -116,7 +117,8 @@
                 <tbody>
                     <?php 
                     if (mysqli_num_rows($cart)<1){
-                        echo '<h2>Nothing in the cart!</h2>';
+                        echo '<h2 style="color:red;">Nothing in the cart!</h2>';
+                        $block=true;
                     }
                     while ($item=mysqli_fetch_array($cart)){?>
                         <tr>
@@ -138,7 +140,9 @@
                     <td>Number of products: <?php echo mysqli_num_rows($cart);?></td>
                     <td style="padding-left:42vw;">
                         <span>Total Price: RM <?php echo $sum;?></span><br>
-                        <button onclick="location.href='../consumer/checkout.php'" class="checkout-btn">Check Out</button>
+                        <button onclick="location.href='../consumer/checkout.php'" class="checkout-btn"
+                        <?php if ($block){ echo "style='cursor: not-allowed;' title='Your cart is empty!' disabled";} ?>
+                        >Check Out</button>
                     </td>
                 </tr>
             </table>

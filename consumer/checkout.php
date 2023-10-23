@@ -218,7 +218,7 @@
                         <option value="QR">QR Payment</option>
                     </select>
                 </td>
-                <td style="text-align:right;">
+                <td style="text-align:right; max-width: 20vw; overflow:hidden;text-overflow: ellipsis;">
                     Total Price RM <span id="total">-</span><br>
                     <input type="submit" value="Place Order" 
                         <?php if ($block){ echo "style='cursor: not-allowed;' disabled";} ?>
