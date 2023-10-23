@@ -98,7 +98,16 @@
         }
         button.ban-button{
             color: white;
-            background-color: black;
+            background-color: red;
+            cursor: pointer;
+            border-radius: 10%;
+            min-width: max-content;
+            width: 80%;
+            padding: 10%;
+        }
+        button.unban-button{
+            color: white;
+            background-color: green;
             cursor: pointer;
             border-radius: 10%;
             min-width: max-content;
@@ -106,7 +115,14 @@
             padding: 10%;
         }
         button.ban-button:hover{
-            background-color: grey;
+            font-weight: bold;
+            color: black;
+            background-color: lightgreen;
+        }
+        button.unban-button:hover{
+            font-weight: bold;
+            color: black;
+            background-color: lightcoral;
         }
         tbody.product-table > tr{
             padding: 0vw;
@@ -139,6 +155,8 @@
             <button onclick="tab('user');" id="user-tab">User <img src="../images/user-management.png" alt="User Management" width="5%"></button>
             <button onclick="tab('product');" id="product-tab">Product <img src="../images/product-management.png" alt="Product Management" width="5%"></button>
         </div>
+
+        <!-- For Product Management -->
         <div class="content" id="product-content">
             <div class="search-container">
                 <input type="text" class="product-content-search-input" id="product-content-search-input" placeholder="Search product" onkeyup="searchFunction('product')" autofocus>
@@ -175,7 +193,7 @@
                                         <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
                                     <?php }?>                                    
                                 <?php }else{ ?>
-                                    <td><button class='ban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'unban')">UNBAN</button></td></tr>
+                                    <td><button class='unban-button' onclick="chgStatus('product', '<?php echo $id; ?>', 'unban')">UNBAN</button></td></tr>
                                 <?php }
                                 $count++;
                             }
@@ -184,6 +202,8 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- For user management -->
         <div class="content" id="user-content">
             <div class="search-container">
                 <input type="text" class="user-content-search-input" id="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>
@@ -214,7 +234,7 @@
                                 if ($user_info['accStatus'] != 'banned'){ ?>
                                     <td><button class='ban-button' onclick="chgStatus('user', '<?php echo $id; ?>', 'ban')">BAN</button></td></tr>
                                 <?php }else{ ?>
-                                    <td><button class='ban-button' onclick="chgStatus('user', '<?php echo $id; ?>', 'unban')">UNBAN</button></td></tr>
+                                    <td><button class='unban-button' onclick="chgStatus('user', '<?php echo $id; ?>', 'unban')">UNBAN</button></td></tr>
                                 <?php }
                                 $count++;
                             }
