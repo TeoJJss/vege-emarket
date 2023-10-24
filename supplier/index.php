@@ -213,7 +213,7 @@
                         while($order_info=mysqli_fetch_array($orders)) {
                             echo "<tr><td>".$order_info['orderID']."</td>";
                             echo "<td>".$order_info['userName']."</td>";
-                            echo "<td id='order_details_td'>Customer ID: ".$order_info['userID']."<br>Order Date: ".$order_info['orderDate']."<br>Address: ".$order_info['address']."</td>";
+                            echo "<td id='order_details_td'><b>Customer ID:</b> ".$order_info['userID']."<br><b>Order Date:</b> ".$order_info['orderDate']."<br><b>Address:</b> ".$order_info['address']."</td>";
                             echo "<td>".$order_info['remark']."</td>";
                             echo "</tr>";
                         }
