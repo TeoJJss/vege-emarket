@@ -10,7 +10,7 @@
     $user_list_length =0;
     $product_list_length=0;
 
-    // Count number of useers
+    // Count number of users
     $user_list = mysqli_query($conn, "SELECT * FROM users WHERE role != 'admin'; ");
     if ($user_list){
         $user_list_length = mysqli_num_rows($user_list);
