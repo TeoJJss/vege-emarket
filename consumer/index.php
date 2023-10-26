@@ -33,11 +33,12 @@
         }
         h2.card-title {
             border: 1px solid #ccc;
-            width: 200px;
+            width: 190px;
             background: none;
             align-items: center;
             clear: both;
             background-color: green;
+            color: aliceblue;
             margin-left: 10vw;
             font-size: 30px;
             padding:10px;
@@ -58,7 +59,7 @@
             font-weight: bold;
         }
         div.cat-banner a:hover{
-            font-size: 1.7vw;
+            font-size: 1.6vw;
         }
         input.product-search-input{
             width: 23vw;
