@@ -203,7 +203,7 @@
             </table>
         </div>
 
-        <!-- For user management -->
+        <!-- For User Management -->
         <div class="content" id="user-content">
             <div class="search-container">
                 <input type="text" class="user-content-search-input" id="user-content-search-input" placeholder="Search user" onkeyup="searchFunction('user')" autofocus>

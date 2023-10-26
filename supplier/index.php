@@ -122,7 +122,7 @@
         #order_details_td{
             font-size: 1vw;
             text-align: left;
-            padding-left: 6%;
+            padding-left: 4%;
         }
         .order_details{
             width: 35%;
