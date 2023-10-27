@@ -30,6 +30,8 @@ if ($role != '') {
    .form-container form {
       padding: 110px;
       margin: 50px;
+      margin-left: 15vw;
+      margin-bottom: 0;
       border-radius: 20px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
       background: white;
@@ -39,7 +41,7 @@ if ($role != '') {
 
    .form-container {
       min-height: 10vh;
-      display: flex;
+      /* display: flex; */
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -63,7 +65,8 @@ if ($role != '') {
 
    .about-us form {
       padding: 100px;
-      margin: 100px;
+      margin-top: 10px;
+      margin: 10px;
       border-radius: 20px;
       box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
       background: white;
@@ -74,6 +77,7 @@ if ($role != '') {
    .about-us {
       min-height: 10vh;
       display: flex;
+      top: 1px;
       align-items: center;
       justify-content: center;
       padding: 20px;
@@ -97,11 +101,19 @@ if ($role != '') {
       padding-bottom: 40px;
 
    }
+   img.back{
+      position: fixed;
+      left: 60px;
+      top: 150px;
+   }
+   img.back:hover{
+      width: 4.8%;
+   }
 </style>
 
 <body>
    <div class="form-container">
-
+      <a href="../index.php" title="Go back to homepage"><img class="back" src="../images/back.png" alt="Back" width="5%" style="clear:both;"></a>
       <form id="about us">
 
          <img src="../images/logo.png" width="400px" height="120px">

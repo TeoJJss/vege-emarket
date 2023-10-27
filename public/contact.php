@@ -71,9 +71,18 @@
         a.contact{
             color: green;
         }
+        img.back{
+            position: fixed;
+            left: 60px;
+            top: 150px;
+        }
+        img.back:hover{
+            width: 4.8%;
+        }
     </style>
 </head>
 <body>
+    <a href="../index.php" title="Go back to homepage"><img class="back" src="../images/back.png" alt="Back" width="5%" style="clear:both;"></a>
     <h1 id="title">Contact Us</h1>
     <div class="content">
         <p class="desc">If you encounter any issue or have feedback 
