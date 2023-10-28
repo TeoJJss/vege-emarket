@@ -65,6 +65,7 @@
         div.products{
             margin-left: 10vw;
             font-size: 1.3vw;
+            min-height: 80vh;
         }
         input.product-search-input{
             width: 23vw;
@@ -82,6 +83,10 @@
         div.search-container{
             margin-left: 40vw;
         }
+        small#search-term{
+            margin-top: 10px;
+            margin-left: 8px;
+        }
     </style>
 </head>
 <body>
@@ -89,7 +94,12 @@
     <p id="title">Search Results</p>
     <form method="post" id="search-form">
         <div class="search-container">
-            <input type="text" name="search-input" class="product-search-input" id="product-search-input" placeholder="Search products" style="vertical-align: middle;" required><button class="search-button" type="submit" style="vertical-align: middle;">🔍</button>
+            <input type="text" name="search-input" class="product-search-input" id="product-search-input" placeholder="Search products" style="vertical-align: middle;" required><button class="search-button" type="submit" style="vertical-align: middle;">🔍</button><br>
+            <?php if (isset($_GET['keyword'])){ ?>
+                <small id="search-term">Search Term: "<?php echo $_GET['keyword']; ?>"</small>
+            <?php }else if (isset($_GET["cat"])){ ?>
+                <small id="search-term">Category: <?php echo $_GET['cat']; ?></small>
+            <?php } ?>
         </div>
     </form>
     <?php 

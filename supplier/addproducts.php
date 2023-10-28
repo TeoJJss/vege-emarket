@@ -140,7 +140,7 @@
                 <option value="aquatic">Aquatic</option>
                 <option value="miscellaneous">Miscellaneous</option>
             </select><br>
-            <textarea name="description" placeholder="Description" rows="4" style="resize: none;" maxlength="100" required></textarea><br>
+            <textarea name="description" placeholder="Description" rows="4" style="resize: none;" maxlength="150" required></textarea><br>
             <select id="status" name="status" required>
                 <option value="" disabled selected>Availability Status</option>
                 <option value="available">Available</option>
