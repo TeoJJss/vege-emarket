@@ -4,9 +4,11 @@
         background-color: #f44336;
         color: white;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 2.5vh;
+        font-size: 3vh;
         width: 85%;
         max-height: 2.5vh;
+        position: absolute;
+        margin-left: 5vw;
     }
     .login-alert-closebtn {
         margin-left: 15px;
