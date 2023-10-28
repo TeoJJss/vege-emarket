@@ -11,7 +11,7 @@
         die;
     }
     $sql = "SELECT products.productName, products.category, products.priceLabel, products.availabilityStatus, users.userID as supplierID, users.userName as supplierName, users.email, users.phone,
-            products.description, products.productID, products.location, products.addDate, products.unit, COUNT(*) as sold, products.imgPath
+            products.description, products.productID, products.location, products.addDate, products.unit, COUNT(orders_products.productID) as sold, products.imgPath
             FROM products
             LEFT JOIN users ON users.userID = products.userID
             LEFT JOIN orders_products on products.productID=orders_products.productID
