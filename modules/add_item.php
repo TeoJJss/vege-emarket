@@ -38,7 +38,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         //Moving file to correct destination
         $destination = $upload_directory . $image_name;
+
+        // Avoid same file name overwrite
+        $count=1;
+        while(file_exists($destination)) {
+            $destination=$upload_directory ."$count"."_". $image_name;
+            $image_des=$user_id . '/'."$count"."_" . $_FILES['image']['name'];
+            $count++;
+        }
         if (!move_uploaded_file($image_tmp, $destination)) {
+            $image_des = '';
             trigger_error("Failed to upload the image.");
         }
     }
