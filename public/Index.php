@@ -61,29 +61,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-decoration: none;
         }
 
-        .container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2px;
-            padding-bottom: 60px;
-        }
-
-
-        .container .content .btn {
-            display: inline-block;
-            padding: 10px 30px;
-            font-size: 20px;
-            background: darkgreen;
-            color: black;
-            margin: 0 5px;
-            text-transform: capitalize;
-        }
-
-        .container .content .btn:hover {
-            background: darkgreen;
-        }
 
         .form-container {
             min-height: 100vh;
