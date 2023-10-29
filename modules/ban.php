@@ -14,7 +14,7 @@
             $new_status='active';
         }
 
-        // Ban user acc
+        // Ban/Unban user acc
         $sql="UPDATE users SET accStatus='$new_status' WHERE userID='$id';";
         mysqli_query($conn, $sql);
 
