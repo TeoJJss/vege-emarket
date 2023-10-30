@@ -336,8 +336,8 @@
                 alert('Maximum length of product\'s name is 15 characters! ');
             }else if (field=='title' && new_value.length < 1){
                 alert('Product name cannot be empty! ');
-            }else if (field=='description' && new_value.length > 100){
-                alert('Maximum length of product\'s description is 100 characters! ');
+            }else if (field=='description' && new_value.length > 150){
+                alert('Maximum length of product\'s description is 150 characters! ');
             }else if (field=='description' && new_value.length < 1){
                 alert('Description cannot be empty! ');
             }else{
