@@ -49,16 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       text-decoration: none;
    }
 
-   .container {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      padding-bottom: 60px;
-   }
-
-
    .form-container {
       min-height: 100vh;
       display: flex;
