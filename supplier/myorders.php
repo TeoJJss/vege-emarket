@@ -245,7 +245,7 @@
     <script>
         function search(){
             var input = document.getElementById("order-search-input").value;
-            window.location.href="myorders.php?q="+input
+            window.location.href="myorders.php?q="+input;
         }
     </script>
 </body>
