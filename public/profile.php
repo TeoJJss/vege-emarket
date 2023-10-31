@@ -106,7 +106,7 @@
         <form class="profile" method="post">
             <label for="username"><h2>Username</h2></label>
             <div class="input-container">
-                <input type="text" name="username" id="username" value="<?php echo $user_info['userName']; ?>" readonly required>
+                <input type="text" name="username" id="username" value="<?php echo $user_info['userName']; ?>" maxlength="15" readonly required>
                 <button title="Click me to edit" class="edit" id="editbutton" onclick="edit('username')"><img src="../images/edit.png" alt="Edit" width="100%"></button>
             </div>
 
