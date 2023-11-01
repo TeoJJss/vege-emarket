@@ -28,8 +28,7 @@
         }
         span#footer-copyright, td#footer-url > a{
             margin-left: 0.5vw;
-            font-family: 'Courier New', Courier, monospace;
-            
+            font-family: 'Courier New', Courier, monospace;         
         }
         td#footer-url{
             clear:both;

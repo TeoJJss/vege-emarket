@@ -1,1 +1,0 @@
-This folder should include all uploaded media files from user, regardless of file types. 

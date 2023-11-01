@@ -1,1 +1,0 @@
-This folder should include all external JS files. 
